@@ -18,6 +18,16 @@ class CreateForeignKeysTable extends Migration
 						->onDelete('cascade')
 						->onUpdate('cascade');
 		});
+
+        Schema::table('sections', function(Blueprint $table) {
+            $table->foreign('Grade_id')->references('id')->on('Grades')
+                ->onDelete('cascade');
+        });
+
+        Schema::table('sections', function(Blueprint $table) {
+            $table->foreign('Class_id')->references('id')->on('Classrooms')
+                ->onDelete('cascade');
+        });
     }
 
     /**
@@ -30,6 +40,15 @@ class CreateForeignKeysTable extends Migration
         Schema::table('classrooms', function(Blueprint $table) {
 			$table->dropForeign('classrooms_Grade_id_foreign');
 		});
+
+        Schema::table('sections', function(Blueprint $table) {
+            $table->dropForeign('sections_Grade_id_foreign');
+        });
+
+        Schema::table('sections', function(Blueprint $table) {
+            $table->dropForeign('sections_Class_id_foreign');
+        });
+
         //Schema::dropIfExists('foreign_keys');
     }
 }

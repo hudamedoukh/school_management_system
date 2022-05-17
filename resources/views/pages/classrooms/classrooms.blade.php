@@ -299,7 +299,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer ml-100">
                                         <button type="submit" class="btn btn-success">حفظ البيانات</button>
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
                                     </div>

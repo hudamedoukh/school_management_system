@@ -101,6 +101,19 @@
         </ul>
       </li>
 
+      <li class="treeview {{ ($prefix == '/grade')?'active':'' }}">
+        <a href="#">
+          <i data-feather="credit-card"></i> <span>الشعب الدراسية </span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{route('Sections.index')}}"><i class="ti-more"></i>قائمة الشعب الدراسية</a></li>
+          
+        </ul>
+      </li>
+
       <li class="treeview {{ ($prefix == '/students')?'active':'' }}">
         <a href="#">
           <i data-feather="hard-drive"></i> <span>إدارة الطلاب</span>

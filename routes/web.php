@@ -3,6 +3,7 @@
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SectionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,7 +42,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('Filter_Classes', [ClassroomController::class, 'Filter_Classes'])
         ->name('Filter_Classes');
 
-    
+    //==============================Sections============================
+    Route::resource('Sections', SectionController::class);
+    Route::get('/classes/{id}', [SectionController::class, 'getclasses']);
 
 });
 
