@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/skin_color.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
-
+    @livewireStyles
 </head>
 
 <body class="hold-transition light-skin sidebar-mini theme-primary rtl fixed">
@@ -168,7 +168,7 @@
         });
     });
 </script>
-
+@livewireScripts
 </body>
 
 </html>

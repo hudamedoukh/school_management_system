@@ -46,6 +46,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('Sections', SectionController::class);
     Route::get('/classes/{id}', [SectionController::class, 'getclasses']);
 
+
+    Route::get('test', function(){
+        return view('test');
+    });
+
 });
 
 
