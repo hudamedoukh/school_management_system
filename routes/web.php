@@ -4,6 +4,7 @@ use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +52,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('test', function () {
         return view('test');
     });
+
+    //==============================Teachers============================
+    Route::resource('Teachers', TeacherController::class);
 
 
     //==============================Parents============================

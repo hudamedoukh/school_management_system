@@ -125,6 +125,20 @@
 
         </ul>
       </li>
+      
+      <li class="treeview {{ ($prefix == '/employees')?'active':'' }}">
+        <a href="#">
+          <i data-feather="package"></i> <span>المعلمين</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-right pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{route('Teachers.index')}}"><i class="ti-more"></i>قائمة المعلمين</a></li>
+          
+        </ul>
+      </li>
+
       <li class="treeview {{ ($prefix == '/students')?'active':'' }}">
         <a href="#">
           <i data-feather="hard-drive"></i> <span>إدارة الطلاب</span>
@@ -139,18 +153,7 @@
           <li><a href=""><i class="ti-more"></i>رسوم الاختبارات </a></li>
         </ul>
       </li>
-      <li class="treeview {{ ($prefix == '/employees')?'active':'' }}">
-        <a href="#">
-          <i data-feather="package"></i> <span>إدارة الموظفين</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-right pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href=""><i class="ti-more"></i>تسجيل الموظفين</a></li>
-
-        </ul>
-      </li>
+      
       <li class="treeview {{ ($prefix == '/marks')?'active':'' }}">
         <a href="#">
           <i data-feather="edit-2"></i> <span>إدارة العلامات</span>
