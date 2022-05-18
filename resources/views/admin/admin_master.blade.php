@@ -13,6 +13,7 @@
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css') }}">
+    <link href="{{ URL::asset('css/wizard.css') }}" rel="stylesheet" id="bootstrap-css">
 
     <!-- Style-->
     <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
@@ -145,7 +146,7 @@
         })
     </script>
 
-    
+
 <script>
     $(document).ready(function () {
         $('select[name="Grade_id"]').on('change', function () {

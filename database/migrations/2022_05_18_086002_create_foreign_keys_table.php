@@ -28,6 +28,12 @@ class CreateForeignKeysTable extends Migration
             $table->foreign('Class_id')->references('id')->on('Classrooms')
                 ->onDelete('cascade');
         });
+
+
+        Schema::table('parent_attachments', function(Blueprint $table) {
+            $table->foreign('parent_id')->references('id')->on('my__parents')
+                ->onDelete('cascade');
+        });
     }
 
     /**

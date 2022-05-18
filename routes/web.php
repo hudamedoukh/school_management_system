@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 
 Route::group(['middleware' => ['guest']], function () {
@@ -33,10 +34,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('grades', GradeController::class);
 
-     //==============================Classrooms============================
+    //==============================Classrooms============================
     Route::resource('classrooms', ClassroomController::class);
 
-    Route::post('delete_all',[ ClassroomController::class, 'delete_all'])
+    Route::post('delete_all', [ClassroomController::class, 'delete_all'])
         ->name('delete_all');
 
     Route::post('Filter_Classes', [ClassroomController::class, 'Filter_Classes'])
@@ -47,15 +48,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/classes/{id}', [SectionController::class, 'getclasses']);
 
 
-    Route::get('test', function(){
+    Route::get('test', function () {
         return view('test');
     });
 
+
+    //==============================Parents============================
+    Route::view('add_parent', 'livewire.show_Form');
 });
-
-
-
-
-
-
-

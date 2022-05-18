@@ -4,7 +4,7 @@
 <div class="content-wrapper">
     <div class="container-full">
 
-        <livewire:counter /> 
+        {{-- <livewire:counter />  --}}
     </div>
 </div>
 @endsection
