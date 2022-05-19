@@ -125,7 +125,7 @@
 
         </ul>
       </li>
-      
+
       <li class="treeview {{ ($prefix == '/employees')?'active':'' }}">
         <a href="#">
           <i data-feather="package"></i> <span>المعلمين</span>
@@ -135,7 +135,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="{{route('Teachers.index')}}"><i class="ti-more"></i>قائمة المعلمين</a></li>
-          
+
         </ul>
       </li>
 
@@ -147,13 +147,11 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href=""><i class="ti-more"></i>تسجيل الطلاب</a></li>
-          <li><a href=""><i class="ti-more"></i>رسوم التسجيل </a></li>
-          <li><a href=""><i class="ti-more"></i>الرسوم الشهرية </a></li>
-          <li><a href=""><i class="ti-more"></i>رسوم الاختبارات </a></li>
+          <li><a href="{{ route('Students.create')}}"><i class="ti-more"></i>اضافة طالب</a></li>
+          <li><a href="{{ route('Students.index') }}"><i class="ti-more"></i>قائمة الطلاب </a></li>
         </ul>
       </li>
-      
+
       <li class="treeview {{ ($prefix == '/marks')?'active':'' }}">
         <a href="#">
           <i data-feather="edit-2"></i> <span>إدارة العلامات</span>
@@ -179,7 +177,7 @@
         </ul>
       </li>
 
-      <li class="header nav-small-cap">إدارة التقارير</li>
+      <li class="header nav-small-cap">إدارة التقارير
       <li class="treeview {{ ($prefix == '/reports')?'active':'' }}">
         <a href="#">
           <i data-feather="server"></i></i> <span> التقارير</span>

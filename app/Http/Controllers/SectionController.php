@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreSection;
-use App\Models\Classroom;
 use App\Models\Grade;
 use App\Models\Section;
+use App\Models\Teacher;
+use App\Models\Classroom;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreSection;
 
 class SectionController extends Controller
 {
@@ -21,11 +22,11 @@ class SectionController extends Controller
 
         $list_Grades = Grade::all();
         $teachers = Teacher::all();
-    
-        return view('pages.sections.sections',compact('Grades','list_Grades'));
+
+        return view('pages.sections.sections',compact('Grades','list_Grades','teachers'));
     }
 
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -86,32 +87,32 @@ class SectionController extends Controller
     {
         $validated = $request->validated();
         $Sections = Section::findOrFail($request->id);
-    
+
         $Sections->Name_Section =  $request->Name_Section;
         $Sections->Grade_id = $request->Grade_id;
         $Sections->Class_id = $request->Class_id;
-    
+
         if(isset($request->Status)) {
             $Sections->Status = 1;
         } else {
             $Sections->Status = 2;
         }
-    
-    
+
+
         // update pivot tABLE
         if (isset($request->teacher_id)) {
             $Sections->teachers()->sync($request->teacher_id);
         } else {
             $Sections->teachers()->sync(array());
         }
-    
-    
+
+
         $Sections->save();
         $notification = array(
             'message' => 'تم تعديل البيانات بنجاح',
             'alert-type' => 'success'
         );
-    
+
         return redirect()->route('Sections.index')->with($notification);
     }
 
