@@ -139,7 +139,7 @@
         </ul>
       </li>
 
-      <li class="treeview {{ ($prefix == '/students')?'active':'' }}">
+      <li class="treeview">
         <a href="#">
           <i data-feather="hard-drive"></i> <span>إدارة الطلاب</span>
           <span class="pull-right-container">
@@ -147,11 +147,51 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{ route('Students.create')}}"><i class="ti-more"></i>اضافة طالب</a></li>
-          <li><a href="{{ route('Students.index') }}"><i class="ti-more"></i>قائمة الطلاب </a></li>
-        </ul>
+          <li class="treeview">
+            <a href="#">
+              <i data-feather="hard-drive"></i> <span>معلومات الطالب</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{ route('Students.create')}}"><i class="ti-more"></i>اضافة طالب</a></li>
+              <li><a href="{{ route('Students.index') }}"><i class="ti-more"></i>قائمة الطلاب </a></li>
+            </ul>
+          </li> 
+          
+          <li class="treeview">
+            <a href="#">
+              <i data-feather="hard-drive"></i> <span>ترقية الطلاب</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{route('Promotion.index')}}"><i class="ti-more"></i> ترقية الطلاب </a></li>
+              <li><a href="{{route('Promotion.create')}}"><i class="ti-more"></i> إدارة ترقية الطلاب </a></li>
+            </ul>
+          </li> 
+
+          <li class="treeview">
+            <a href="#">
+              <i data-feather="hard-drive"></i> <span>تخريج الطلاب</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{route('Graduated.create')}}"><i class="ti-more"></i>إضافة خريج </a></li>
+              <li><a href="{{route('Graduated.index')}}"><i class="ti-more"></i> قائمة الخريجين </a></li>
+            </ul>
+          </li>
+        </ul>        
       </li>
 
+
+      
+      
+      
       <li class="treeview {{ ($prefix == '/marks')?'active':'' }}">
         <a href="#">
           <i data-feather="edit-2"></i> <span>إدارة العلامات</span>

@@ -7,6 +7,8 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Classrooms\ClassroomController;
+use App\Http\Controllers\GraduatedController;
+use App\Http\Controllers\PromotionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,4 +72,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('Upload_attachment',  [StudentController::class,'Upload_attachment'])->name('Upload_attachment');
     Route::get('Download_attachment/{studentsname}/{filename}',  [StudentController::class,'Download_attachment'])->name('Download_attachment');
     Route::post('Delete_attachment',  [StudentController::class,'Delete_attachment'])->name('Delete_attachment');
+
+    //==============================Promotion Students ============================
+
+    Route::resource('Promotion', PromotionController::class);
+    Route::resource('Graduated', GraduatedController::class);
+    
+
 });
+
