@@ -1,14 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FeesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SectionController;
 use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\Grades\GradeController;
-use App\Http\Controllers\Students\StudentController;
-use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\GraduatedController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\FeesInvoicesController;
+use App\Http\Controllers\Grades\GradeController;
+use App\Http\Controllers\ProcessingFeeController;
+use App\Http\Controllers\ReceiptStudentsController;
+use App\Http\Controllers\Students\StudentController;
+use App\Http\Controllers\Classrooms\ClassroomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,7 +82,16 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('Promotion', PromotionController::class);
     Route::resource('Graduated', GraduatedController::class);
-    
+    //==============================Fees,Fees_Invoices,Receipt Students,ProcessingFee  ============================
+
+    Route::resource('Fees', FeesController::class);
+    Route::resource('Fees_Invoices', FeesInvoicesController::class);
+    Route::resource('receipt_students', ReceiptStudentsController::class);
+    Route::resource('ProcessingFee', ProcessingFeeController::class);
+    Route::resource('Payment_students', PaymentController::class);
+
+
+
 
 });
 

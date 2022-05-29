@@ -18,15 +18,6 @@ class SpecializationsTableSeeder extends Seeder
         DB::table('specializations')->delete();
         $specializations = [
             'عربي', 'علوم', 'حاسوب', 'انجليزي', 'رياضيات','كيمياء','أحياء', 'فيزياء'
-            // ['en'=> 'Arabic', 'ar'=> 'عربي'],
-            // ['en'=> 'Sciences', 'ar'=> 'علوم'],
-            // ['en'=> 'Computer', 'ar'=> 'حاسوب'],
-            // ['en'=> 'English', 'ar'=> 'انجليزي'],
-            // ['en'=> 'Math', 'ar'=> 'رياضيات'],
-            // ['en'=> 'Chemistry', 'ar'=> 'كيمياء'],
-            // ['en'=> 'Biology', 'ar'=> 'أحياء'],
-            // ['en'=> 'Physics', 'ar'=> 'فيزياء'],
-
 
         ];
         foreach ($specializations as $S) {

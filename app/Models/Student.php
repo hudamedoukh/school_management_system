@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Student extends Model
 {
     use SoftDeletes;
-    
+
     protected $guarded = [];
 
     // علاقة بين الطلاب والانواع لجلب اسم النوع في جدول الطلاب
@@ -53,5 +53,10 @@ class Student extends Model
     public function myparent()
     {
         return $this->belongsTo('App\Models\My_Parent', 'parent_id');
+    }
+    // علاقة بين جدول سدادت الطلاب وجدول الطلاب لجلب اجمالي المدفوعات والمتبقي
+    public function student_account()
+    {
+        return $this->hasMany('App\Models\StudentAccount', 'student_id');
     }
 }
