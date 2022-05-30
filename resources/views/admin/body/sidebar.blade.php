@@ -211,7 +211,8 @@ $route = Route::current()->getName();
                     <li><a href="{{ route('Fees_Invoices.index') }}"><i class="ti-more"></i> الفواتير</a></li>
                     <li><a href="{{ route('ProcessingFee.index') }}"><i class="ti-more"></i> استبعاد رسوم</a>
                     </li>
-                    <li> <a href="{{ route('Payment_students.index') }}"><i class="ti-more"></i>سندات الصرف</a>
+                    <li> <a href="{{ route('Payment_students.index') }}"><i class="ti-more"></i>سندات
+                            الصرف</a>
                     </li>
 
                 </ul>
@@ -219,15 +220,13 @@ $route = Route::current()->getName();
             <li class="treeview {{ $prefix == '/accounts' ? 'active' : '' }}">
                 <a href="">
                     <i data-feather="inbox"></i> <span>الحضور والغياب</span>
-            <li class="treeview">
-                <a href="">
-                    <i data-feather="inbox"></i> <span> حصص اونلاين</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('Attendance.index') }}"><i class="ti-more"></i> قائمة الطلاب</a></li>
+                    <li><a href="{{ route('Attendance.index') }}"><i class="ti-more"></i> قائمة الطلاب</a>
+                    </li>
 
                 </ul>
             </li>
@@ -235,24 +234,18 @@ $route = Route::current()->getName();
             <li class="treeview {{ $prefix == '/accounts' ? 'active' : '' }}">
                 <a href="">
                     <i data-feather="inbox"></i> <span>المواد الدراسية</span>
-                    <li> <a href="{{ route('online_classes.index') }}"><i class="ti-more"></i>حصص اونلاين مع زوم</a> </li>
-
-
-                </ul>
-            </li>
-            <li class="treeview">
-                <a href="">
-                    <i data-feather="inbox"></i> <span> المكتبة</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
+
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('subjects.index') }}"><i class="ti-more"></i> قائمة المواد الدراسية</a></li>
+                    <li><a href="{{ route('subjects.index') }}"><i class="ti-more"></i> قائمة المواد
+                            الدراسية</a></li>
 
                 </ul>
-            </li>
 
+            </li>
             <li class="treeview {{ $prefix == '/accounts' ? 'active' : '' }}">
                 <a href="">
                     <i data-feather="inbox"></i> <span>الاختبارات</span>
@@ -261,13 +254,44 @@ $route = Route::current()->getName();
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('Quizzes.index') }}"><i class="ti-more"></i> قائمة الاختبارات</a></li>
-                    <li><a href="{{ route('questions.index') }}"><i class="ti-more"></i> قائمة الأسئلة</a></li>
+                    <li><a href="{{ route('Quizzes.index') }}"><i class="ti-more"></i> قائمة الاختبارات</a>
+                    </li>
+                    <li><a href="{{ route('questions.index') }}"><i class="ti-more"></i> قائمة الأسئلة</a>
+                    </li>
                 </ul>
-                    <li> <a href="{{ route('library.index') }}"><i class="ti-more"></i>قائمة الكتب</a> </li>
+
+            </li>
+
+            <li class="treeview">
+                <a href="">
+                    <i data-feather="inbox"></i> <span> حصص اونلاين</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li> <a href="{{ route('online_classes.index') }}"><i class="ti-more"></i>حصص اونلاين مع
+                            زوم</a> </li>
+
 
                 </ul>
             </li>
+
+            <li class="treeview">
+                <a href="">
+                    <i data-feather="inbox"></i> <span> المكتبة</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li> <a href="{{ route('library.index') }}"><i class="ti-more"></i>قائمة الكتب</a> </li>
+
+                </ul>
+
+            </li>
+
+
             <li>
                 <a href="{{ route('settings.index') }}"><i data-feather="inbox"></i><span
                         class="right-nav-text">الاعدادات </span></a>
