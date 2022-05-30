@@ -5,15 +5,19 @@ use App\Http\Controllers\FeesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\GraduatedController;
 use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\FeesInvoicesController;
 use App\Http\Controllers\Grades\GradeController;
 use App\Http\Controllers\ProcessingFeeController;
 use App\Http\Controllers\ReceiptStudentsController;
+use App\Http\Controllers\Students\LibraryController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Classrooms\ClassroomController;
+use App\Http\Controllers\Students\OnlineClassController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,20 +30,30 @@ use App\Http\Controllers\Classrooms\ClassroomController;
 |
 */
 
-Auth::routes();
+// Auth::routes();
 
-Route::group(['middleware' => ['guest']], function () {
-    Route::get('/', function () {
-        return view('auth.login');
+// Route::group(['middleware' => ['guest']], function () {
+//     Route::get('/', function () {
+//         return view('auth.login');
+//     });
+// });
+
+Route::get('/', [HomeController::class, 'index'])->name('selection');;
+
+Route::group(['namespace' => 'Auth'], function () {
+
+    Route::get('/login/{type}',[LoginController::class,'loginForm'])->middleware('guest')->name('login.show');
+
+     Route::post('/login',[LoginController::class,'login'])->name('login');
+
+     Route::get('/logout/{type}', [LoginController::class,'logout'])->name('logout');
+
     });
-});
-
-
 Route::group(['middleware' => ['auth']], function () {
 
     //==============================dashboard============================
-    Route::get('/dashboard', [HomeController::class, 'index'])
-        ->name('dashboard');
+     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+
 
     Route::resource('grades', GradeController::class);
 
@@ -77,11 +91,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('Upload_attachment',  [StudentController::class,'Upload_attachment'])->name('Upload_attachment');
     Route::get('Download_attachment/{studentsname}/{filename}',  [StudentController::class,'Download_attachment'])->name('Download_attachment');
     Route::post('Delete_attachment',  [StudentController::class,'Delete_attachment'])->name('Delete_attachment');
+    Route::resource('online_classes', OnlineClassController::class);
+    Route::get('/indirect', [OnlineClassController::class,'indirectCreate'])->name('indirect.create');
+    Route::post('/indirect', [OnlineClassController::class,'storeIndirect'])->name('indirect.store');
+    Route::resource('library',LibraryController::class);
+    Route::get('download_file/{filename}', [LibraryController::class,'downloadAttachment'])->name('downloadAttachment');
 
     //==============================Promotion Students ============================
 
     Route::resource('Promotion', PromotionController::class);
     Route::resource('Graduated', GraduatedController::class);
+
     //==============================Fees,Fees_Invoices,Receipt Students,ProcessingFee  ============================
 
     Route::resource('Fees', FeesController::class);
@@ -92,6 +112,8 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 
+    //==============================Setting============================
+    Route::resource('settings', SettingController::class);
 
 });
 

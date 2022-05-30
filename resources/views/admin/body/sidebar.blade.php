@@ -111,7 +111,8 @@ $route = Route::current()->getName();
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ route('Sections.index') }}"><i class="ti-more"></i>قائمة الشعب الدراسية</a>
+                    <li><a href="{{ route('Sections.index') }}"><i class="ti-more"></i>قائمة الشعب
+                            الدراسية</a>
                     </li>
 
                 </ul>
@@ -187,10 +188,12 @@ $route = Route::current()->getName();
                                 <i class="fa fa-angle-right pull-right"></i>
                             </span>
                         </a>
-                        <ul class="treeview-menu" style="display: block;" >
-                            <li><a href="{{ route('Graduated.create') }}"><i class="ti-more"></i>إضافة خريج </a>
+                        <ul class="treeview-menu" style="display: block;">
+                            <li><a href="{{ route('Graduated.create') }}"><i class="ti-more"></i>إضافة خريج
+                                </a>
                             </li>
-                            <li><a href="{{ route('Graduated.index') }}"><i class="ti-more"></i> قائمة الخريجين
+                            <li><a href="{{ route('Graduated.index') }}"><i class="ti-more"></i> قائمة
+                                    الخريجين
                                 </a></li>
                         </ul>
                     </li>
@@ -206,10 +209,43 @@ $route = Route::current()->getName();
                 <ul class="treeview-menu">
                     <li><a href="{{ route('Fees.index') }}"><i class="ti-more"></i> الرسوم الدراسية</a></li>
                     <li><a href="{{ route('Fees_Invoices.index') }}"><i class="ti-more"></i> الفواتير</a></li>
-                    <li><a href="{{ route('ProcessingFee.index') }}"><i class="ti-more"></i> استبعاد رسوم</a></li>
-                    <li> <a href="{{route('Payment_students.index')}}"><i class="ti-more"></i>سندات الصرف</a> </li>
+                    <li><a href="{{ route('ProcessingFee.index') }}"><i class="ti-more"></i> استبعاد رسوم</a>
+                    </li>
+                    <li> <a href="{{ route('Payment_students.index') }}"><i class="ti-more"></i>سندات الصرف</a>
+                    </li>
 
                 </ul>
+            </li>
+            <li class="treeview">
+                <a href="">
+                    <i data-feather="inbox"></i> <span> حصص اونلاين</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li> <a href="{{ route('online_classes.index') }}"><i class="ti-more"></i>حصص اونلاين مع زوم</a> </li>
+
+
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="">
+                    <i data-feather="inbox"></i> <span> المكتبة</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li> <a href="{{ route('library.index') }}"><i class="ti-more"></i>قائمة الكتب</a> </li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="{{ route('settings.index') }}"><i data-feather="inbox"></i><span
+                        class="right-nav-text">الاعدادات </span></a>
+
+
             </li>
         </ul>
     </section>
