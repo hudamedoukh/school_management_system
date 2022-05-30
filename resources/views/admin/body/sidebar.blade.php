@@ -211,6 +211,44 @@ $route = Route::current()->getName();
 
                 </ul>
             </li>
+            <li class="treeview {{ $prefix == '/accounts' ? 'active' : '' }}">
+                <a href="">
+                    <i data-feather="inbox"></i> <span>الحضور والغياب</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('Attendance.index') }}"><i class="ti-more"></i> قائمة الطلاب</a></li>
+
+                </ul>
+            </li>
+
+            <li class="treeview {{ $prefix == '/accounts' ? 'active' : '' }}">
+                <a href="">
+                    <i data-feather="inbox"></i> <span>المواد الدراسية</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('subjects.index') }}"><i class="ti-more"></i> قائمة المواد الدراسية</a></li>
+
+                </ul>
+            </li>
+
+            <li class="treeview {{ $prefix == '/accounts' ? 'active' : '' }}">
+                <a href="">
+                    <i data-feather="inbox"></i> <span>الاختبارات</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-right pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{ route('Quizzes.index') }}"><i class="ti-more"></i> قائمة الاختبارات</a></li>
+                    <li><a href="{{ route('questions.index') }}"><i class="ti-more"></i> قائمة الأسئلة</a></li>
+                </ul>
+            </li>
         </ul>
     </section>
 

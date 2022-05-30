@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="icon" href="{{ asset('backend/images/favicon.ico') }}">
 
     <title>إدارة مدرسة النخبة - لوحة التحكم </title>
@@ -269,6 +271,29 @@
                 });
             }
             else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('select[name="Grade_id"]').on('change', function () {
+            var Grade_id = $(this).val();
+            if (Grade_id) {
+                $.ajax({
+                    url: "{{ URL::to('classes') }}/" + Grade_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        $('select[name="Class_id"]').empty();
+                        $.each(data, function (key, value) {
+                            $('select[name="Class_id"]').append('<option value="' + key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
                 console.log('AJAX load did not work');
             }
         });

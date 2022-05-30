@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FeesController;
 use App\Http\Controllers\HomeController;
@@ -14,6 +15,10 @@ use App\Http\Controllers\ProcessingFeeController;
 use App\Http\Controllers\ReceiptStudentsController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Classrooms\ClassroomController;
+use App\Http\Controllers\ExamController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\QuizController;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,8 +95,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('ProcessingFee', ProcessingFeeController::class);
     Route::resource('Payment_students', PaymentController::class);
 
+    Route::resource('Attendance', AttendanceController::class);
 
+    Route::resource('subjects', SubjectController::class);
 
+    Route::resource('Exams', ExamController::class);
 
+    Route::resource('Quizzes', QuizController::class);
+
+    Route::resource('questions', QuestionController::class);
 });
 
