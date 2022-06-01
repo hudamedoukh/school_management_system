@@ -91,14 +91,13 @@ Route::group(['middleware' => ['auth']], function () {
     //==============================Students============================
 
     Route::resource('Students', StudentController::class);
-    Route::get('/Get_classrooms/{id}',[StudentController::class,'Get_classrooms']);
-    Route::get('/Get_Sections/{id}', [StudentController::class,'Get_Sections'] );
+    
     Route::post('Upload_attachment',  [StudentController::class,'Upload_attachment'])->name('Upload_attachment');
     Route::get('Download_attachment/{studentsname}/{filename}',  [StudentController::class,'Download_attachment'])->name('Download_attachment');
     Route::post('Delete_attachment',  [StudentController::class,'Delete_attachment'])->name('Delete_attachment');
     Route::resource('online_classes', OnlineClassController::class);
-    Route::get('/indirect', [OnlineClassController::class,'indirectCreate'])->name('indirect.create');
-    Route::post('/indirect', [OnlineClassController::class,'storeIndirect'])->name('indirect.store');
+    Route::get('indirect_admin', [OnlineClassController::class,'indirectCreate'])->name('indirect.create.admin');
+    Route::post('indirect_admin', [OnlineClassController::class,'storeIndirect'])->name('indirect.store.admin');
     Route::resource('library',LibraryController::class);
     Route::get('download_file/{filename}', [LibraryController::class,'downloadAttachment'])->name('downloadAttachment');
 

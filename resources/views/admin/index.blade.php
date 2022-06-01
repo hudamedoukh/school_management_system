@@ -3,318 +3,255 @@
 
 <div class="content-wrapper">
     <div class="container-full">
-
+        <h4 class="text-info" style="margin-right: 20px">مرحبا بك : {{auth()->user()->Name}}</h4>
         <!-- Main content -->
         <section class="content">
-            <div class="row">
-                <div class="col-xl-3 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">							
-                            <div class="icon bg-primary-light rounded w-60 h-60">
-                                <i class="text-primary mr-0 font-size-24 mdi mdi-account-multiple"></i>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-xl-3">
+                        <div class="box overflow-hidden pull-up">
+                            <div class="box-body">							
+                                <div style="float:right">
+                                    <i class="fa-solid fa-user-graduate" style='font-size:48px;color:rgb(30, 0, 255)'></i>
+                                </div>
+                                <div style="float:left">
+                                    <p class="text-mute font-size-16">عدد الطلاب</p>
+                                    <h3 class="text-dark text-center mb-0 font-weight-500">{{$count_students}}</h3>
+                                </div>
                             </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">New Customers</p>
-                                <h3 class="text-white mb-0 font-weight-500">3400 <small class="text-success"><i class="fa fa-caret-up"></i> +2.5%</small></h3>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 ">
+                        <div class="box overflow-hidden pull-up">
+                            <div class="box-body">							
+                                <div style="float:right">
+                                    <i class='fas fa-chalkboard' style='font-size:48px;color:red'></i>                                </div>
+                                <div style="float:left">
+                                    <p class="text-mute font-size-16">عدد الشعب</p>
+                                    <h3 class="text-dark text-center mb-0 font-weight-500">{{$count_sections}} </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-3 ">
+                        <div class="box overflow-hidden pull-up">
+                            <div class="box-body">							
+                                <div style="float:right">
+                                    <i class='fas fa-user-tie' style='font-size:48px;color:rgb(66, 46, 60)'></i>                                </div>
+                                <div style="float:left">
+                                    <p class="text-mute font-size-16">عدد أولياء الأمور</p>
+                                    <h3 class="text-dark text-center mb-0 font-weight-500">{{$count_sections}} </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="col-xl-3">
+                        <div class="box overflow-hidden pull-up">
+                            <div class="box-body">							
+                                <div style="float:right">
+                                    <i class='fas fa-chalkboard-teacher' style='font-size:48px;color:rgb(81, 177, 7)'></i>
+                                </div>
+                                <div style="float:left">
+                                    <p class="text-mute font-size-16">عدد المعلمين</p>
+                                    <h3 class="text-dark text-center mb-0 font-weight-500">{{$count_sections}} </h3>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
                 
-                <div class="col-xl-3 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">							
-                            <div class="icon bg-danger-light rounded w-60 h-60">
-                                <i class="text-danger mr-0 font-size-24 mdi mdi-phone-incoming"></i>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="box">
+                            <div class="box-header with-border">
+                                <h4 class="box-title mb-5 text-success"> آخر العمليات على النظام</h4>
                             </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Inbound Call</p>
-                                <h3 class="text-white mb-0 font-weight-500">1,460 <small class="text-danger"><i class="fa fa-caret-up"></i> -1.5%</small></h3>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <div class="tab nav-border" style="position: relative;">
+                                    <div class="d-block d-md-flex justify-content-between">
+                                        <div class="d-block w-100">
+                                            <h5 class="card-title"></h5>
+                                        </div>
+                                        <div class="d-block d-md-flex nav-tabs-custom">
+                                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+    
+                                                <li class="nav-item">
+                                                    <a class="nav-link active show" id="students-tab" data-toggle="tab"
+                                                        href="#students" role="tab" aria-controls="students"
+                                                        aria-selected="true"> الطلاب</a>
+                                                </li>
+    
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="teachers-tab" data-toggle="tab" href="#teachers"
+                                                        role="tab" aria-controls="teachers" aria-selected="false">المعلمين
+                                                    </a>
+                                                </li>
+    
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="parents-tab" data-toggle="tab" href="#parents"
+                                                        role="tab" aria-controls="parents" aria-selected="false">اولياء الامور
+                                                    </a>
+                                                </li>
+    
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="fee_invoices-tab" data-toggle="tab" href="#fee_invoices"
+                                                        role="tab" aria-controls="fee_invoices" aria-selected="false">الفواتير
+                                                    </a>
+                                                </li>
+    
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="tab-content" id="myTabContent">
+                                        {{--students Table--}}
+                                        <div class="tab-pane fade active show" id="students" role="tabpanel" aria-labelledby="students-tab">
+                                            <div class="table-responsive mt-15">
+                                                <table style="text-align: center" class="table center-aligned-table table-hover mb-0">
+                                                    <thead>
+                                                    <tr  class="table-info">
+                                                        <th>#</th>
+                                                        <th>اسم الطالب</th>
+                                                        <th>البريد الالكتروني</th>
+                                                        <th>النوع</th>
+                                                        <th>المرحلة الدراسية</th>
+                                                        <th>الصف الدراسي</th>
+                                                        <th>القسم</th>
+                                                        <th>تاريخ الاضافة</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @forelse(\App\Models\Student::latest()->take(5)->get() as $student)
+                                                            <tr>
+                                                                <td>{{$loop->iteration}}</td>
+                                                                <td>{{$student->name}}</td>
+                                                                <td>{{$student->email}}</td>
+                                                                <td>{{$student->gender->Name}}</td>
+                                                                <td>{{$student->grade->Name}}</td>
+                                                                <td>{{$student->classroom->Name_Class}}</td>
+                                                                <td>{{$student->section->Name_Section}}</td>
+                                                                <td class="text-success">{{$student->created_at}}</td>
+                                                                @empty
+                                                                    <td class="alert-danger" colspan="8">لاتوجد بيانات</td>
+                                                            </tr>
+                                                        @endforelse
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+    
+                                        {{--teachers Table--}}
+                                        <div class="tab-pane fade" id="teachers" role="tabpanel" aria-labelledby="teachers-tab">
+                                            <div class="table-responsive mt-15">
+                                                <table style="text-align: center" class="table center-aligned-table table-hover mb-0">
+                                                    <thead>
+                                                        <tr  class="table-info">
+                                                            <th>#</th>
+                                                            <th>اسم المعلم</th>
+                                                            <th>النوع</th>
+                                                            <th>تاريخ التعين</th>
+                                                            <th>التخصص</th>
+                                                            <th>تاريخ الاضافة</th>
+                                                        </tr>
+                                                    </thead>
+    
+                                                    @forelse(\App\Models\Teacher::latest()->take(5)->get() as $teacher)
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>{{$loop->iteration}}</td>
+                                                                <td>{{$teacher->Name}}</td>
+                                                                <td>{{$teacher->genders->Name}}</td>
+                                                                <td>{{$teacher->Joining_Date}}</td>
+                                                                <td>{{$teacher->specializations->Name}}</td>
+                                                                <td class="text-success">{{$teacher->created_at}}</td>
+                                                                @empty
+                                                                    <td class="alert-danger" colspan="8">لاتوجد بيانات</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    @endforelse
+                                                </table>
+                                            </div>
+                                        </div>
+    
+                                        {{--parents Table--}}
+                                        <div class="tab-pane fade" id="parents" role="tabpanel" aria-labelledby="parents-tab">
+                                            <div class="table-responsive mt-15">
+                                                <table style="text-align: center" class="table center-aligned-table table-hover mb-0">
+                                                    <thead>
+                                                        <tr  class="table-info">
+                                                            <th>#</th>
+                                                            <th>اسم ولي الامر</th>
+                                                            <th>البريد الالكتروني</th>
+                                                            <th>رقم الهوية</th>
+                                                            <th>رقم الهاتف</th>
+                                                            <th>تاريخ الاضافة</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @forelse(\App\Models\My_Parent::latest()->take(5)->get() as $parent)
+                                                            <tr>
+                                                                <td>{{$loop->iteration}}</td>
+                                                                <td>{{$parent->Name_Father}}</td>
+                                                                <td>{{$parent->email}}</td>
+                                                                <td>{{$parent->National_ID_Father}}</td>
+                                                                <td>{{$parent->Phone_Father}}</td>
+                                                                <td class="text-success">{{$parent->created_at}}</td>
+                                                                @empty
+                                                                    <td class="alert-danger" colspan="8">لاتوجد بيانات</td>
+                                                            </tr>
+                                                        @endforelse
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+    
+                                        {{--sections Table--}}
+                                        <div class="tab-pane fade" id="fee_invoices" role="tabpanel" aria-labelledby="fee_invoices-tab">
+                                            <div class="table-responsive mt-15">
+                                                <table style="text-align: center" class="table center-aligned-table table-hover mb-0">
+                                                    <thead>
+                                                        <tr  class="table-info">
+                                                            <th>#</th>
+                                                            <th>تاريخ الفاتورة</th>
+                                                            <th>اسم الطالب</th>
+                                                            <th>المرحلة الدراسية</th>
+                                                            <th>الصف الدراسي</th>
+                                                            <th>القسم</th>
+                                                            <th>نوع الرسوم</th>
+                                                            <th>المبلغ</th>
+                                                            <th>تاريخ الاضافة</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @forelse(\App\Models\Fee_invoice::latest()->take(10)->get() as $section)
+                                                            <tr>
+                                                                <td>{{$loop->iteration}}</td>
+                                                                <td>{{$section->invoice_date}}</td>
+                                                                <td>{{$section->My_classs->Name_Class}}</td>
+                                                                <td class="text-success">{{$section->created_at}}</td>
+                                                            </tr>
+                                                        @empty
+                                                            <tr>
+                                                                <td class="alert-danger" colspan="9">لاتوجد بيانات</td>
+                                                            </tr>
+                                                        @endforelse
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <!-- /.box-body -->
+                            <p><br><br><br><br><br><br><br><br><br><br><br></p>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">							
-                            <div class="icon bg-success-light rounded w-60 h-60">
-                                <i class="text-success mr-0 font-size-24 mdi mdi-phone-outgoing"></i>
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Outbound Call</p>
-                                <h3 class="text-white mb-0 font-weight-500">1,700 <small class="text-success"><i class="fa fa-caret-up"></i> +0.5%</small></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-6">
-                    <div class="box overflow-hidden pull-up">
-                        <div class="box-body">							
-                            <div class="icon bg-light rounded w-60 h-60">
-                                <i class="text-white mr-0 font-size-24 mdi mdi-chart-line"></i>
-                            </div>
-                            <div>
-                                <p class="text-mute mt-20 mb-0 font-size-16">Total Revune</p>
-                                <h3 class="text-white mb-0 font-weight-500">$4,500k <small class="text-success"><i class="fa fa-caret-up"></i> +2.5%</small></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-12">
-                    <div class="box">
-                        <div class="box-header">
-                            <h4 class="box-title align-items-start flex-column">
-                                New Arrivals
-                                <small class="subtitle">More than 400+ new members</small>
-                            </h4>
-                        </div>
-                        <div class="box-body">
-                            <div class="table-responsive">
-                                <table class="table no-border">
-                                    <thead>
-                                        <tr class="text-uppercase bg-lightest">
-                                            <th style="min-width: 250px"><span class="text-white">products</span></th>
-                                            <th style="min-width: 100px"><span class="text-fade">pruce</span></th>
-                                            <th style="min-width: 100px"><span class="text-fade">deposit</span></th>
-                                            <th style="min-width: 150px"><span class="text-fade">agent</span></th>
-                                            <th style="min-width: 130px"><span class="text-fade">status</span></th>
-                                            <th style="min-width: 120px"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>										
-                                            <td class="pl-0 py-8">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 mr-20">
-                                                        <div class="bg-img h-50 w-50" style="background-image: url(../images/gallery/creative/img-1.jpg)"></div>
-                                                    </div>
-
-                                                    <div>
-                                                        <a href="#" class="text-white font-weight-600 hover-primary mb-1 font-size-16">Vivamus consectetur</a>
-                                                        <span class="text-fade d-block">Pharetra, Nulla , Nec, Aliquet</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Paid
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    $45,800k
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Paid
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    $45k
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Sophia
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    Pharetra
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-primary-light badge-lg">Approved</span>
-                                            </td>
-                                            <td class="text-right">
-                                                <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-bookmark-plus"></span></a>
-                                                <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-arrow-right"></span></a>
-                                            </td>
-                                        </tr>
-                                        <tr>										
-                                            <td class="pl-0 py-8">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 mr-20">
-                                                        <div class="bg-img h-50 w-50" style="background-image: url(../images/gallery/creative/img-2.jpg)"></div>
-                                                    </div>
-
-                                                    <div>
-                                                        <a href="#" class="text-white font-weight-600 hover-primary mb-1 font-size-16">Vivamus consectetur</a>
-                                                        <span class="text-fade d-block">Pharetra, Nulla , Nec, Aliquet</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Paid
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    $45,800k
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Paid
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    $45k
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Sophia
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    Pharetra
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-warning-light badge-lg">In Progress</span>
-                                            </td>
-                                            <td class="text-right">
-                                                <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-bookmark-plus"></span></a>
-                                                <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-arrow-right"></span></a>
-                                            </td>
-                                        </tr>
-                                        <tr>										
-                                            <td class="pl-0 py-8">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 mr-20">
-                                                        <div class="bg-img h-50 w-50" style="background-image: url(../images/gallery/creative/img-3.jpg)"></div>
-                                                    </div>
-
-                                                    <div>
-                                                        <a href="#" class="text-white font-weight-600 hover-primary mb-1 font-size-16">Vivamus consectetur</a>
-                                                        <span class="text-fade d-block">Pharetra, Nulla , Nec, Aliquet</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Paid
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    $45,800k
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Paid
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    $45k
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Sophia
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    Pharetra
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-success-light badge-lg">Success</span>
-                                            </td>
-                                            <td class="text-right">
-                                                <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-bookmark-plus"></span></a>
-                                                <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-arrow-right"></span></a>
-                                            </td>
-                                        </tr>
-                                        <tr>										
-                                            <td class="pl-0 py-8">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 mr-20">
-                                                        <div class="bg-img h-50 w-50" style="background-image: url(../images/gallery/creative/img-4.jpg)"></div>
-                                                    </div>
-
-                                                    <div>
-                                                        <a href="#" class="text-white font-weight-600 hover-primary mb-1 font-size-16">Vivamus consectetur</a>
-                                                        <span class="text-fade d-block">Pharetra, Nulla , Nec, Aliquet</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Paid
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    $45,800k
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Paid
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    $45k
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Sophia
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    Pharetra
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-danger-light badge-lg">Rejected</span>
-                                            </td>
-                                            <td class="text-right">
-                                                <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-bookmark-plus"></span></a>
-                                                <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-arrow-right"></span></a>
-                                            </td>
-                                        </tr>
-                                        <tr>										
-                                            <td class="pl-0 py-8">
-                                                <div class="d-flex align-items-center">
-                                                    <div class="flex-shrink-0 mr-20">
-                                                        <div class="bg-img h-50 w-50" style="background-image: url(../images/gallery/creative/img-5.jpg)"></div>
-                                                    </div>
-
-                                                    <div>
-                                                        <a href="#" class="text-white font-weight-600 hover-primary mb-1 font-size-16">Vivamus consectetur</a>
-                                                        <span class="text-fade d-block">Pharetra, Nulla , Nec, Aliquet</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Paid
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    $45,800k
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Paid
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    $45k
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="text-fade font-weight-600 d-block font-size-16">
-                                                    Sophia
-                                                </span>
-                                                <span class="text-white font-weight-600 d-block font-size-16">
-                                                    Pharetra
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span class="badge badge-warning-light badge-lg">In Progress</span>
-                                            </td>
-                                            <td class="text-right">
-                                                <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-bookmark-plus"></span></a>
-                                                <a href="#" class="waves-effect waves-light btn btn-info btn-circle mx-5"><span class="mdi mdi-arrow-right"></span></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>  
                 </div>
             </div>
         </section>

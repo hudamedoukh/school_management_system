@@ -34,30 +34,27 @@
 			<div class="wrap-login100">
 				<form method="POST" action="{{ route('login') }}" class="login100-form validate-form" >
 					@csrf
-                    @if($type == 'student')
-                    <h3 class="mb-30">تسجيل دخول طالب</h3>
-                @elseif($type == 'parent')
-                    <h3 class="mb-30">تسجيل دخول ولي امر</h3>
-                @elseif($type == 'teacher')
-                    <h3  class="mb-30">تسجيل دخول معلم</h3>
-                @else
-                    <h3  class="mb-30">تسجيل دخول ادمن</h3>
-                @endif
+					@if($type == 'student')
+						<h3 class="mb-30 text-info text-center">تسجيل دخول طالب</h3>
+					@elseif($type == 'parent')
+						<h3 class="mb-30 text-info text-center">تسجيل دخول ولي أمر</h3>
+					@elseif($type == 'teacher')
+						<h3 class="mb-30 text-info text-center">تسجيل دخول معلم</h3>
+					@else
+						<h3 class="mb-30 text-info text-center">تسجيل دخول آدمن</h3>
+					@endif
 
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                        <input class="input100" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                        <input type="hidden" value="{{$type}}" name="type">
-
-                        <span class="focus-input100"></span>
+					<div class="wrap-input100 validate-input mt-5" data-validate = "Valid email is required: ex@abc.xyz">
+						<input type="hidden" value="{{$type}}" name="type">
+						<input class="input100" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+						<span class="focus-input100"></span>
 						<span class="label-input100">البريد الالكتروني</span>
-
 						@error('email')
 							<span class="invalid-feedback" role="alert">
 								<strong>{{ $message }}</strong>
 							</span>
                         @enderror
-
 					</div>
 
 

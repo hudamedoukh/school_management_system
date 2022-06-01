@@ -1,8 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
 
-<div class="content-wrapper">
-    <div class="container-full" style="background-color: rgb(225, 255, 241)">        
+<div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
+    <div class="container-full" >        
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -78,7 +78,67 @@
                         </div>
                         <!-- /.box-body -->
                         <p><br><br><br><br><br><br><br><br><br><br><br></p>
-                    </div>    
+                    </div> 
+                    <!--اضافة قسم جديد -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" style="font-family: 'Cairo', sans-serif;"
+                                id="exampleModalLabel">
+                                إضافة شعبة</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('Sections.store') }}" method="POST">
+                                {{ csrf_field() }}
+                                <div class="row">
+                                    <div class="col">
+                                        <input type="text" name="Name_Section" class="form-control"
+                                                placeholder="الشعبة">
+                                    </div>
+                                    
+                                </div>
+                                <br>
+                                <div class="col">
+                                    <label for="inputName"
+                                            class="control-label">المرحلة الدراسية</label>
+                                    <select name="Grade_id" class="custom-select"
+                                            onchange="console.log($(this).val())">
+                                        <!--placeholder-->
+                                        <option value="" selected
+                                                disabled>اختر المرحلة الدراسية
+                                        </option>
+                                        @foreach ($list_Grades as $list_Grade)
+                                            <option value="{{ $list_Grade->id }}"> {{ $list_Grade->Name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <br>
+                                <div class="col">
+                                    <label for="inputName"
+                                            class="control-label">الصف الدراسي</label>
+                                    <select name="Class_id" class="custom-select">
+
+                                    </select>
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">إغلاق</button>
+                                    <button type="submit"
+                                            class="btn btn-danger">حفظ البيانات</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
                 </div>
                 
             </div>

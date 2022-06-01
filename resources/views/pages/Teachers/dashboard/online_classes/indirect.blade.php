@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
-    <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+    <div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full" >
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -9,10 +9,7 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="box-title"> اضافة حصة اوفلاين جديدة
-
-
                                 </h3>
-
                             </div>
                             <div style="padding-right: 55px;padding-top: 26px;">
                                 @if ($errors->any())
@@ -25,15 +22,14 @@
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
-
-                                <form method="post" action="{{ route('indirect.store.admin') }}" autocomplete="off">
+                                <form method="post" action="{{ route('indirect.teacher.store') }}" autocomplete="off">
                                     @csrf
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="Grade_id">المرحلة الدراسية: <span
                                                         class="text-danger">*</span></label>
-                                                <select class="custom-select mr-sm-2" name="Grade_id">
+                                                <select class="custom-select " name="Grade_id">
                                                     <option selected disabled>اختر من القائمة...
                                                     </option>
                                                     @foreach ($Grades as $Grade)
@@ -47,7 +43,7 @@
                                             <div class="form-group">
                                                 <label for="Classroom_id">الصف الدراسي : <span
                                                         class="text-danger">*</span></label>
-                                                <select class="custom-select mr-sm-2" name="Classroom_id">
+                                                <select class="custom-select " name="Classroom_id">
 
                                                 </select>
                                             </div>
@@ -56,7 +52,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="section_id">الشعبة الدراسية: </label>
-                                                <select class="custom-select mr-sm-2" name="section_id">
+                                                <select class="custom-select" name="section_id">
 
                                                 </select>
                                             </div>
@@ -119,17 +115,13 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <button class="btn btn-success btn-sm nextBtn btn-lg pull-right"
+                                    <button class="btn btn-success nextBtn  pull-right"
                                         type="submit">تأكيد الحفظ</button>
                                 </form>
-
                             </div>
                         </div>
-
                     </div>
                 </div>
-
             </section>
             <!-- /.content -->
         </div>

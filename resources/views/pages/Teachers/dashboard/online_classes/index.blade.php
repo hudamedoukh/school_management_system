@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
-    <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+    <div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full" >
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -11,9 +11,9 @@
                                 <h3 class="box-title"> حصص اونلاين
 
                                 </h3>
-                                <a href="{{ route('online_classes.create') }}" class="btn btn-success" role="button"
+                                <a href="{{ route('online_zoom_classes.create') }}" class="btn btn-success" role="button"
                                     aria-pressed="true">اضافة حصة اونلاين جديدة</a>
-                                    <a class="btn btn-warning" href="{{route('indirect.create.admin')}}">اضافة حصة اوفلاين جديدة</a>
+                                    <a class="btn btn-warning" href="{{route('indirect.teacher.create')}}">اضافة حصة اوفلاين جديدة</a>
 
                             </div>
                             <div style="padding-right: 55px;padding-top: 26px;">
@@ -64,7 +64,7 @@
                                                                 class="fa fa-trash"></i></button>
                                                     </td>
                                                 </tr>
-                                                @include('pages.online_classes.delete')
+                                                @include('pages.Teachers.dashboard.online_classes.delete')
                                             @endforeach
                                     </table>
 

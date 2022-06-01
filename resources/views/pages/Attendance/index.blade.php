@@ -43,49 +43,44 @@
                                                         <td>{{$student->grade->Name}}</td>
                                                         <td>{{$student->classroom->Name_Class}}</td>
                                                         <td>{{$student->section->Name_Section}}</td>
-                                                        <td colspan="3">
-                                                            <div class="switch-toggle switch-3 switch-candy">
-                                                                @if(isset($student->attendance()->where('attendence_date',date('Y-m-d'))->first()->student_id))
+                                                        <td>
+                                                            @if(isset($student->attendance()->where('attendence_date',date('Y-m-d'))->first()->student_id))
+
+                                                                <label class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
                                                                     <input name="attendences[{{ $student->id }}]" disabled
-                                                                        {{ $student->attendance()->first()->attendence_status == 1 ? 'checked' : '' }}
-                                                                        type="radio" value="presence"
-                                                                        id="present"
-                                                                        >
-                                                                    <label
-                                                                        for="present">حاضر</label>
-
-                                                                    
+                                                                            {{ $student->attendance()->first()->attendence_status == 1 ? 'checked' : '' }}
+                                                                            class="leading-tight" type="radio" value="presence">
+                                                                    <span class="text-success">حضور</span>
+                                                                </label>
+                                
+                                                                <label class="ml-4 block text-gray-500 font-semibold">
                                                                     <input name="attendences[{{ $student->id }}]" disabled
-                                                                        {{ $student->attendance()->first()->attendence_status == 0 ? 'checked' : '' }}
-                                                                        value="absent" type="radio"
-                                                                        id="absent">
-                                                                    <label
-                                                                        for="absent">غائب</label>
-
-                                                                @else
-                                                                
-                                                                <input name="attendences[{{ $student->id }}]"
-                                                                        type="radio" value="presence"
-                                                                        id="present"
-                                                                        >
-                                                                    <label
-                                                                        for="present">حاضر</label>
-
-                                                                <input name="attendences[{{ $student->id }}]"
-                                                                        value="absent" type="radio"
-                                                                        id="absent">
-                                                                    <label
-                                                                        for="absent">غائب</label>
-
-                                                                @endif
-                                                                <input type="hidden" name="student_id[]" value="{{ $student->id }}">
-                                                                <input type="hidden" name="grade_id" value="{{ $student->Grade_id }}">
-                                                                <input type="hidden" name="classroom_id" value="{{ $student->Classroom_id }}">
-                                                                <input type="hidden" name="section_id" value="{{ $student->section_id }}">
-                                                                
-                                                            </div>
-                                                            
-                                                            
+                                                                            {{ $student->attendance()->first()->attendence_status == 0 ? 'checked' : '' }}
+                                                                            class="leading-tight" type="radio" value="absent">
+                                                                    <span class="text-danger">غياب</span>
+                                                                </label>
+                                
+                                                            @else
+                                
+                                                                <label class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
+                                                                    <input name="attendences[{{ $student->id }}]" class="leading-tight" type="radio"
+                                                                            value="presence">
+                                                                    <span class="text-success">حضور</span>
+                                                                </label>
+                                    
+                                                                <label class="ml-4 block text-gray-500 font-semibold">
+                                                                    <input name="attendences[{{ $student->id }}]" class="leading-tight" type="radio"
+                                                                            value="absent">
+                                                                    <span class="text-danger">غياب</span>
+                                                                </label>
+                                
+                                                            @endif
+                                
+                                                            <input type="hidden" name="student_id[]" value="{{ $student->id }}">
+                                                            <input type="hidden" name="grade_id" value="{{ $student->Grade_id }}">
+                                                            <input type="hidden" name="classroom_id" value="{{ $student->Classroom_id }}">
+                                                            <input type="hidden" name="section_id" value="{{ $student->section_id }}">
+                                
                                                         </td>
                                                     </tr>
                                                 @endforeach

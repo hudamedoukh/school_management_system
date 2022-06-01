@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
-    <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+    <div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full" >
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -48,7 +48,7 @@
 
                                             <div class="modal fade" id="delete_subject{{$subject->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    <form action="{{route('subjects.destroy','test')}}" method="post">
+                                                    <form action="{{route('subjects.destroy',$subject->id)}}" method="post">
                                                         {{method_field('delete')}}
                                                         {{csrf_field()}}
                                                     <div class="modal-content">
