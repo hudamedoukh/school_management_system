@@ -1,76 +1,75 @@
 <ul class="sidebar-menu" data-widget="tree">
-    <li class="bg-info">
+    <li  class="@if ($currentURL == 'teacher/dashboard') active @endif">
         <a href="{{ url('/teacher/dashboard') }}">
             <i data-feather="pie-chart"></i>
-            <span class="text-white">لوحة التحكم</span>
+            <span>لوحة التحكم</span>
         </a>
     </li>
-
-    <li class="treeview {{ $prefix == '/grade' ? 'active' : '' }}">
+    <li class="treeview">
         <a href="">
-            <i data-feather="credit-card"></i> <span> الشعب الدراسية</span>
+            <i data-feather="grid"></i> <span> الشعب الدراسية</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
             </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="{{route('sections')}}"><i class="ti-more"></i> قائمة الشعب</a></li>
+            <li class="@if ($route == 'sections') active @endif"><a href="{{route('sections')}}"><i class="ti-more"></i> قائمة الشعب</a></li>
         </ul>
-        
+
     </li>
 
-    <li class="treeview {{ $prefix == '/grade' ? 'active' : '' }}">
+    <li class="treeview">
         <a href="#">
-            <i data-feather="credit-card"></i> <span> الطلاب </span>
+            <i data-feather="users"></i> <span> الطلاب </span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
             </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="{{route('student.index')}}"><i class="ti-more"></i> قائمة الطلاب</a></li>
+            <li class="@if ($route == 'student.index') active @endif"><a href="{{route('student.index')}}"><i class="ti-more"></i> قائمة الطلاب</a></li>
         </ul>
     </li>
 
     <li class="treeview">
         <a href="">
-            <i data-feather="inbox"></i> <span>الاختبارات</span>
+            <i data-feather="file-text"></i> <span>الاختبارات</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
             </span>
         </a>
         <ul class="treeview-menu">
-            <li> <a href="{{route('quizzes.index')}}"><i class="ti-more"></i> قائمة الاختبارات</a> </li>
+            <li class="@if ($route == 'quizzes.index') active @endif"> <a href="{{route('quizzes.index')}}"><i class="ti-more"></i> قائمة الاختبارات</a> </li>
         </ul>
     </li>
 
     <li class="treeview">
         <a href="">
-            <i data-feather="inbox"></i> <span> حصص اونلاين</span>
+            <i data-feather="video"></i> <span> حصص اونلاين</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
             </span>
         </a>
         <ul class="treeview-menu">
-            <li> <a href="{{ route('online_zoom_classes.index') }}"><i class="ti-more"></i>حصص اونلاين مع
+            <li class="@if ($route == 'online_zoom_classes.index') active @endif"> <a href="{{ route('online_zoom_classes.index') }}"><i class="ti-more"></i>حصص اونلاين مع
                     زوم</a> </li>
         </ul>
     </li>
 
     <li class="treeview">
         <a href="">
-            <i data-feather="inbox"></i> <span>التقارير</span>
+            <i data-feather="file-minus"></i> <span>التقارير</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
             </span>
         </a>
         <ul class="treeview-menu">
-            <li> <a href="{{route('attendance.report')}}"><i class="ti-more"></i>تقرير الحضور والغياب</a> </li>
+            <li class="@if ($route == 'attendance.report') active @endif"> <a href="{{route('attendance.report')}}"><i class="ti-more"></i>تقرير الحضور والغياب</a> </li>
         </ul>
     </li>
 
     <li class="treeview">
         <a href="">
-            <i data-feather="inbox"></i> <span> الملف الشخصي</span>
+            <i data-feather="user"></i> <span> الملف الشخصي</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
             </span>

@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
     <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full">
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -28,22 +28,29 @@
                                             class="btn btn-rounded btn-success mb-5">
                                             إضافة صف دراسي
                                         </button>
-                                        <button type="button" class="btn btn-danger btn-rounded mr-2" id="btn_delete_all">
+                                        <button type="button" class="btn btn-danger btn-rounded mr-2"  data-toggle="modal"  data-target="#exampleModal4" id="btn_delete_all">
                                             حذف الصفوف المختارة
                                         </button>
                                     </div>
                                 </div>
                             </div>
-                            <div style="padding-right: 55px;padding-top: 26px;">
-                                @if ($errors->any())
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li> <span class="text-danger">{{ $error }}</span></li>
-                                        @endforeach
-                                    </ul>
-                                @endif
-                            </div>
 
+                            @if ($errors->any())
+                                <div class="row">
+                                    <div class="col-10 mx-auto mt-3">
+                                        <div class="text-danger alert alert-dismissible"
+                                            style="padding-right: 55px;padding-top: 26px;background-color: #f5c6cb;">
+                                            <button type="button" class="close" data-dismiss="alert"
+                                                aria-hidden="true">×</button>
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                    <li> <span>{{ $error }}</span></li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
@@ -124,7 +131,7 @@
                                                                                 :</label>
                                                                             <input id="Name" type="text" name="Name_Class"
                                                                                 class="form-control"
-                                                                                value="{{ $My_Class->Name_Class }}"
+                                                                                value="{{ old('Name_Class', $My_Class->Name_Class) }}"
                                                                                 required>
                                                                             <input id="id" type="hidden" name="id"
                                                                                 class="form-control"
@@ -135,7 +142,7 @@
                                                                         <label for="exampleFormControlTextarea1">المرحلة
                                                                             الدراسية
                                                                             :</label>
-                                                                        <select class="form-control form-control-lg"
+                                                                        <select class="form-control"
                                                                             id="exampleFormControlSelect1" name="Grade_id">
                                                                             <option value="{{ $My_Class->Grades->id }}">
                                                                                 {{ $My_Class->Grades->Name }}
@@ -149,10 +156,11 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">إغلاق</button>
                                                                     <button type="submit" class="btn btn-success">حفظ
                                                                         البيانات</button>
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">إغلاق</button>
+
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -206,7 +214,7 @@
                         </div>
                     </div>
                     <!-- حذف مجموعة صفوف -->
-                    <div class="modal fade" id="delete_all" tabindex="-1" role="dialog"
+                    <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="false">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -219,20 +227,22 @@
                                     </button>
                                 </div>
 
-                                <form action="{{ route('delete_all') }}" method="POST">
-                                    {{ csrf_field() }}
-                                    <div class="modal-body">
+                                <div class="modal-body">
+
+                                    <form action="{{ route('delete_all') }}" method="POST">
+                                        {{ csrf_field() }}
                                         هل أنت متأكد من عملية الحذف؟
                                         <input class="text" type="hidden" id="delete_all_id" name="delete_all_id"
                                             value=''>
-                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger">حذف</button>
 
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
 
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
-                                    </div>
+                                </div>
                                 </form>
+
                             </div>
                         </div>
                     </div>
@@ -250,60 +260,59 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form class=" row mb-30" action="{{ route('classrooms.store') }}" method="POST">
-                                    @csrf
-                                    <div class="modal-body">
-                                        <div class="card-body">
-                                            <div class="repeater">
-                                                <div data-repeater-list="List_Classes">
-                                                    <div data-repeater-item>
-                                                        <div class="row">
-                                                            <div class="col">
-                                                                <label for="Name" class="mr-sm-2">الصف
-                                                                    الدراسي:</label>
-                                                                <input class="form-control" type="text"
-                                                                    name="Name_Class" />
-                                                            </div>
-                                                            <div class="col">
-                                                                <label for="Name_en" class="mr-sm-2"> المرحلة
-                                                                    الدراسية
-                                                                    :</label>
+                                <div class="modal-body">
 
-                                                                <div class="box">
-                                                                    <select class="fancyselect" name="Grade_id">
-                                                                        @foreach ($Grades as $Grade)
-                                                                            <option value="{{ $Grade->id }}">
-                                                                                {{ $Grade->Name }}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </div>
+                                    <form class="row mb-30" action="{{ route('classrooms.store') }}" method="POST">
+                                        @csrf
+                                        <div class="repeater">
+                                            <div data-repeater-list="List_Classes">
+                                                <div data-repeater-item>
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label for="Name" class="mr-sm-2">الصف
+                                                                الدراسي:</label>
+                                                            <input class="form-control" type="text" name="Name_Class" />
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="Name_en" class="mr-sm-2"> المرحلة
+                                                                الدراسية
+                                                                :</label>
 
+                                                            <div class="box">
+                                                                <select class="form-control" name="Grade_id">
+                                                                    @foreach ($Grades as $Grade)
+                                                                        <option value="{{ $Grade->id }}">
+                                                                            {{ $Grade->Name }}</option>
+                                                                    @endforeach
+                                                                </select>
                                                             </div>
 
-                                                            <div class="col">
-                                                                <label for="Name_en" class="mr-sm-2">العمليات
-                                                                    :</label>
-                                                                <input class="btn btn-danger btn-block" data-repeater-delete
-                                                                    type="button" value="حذف" />
-                                                            </div>
+                                                        </div>
+
+                                                        <div class="col">
+                                                            <label for="Name_en" class="mr-sm-2">العمليات
+                                                                :</label>
+                                                            <input class="btn btn-danger btn-block" data-repeater-delete
+                                                                type="button" value="حذف" />
                                                         </div>
                                                     </div>
-
                                                 </div>
-                                                <div class="row mt-20">
-                                                    <div class="col-12">
-                                                        <input class="btn btn-info" data-repeater-create type="button"
-                                                            value="سجل جديد" />
-                                                    </div>
+
+                                            </div>
+                                            <div class="row mt-20 mb-5">
+                                                <div class="col">
+                                                    <input class="btn btn-info float-start" data-repeater-create
+                                                        type="button" value="سجل جديد" />
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer ml-100">
-                                        <button type="submit" class="btn btn-success">حفظ البيانات</button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
-                                    </div>
-                                </form>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success">حفظ البيانات</button>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">إغلاق</button>
+                                        </div>
+                                    </form>
+                                </div>
 
                             </div>
                         </div>

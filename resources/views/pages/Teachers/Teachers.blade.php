@@ -2,7 +2,7 @@
 @section('admin')
 
 <div class="content-wrapper">
-    <div class="container-full" style="background-color: rgb(225, 255, 241)">        
+    <div class="container-full">
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -10,17 +10,15 @@
                     <div class="box">
                         <div class="box-header with-border">
                             <h3 class="box-title">قائمة المعلمين</h3>
-                            <br>
-                            <div class="mt-10">
-                                <a href="{{route('Teachers.create')}}" class="btn btn-success" role="button"
+                                <a href="{{route('Teachers.create')}}" class="btn btn-rounded btn-success mb-5 float-start" role="button"
                                 aria-pressed="true" >معلم جديد
                             </a>
-                            </div>                      
+
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="example1" class="table table-bordered table-striped text-center">
                                     <thead>
                                         <tr>
                                             <th>#</th>
@@ -49,44 +47,47 @@
 
                                             <div class="modal fade" id="delete_Teacher{{$Teacher->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    <form action="{{route('Teachers.destroy','test')}}" method="post">
-                                                        {{method_field('delete')}}
-                                                        {{csrf_field()}}
+
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">حذف معلم</h5>
+                                                            <h5  class="modal-title" id="exampleModalLabel">حذف معلم</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
+                                                        <form action="{{route('Teachers.destroy','test')}}" method="post">
+                                                            {{method_field('delete')}}
+                                                            {{csrf_field()}}
                                                         <div class="modal-body">
+
                                                             <p> هل أنت متأكد من عملية الحذف؟</p>
                                                             <input type="hidden" name="id"  value="{{$Teacher->id}}">
                                                         </div>
-                                                        <div class="modal-footer">
                                                             <div class="modal-footer">
+                                                                <button type="submit"
+                                                                class="btn btn-danger">حذف</button>
                                                                 <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">إغلاق</button>
-                                                                <button type="submit"
-                                                                        class="btn btn-danger">حذف</button>
+
                                                             </div>
                                                         </div>
-                                                    </div>
                                                     </form>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         @endforeach
-                                    </tbody>                                
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                         <!-- /.box-body -->
-                    </div>    
-                </div>            
-            </div>            
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- /.content -->
-        
+
     </div>
 </div>
 

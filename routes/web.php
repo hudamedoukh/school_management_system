@@ -1,27 +1,27 @@
 <?php
 
-use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\Students\AttendanceController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FeesController;
+use App\Http\Controllers\Students\FeesController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\SectionController;
-use App\Http\Controllers\SettingController;
-use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\GraduatedController;
-use App\Http\Controllers\PromotionController;
+use App\Http\Controllers\Students\PaymentController;
+use App\Http\Controllers\Sections\SectionController;
+use App\Http\Controllers\Settings\SettingController;
+use App\Http\Controllers\Teachers\TeacherController;
+use App\Http\Controllers\Students\GraduatedController;
+use App\Http\Controllers\Students\PromotionController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\FeesInvoicesController;
+use App\Http\Controllers\Students\FeesInvoicesController;
 use App\Http\Controllers\Grades\GradeController;
-use App\Http\Controllers\ProcessingFeeController;
-use App\Http\Controllers\ReceiptStudentsController;
+use App\Http\Controllers\Students\ProcessingFeeController;
+use App\Http\Controllers\Students\ReceiptStudentsController;
 use App\Http\Controllers\Students\LibraryController;
 use App\Http\Controllers\Students\StudentController;
 use App\Http\Controllers\Classrooms\ClassroomController;
-use App\Http\Controllers\ExamController;
-use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\QuizController;
-use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\Exams\ExamController;
+use App\Http\Controllers\Questions\QuestionController;
+use App\Http\Controllers\Quizzes\QuizController;
+use App\Http\Controllers\Subjects\SubjectController;
 use App\Http\Controllers\Students\OnlineClassController;
 
 /*
@@ -91,7 +91,7 @@ Route::group(['middleware' => ['auth']], function () {
     //==============================Students============================
 
     Route::resource('Students', StudentController::class);
-    
+
     Route::post('Upload_attachment',  [StudentController::class,'Upload_attachment'])->name('Upload_attachment');
     Route::get('Download_attachment/{studentsname}/{filename}',  [StudentController::class,'Download_attachment'])->name('Download_attachment');
     Route::post('Delete_attachment',  [StudentController::class,'Delete_attachment'])->name('Delete_attachment');

@@ -1,11 +1,11 @@
-<div class="col-4">
-    <button type="button" class="btn btn-rounded btn-success mb-5" wire:click="showformadd">
+<div class="col-2 float-start">
+    <button type="button" class="btn btn-block btn-rounded btn-success mb-5" wire:click="showformadd"  >
         إضافة ولي امر
     </button>
 
 </div>
 <div class="table-responsive">
-    <table id="example1" class="table table-bordered table-striped">
+    <table id="example1" class="table table-bordered table-striped text-center">
         <thead>
             <tr>
                 <th width="5%">#</th>
@@ -58,9 +58,10 @@
                                     value="{{ $my_parent->id }}">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
                                 <button type="button" class="btn btn-danger"
-                                    wire:click="delete({{ $my_parent->id }})">حذف البيانات</button>
+                                wire:click="delete({{ $my_parent->id }})">حذف البيانات</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Teachers;
 
 use App\Http\Requests\StoreTeachers;
 use App\Repository\TeacherRepositoryInterface;
@@ -8,10 +8,11 @@ use App\Models\Gender;
 use App\Models\Specialization;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class TeacherController extends Controller
 {
-    
+
     protected $Teacher;
 
     public function __construct(TeacherRepositoryInterface $Teacher)
@@ -26,7 +27,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        
+
         $Teachers = $this->Teacher->getAllTeachers();
         return view('pages.Teachers.Teachers',compact('Teachers'));
     }

@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Students;
 
 use App\Repository\AttendanceRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AttendanceController extends Controller
 {
-    
+
     protected $Attendance;
 
     public function __construct(AttendanceRepositoryInterface $Attendance)
@@ -27,25 +28,25 @@ class AttendanceController extends Controller
         return $this->Attendance->store($request);
     }
 
-    
+
     public function show($id)
     {
         return $this->Attendance->show($id);
     }
 
-    
+
     public function edit($id)
     {
         //
     }
 
-    
+
     public function update(Request $request, $id)
     {
         //
     }
 
-    
+
     public function destroy($id)
     {
         //

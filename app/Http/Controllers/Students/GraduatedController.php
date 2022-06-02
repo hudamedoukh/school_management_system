@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Students;
 
 use App\Repository\StudentGraduatedRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class GraduatedController extends Controller
 {
@@ -19,7 +20,7 @@ class GraduatedController extends Controller
         return $this->Graduated->index();
     }
 
-    
+
     public function create()
     {
         return $this->Graduated->create();

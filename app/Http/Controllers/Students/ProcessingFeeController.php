@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Students;
 
 use Illuminate\Http\Request;
 use App\Repository\ProcessingFeeRepositoryInterface;
+use App\Http\Controllers\Controller;
 
 class ProcessingFeeController extends Controller
 {

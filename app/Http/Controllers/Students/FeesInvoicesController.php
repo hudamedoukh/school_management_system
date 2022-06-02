@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Students;
 
 use Illuminate\Http\Request;
 use App\Repository\FeeInvoicesRepositoryInterface;
+use App\Http\Controllers\Controller;
 
 class FeesInvoicesController extends Controller
 {

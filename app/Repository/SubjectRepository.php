@@ -25,7 +25,7 @@ class SubjectRepository implements SubjectRepositoryInterface
 
     public function store($request)
     {
-        
+
         $subjects = new Subject();
         $subjects->name = $request->Name;
         $subjects->grade_id = $request->Grade_id;
@@ -36,8 +36,8 @@ class SubjectRepository implements SubjectRepositoryInterface
             'message' => 'تم بنجاح',
             'alert-type' => 'success'
         );
-        return redirect()->route('subjects.create')->with($notification);
-        
+        return redirect()->route('subjects.index')->with($notification);
+
     }
 
 
@@ -52,7 +52,7 @@ class SubjectRepository implements SubjectRepositoryInterface
 
     public function update($request)
     {
-        
+
         $subjects =  Subject::findorfail($request->id);
         $subjects->name = $request->Name;
         $subjects->grade_id = $request->Grade_id;
@@ -63,20 +63,20 @@ class SubjectRepository implements SubjectRepositoryInterface
             'message' => 'تم بنجاح',
             'alert-type' => 'success'
         );
-        return redirect()->route('subjects.create')->with($notification);
-        
+        return redirect()->route('subjects.index')->with($notification);
+
     }
 
     public function destroy($request)
     {
-        
+
             Subject::destroy($request->id);
             $notification = array(
                 'message' => 'تم بنجاح',
-                'alert-type' => 'danger'
+                'alert-type' => 'error'
             );
             return redirect()->back()->with($notification);
-        
+
 
     }
 }

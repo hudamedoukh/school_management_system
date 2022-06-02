@@ -15,7 +15,7 @@
                                     aria-pressed="true">اضافة مادة جديدة</a><br><br>
                                 </div>
                             </div>
-                            
+
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
@@ -48,7 +48,7 @@
 
                                             <div class="modal fade" id="delete_subject{{$subject->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    <form action="{{route('subjects.destroy',$subject->id)}}" method="post">
+                                                    <form action="{{route('subjects.destroy','test')}}" method="post">
                                                         {{method_field('delete')}}
                                                         {{csrf_field()}}
                                                     <div class="modal-content">

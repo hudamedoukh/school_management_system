@@ -57,7 +57,6 @@ class GradeController extends Controller
     public function update(StoreGrades $request)
     {
         try {
-
             $validated = $request->validated();
             $Grades = Grade::findOrFail($request->id);
             $Grades->update([

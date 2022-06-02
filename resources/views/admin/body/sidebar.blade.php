@@ -1,6 +1,8 @@
 @php
 $prefix = Request::route()->getPrefix();
 $route = Route::current()->getName();
+$currentURL = Request::path();
+
 @endphp
 
 
@@ -21,7 +23,7 @@ $route = Route::current()->getName();
 
         <!-- sidebar menu-->
         @if (auth('web')->check())
-            @include('admin..body.main-sidebar.admin-sidebar')
+            @include('admin.body.main-sidebar.admin-sidebar')
         @endif
 
         @if (auth('student')->check())

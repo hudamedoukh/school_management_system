@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Sections;
 
 use App\Models\Grade;
 use App\Models\Section;
@@ -8,6 +8,7 @@ use App\Models\Teacher;
 use App\Models\Classroom;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreSection;
+use App\Http\Controllers\Controller;
 
 class SectionController extends Controller
 {
@@ -126,8 +127,8 @@ class SectionController extends Controller
     {
         Section::findOrFail($request->id)->delete();
         $notification = array(
-            'message' => 'تم تعديل البيانات بنجاح',
-            'alert-type' => 'danger'
+            'message' => 'تم حذف البيانات بنجاح',
+            'alert-type' => 'success'
         );
         return redirect()->route('Sections.index')->with($notification);
     }

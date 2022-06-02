@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Settings;
 
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Traits\AttachFilesTrait;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Controller;
 
 class SettingController extends Controller
 {

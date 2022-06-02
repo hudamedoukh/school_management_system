@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Subjects;
 
 use App\Repository\SubjectRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SubjectController extends Controller
 {
@@ -18,25 +19,25 @@ class SubjectController extends Controller
         return $this->Subject->index();
     }
 
-    
+
     public function create()
     {
         return $this->Subject->create();
     }
 
-    
+
     public function store(Request $request)
     {
         return $this->Subject->store($request);
     }
 
-    
+
     public function show($id)
     {
         //
     }
 
-    
+
     public function edit($id)
     {
         return $this->Subject->edit($id);
@@ -48,7 +49,7 @@ class SubjectController extends Controller
     }
 
 
-    public function destroy($request)
+    public function destroy(Request $request)
     {
         return $this->Subject->destroy($request);
     }
