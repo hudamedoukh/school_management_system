@@ -1,0 +1,63 @@
+@extends('admin.admin_master')
+@section('admin')
+    <div class="content-wrapper">
+        <div class="container-full">
+            <!-- Content Header (Page header) -->
+            <section class="content">
+                <!-- Basic Forms -->
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h4 class="box-title">  اضافة علاوة  </h4>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col">
+                                <form method="post" action="{{ route('Salaries.update',$teacher->id) }}">
+                                    @csrf
+                                    @method('put')
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <h5>  العلاوة <span class="text-danger"> *</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="increment" id="increment"
+                                                        class="form-control">
+                                                    @error('increment')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <h5>  تاريخ اضافة العلاوة <span class="text-danger"> *</span></h5>
+                                                <div class="controls">
+                                                    <input type="date" name="increment_date" id="increment_date"
+                                                        class="form-control">
+                                                    @error('increment_date')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-xs-right">
+                                        <input type="submit" class="btn btn-rounded btn-info mb-5" value="تعديل">
+                                    </div>
+
+                                </form>
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+
+            </section>
+        </div>
+    </div>
+@endsection
+
