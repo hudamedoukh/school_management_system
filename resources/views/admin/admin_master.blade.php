@@ -390,6 +390,36 @@
             });
         });
 </script>
+<script>
+    $(document).on('click', '#search', function() {
+        var Grade_id = $('#Grade_id').val();
+        var Classroom_id = $('#Classroom_id').val();
+        var section_id = $('#section_id').val();
+
+        $.ajax({
+            url: "{{route('marks_entry.get_students')}}",
+            type: "GET",
+            data: {
+                'Classroom_id  ': Classroom_id,
+                'section_id': section_id
+            },
+            success: function(data) {
+                $('#marks-entry').removeClass('d-none');
+                var html = '';
+                $.each(data, function(key, v) {
+                    html +=
+                        '<tr>' +
+                        '<td>'+v.student.name+'<input type="hidden" name="student_id[]" value="'+v.student_id+'"> </td>'+
+                        '<td>' + v.student.Classroom_id + '</td>' +
+                        '<td>' + v.student.section_id+ '</td>' +
+                        '<td><input type="text" class="form-control form-control-sm" name="mark[]"></td>' +
+                        '</tr>';
+                });
+                html = $('#marks-entry-tr').html(html);
+            }
+        });
+    });
+</script>
 @livewireScripts
 </body>
 

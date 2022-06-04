@@ -66,7 +66,17 @@
             <li class="@if ($route == 'attendance.report') active @endif"> <a href="{{route('attendance.report')}}"><i class="ti-more"></i>تقرير الحضور والغياب</a> </li>
         </ul>
     </li>
-
+    <li class="treeview">
+        <a href="">
+            <i data-feather="file-minus"></i> <span>إدارة درجات الطلاب</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li > <a href="{{route('marks.entry.add')}}"><i class="ti-more"></i>إدخال الدرجات</a> </li>
+        </ul>
+    </li>
     <li class="treeview">
         <a href="">
             <i data-feather="user"></i> <span> الملف الشخصي</span>

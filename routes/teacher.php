@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Teachers\dashboard\MarkController;
 use App\Http\Controllers\Teachers\dashboard\QuizzesController;
 use App\Http\Controllers\Teachers\dashboard\OnlineZoomClassesController;
 use App\Http\Controllers\Teachers\dashboard\QuestionController;
@@ -60,5 +61,12 @@ Route::group(
 
     Route::resource('quizzes', QuizzesController::class);
     Route::resource('questions', QuestionController::class);
+
+    //==============================Marks============================
+    Route::get('marks/entry/add',[MarkController::class, 'AddMark'])
+        ->name('marks.entry.add');
+
+    Route::get('/marks_entry/get_students', [MarkController::class, 'getSudents'])
+        ->name('marks_entry.get_students');
 
 });

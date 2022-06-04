@@ -31,6 +31,10 @@
         <section class="height-100vh d-flex align-items-center page-section-ptb login"
             style=" background-color: rgb(213 207 223);">
             <div class="container">
+                <div class="row justify-content-center mb-30 no-gutters vertical-align">
+                    <h1 class="text-primary" style="font-family: 'Cairo', sans-serif">مدرسة النخبة</h1>
+                </div>
+                
                 <div class="row justify-content-center no-gutters vertical-align">
 
                     <div style="border-radius: 15px;" class="col-lg-8 col-md-8 bg-white">
