@@ -102,6 +102,16 @@
         <ul class="treeview-menu">
             <li class="@if ($route == 'Teachers.index') active @endif"><a href="{{ route('Teachers.index') }}"><i
                         class="ti-more"></i>قائمة المعلمين</a></li>
+            <li class="@if ($route == 'TeacherAttendance.index') active @endif"><a
+                    href="{{ route('TeacherAttendance.index') }}"><i class="ti-more"></i> حضور المعلمين</a>
+            </li>
+            <li class="@if ($route == 'Vacations.index') active @endif"><a href="{{ route('Vacations.index') }}"><i
+                        class="ti-more"></i> اجازات المعلمين</a></li>
+            <li class="@if ($route == 'Salaries.index') active @endif"><a href="{{ route('Salaries.index') }}"><i
+                        class="ti-more"></i> رواتب المعلمين</a></li>
+                        <li class="@if ($route == 'MonthlySalary.index') active @endif"><a href="{{ route('MonthlySalary.index') }}"><i
+                            class="ti-more"></i> الراتب الشهري المعلمين</a></li>
+
 
         </ul>
     </li>

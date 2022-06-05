@@ -1,28 +1,32 @@
 <?php
 
-use App\Http\Controllers\Students\AttendanceController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Students\FeesController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Students\PaymentController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Exams\ExamController;
+use App\Http\Controllers\Grades\GradeController;
+use App\Http\Controllers\Quizzes\QuizController;
+use App\Http\Controllers\Students\FeesController;
+use App\Http\Controllers\Teachers\SalaryController;
 use App\Http\Controllers\Sections\SectionController;
 use App\Http\Controllers\Settings\SettingController;
+use App\Http\Controllers\Students\LibraryController;
+use App\Http\Controllers\Students\PaymentController;
+use App\Http\Controllers\Students\StudentController;
+use App\Http\Controllers\Subjects\SubjectController;
 use App\Http\Controllers\Teachers\TeacherController;
+use App\Http\Controllers\Questions\QuestionController;
 use App\Http\Controllers\Students\GraduatedController;
 use App\Http\Controllers\Students\PromotionController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Students\FeesInvoicesController;
-use App\Http\Controllers\Grades\GradeController;
-use App\Http\Controllers\Students\ProcessingFeeController;
-use App\Http\Controllers\Students\ReceiptStudentsController;
-use App\Http\Controllers\Students\LibraryController;
-use App\Http\Controllers\Students\StudentController;
+use App\Http\Controllers\Students\AttendanceController;
 use App\Http\Controllers\Classrooms\ClassroomController;
-use App\Http\Controllers\Exams\ExamController;
-use App\Http\Controllers\Questions\QuestionController;
-use App\Http\Controllers\Quizzes\QuizController;
-use App\Http\Controllers\Subjects\SubjectController;
 use App\Http\Controllers\Students\OnlineClassController;
+use App\Http\Controllers\Students\FeesInvoicesController;
+use App\Http\Controllers\Students\ProcessingFeeController;
+use App\Http\Controllers\Teachers\MonthlySalalryController;
+use App\Http\Controllers\Students\ReceiptStudentsController;
+use App\Http\Controllers\Teachers\TeacherVacationController;
+use App\Http\Controllers\Teachers\TeacherAttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,5 +129,28 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('Quizzes', QuizController::class);
 
     Route::resource('questions', QuestionController::class);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Route::resource('TeacherAttendance', TeacherAttendanceController::class);
+    Route::resource('Vacations', TeacherVacationController::class);
+    Route::resource('Salaries', SalaryController::class);
+    Route::resource('MonthlySalary', MonthlySalalryController::class);
+    Route::get('getTeachers',[MonthlySalalryController::class,'getTeachers'])->name('getTeachers');
+    Route::get('showPdf//{teacher_id}',[MonthlySalalryController::class,'showPdf'])->name('showPdf');
+
+
 });
 

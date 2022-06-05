@@ -23,6 +23,7 @@ class CreateTeachersTable extends Migration
             $table->bigInteger('Gender_id')->unsigned();
             $table->foreign('Gender_id')->references('id')->on('genders')->onDelete('cascade');
             $table->date('Joining_Date');
+            $table->double('salary');
             $table->text('Address');
             $table->timestamps();
         });

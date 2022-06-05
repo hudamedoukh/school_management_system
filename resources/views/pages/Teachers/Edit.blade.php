@@ -8,7 +8,7 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">تعديل المادة الدراسية</h4>                        
+                    <h4 class="box-title">تعديل المادة الدراسية</h4>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -27,8 +27,8 @@
                                                     <input type="email" name="Email" value="{{$Teachers->Email}}" class="form-control">
                                                     @error('Email')
                                                         <div class="alert alert-danger">{{ $message }}</div>
-                                                    @enderror              
-                                                </div> 
+                                                    @enderror
+                                                </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -36,9 +36,9 @@
                                                     <input type="password" name="Password" value="{{$Teachers->Password}}"  class="form-control">
                                                     @error('Password')
                                                         <div class="alert alert-danger">{{ $message }}</div>
-                                                    @enderror                
-                                                </div> 
-                                            </div>                                                
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div> {{-- first row  --}}
 
                                         <div class="row">
@@ -48,8 +48,8 @@
                                                     <input type="text" name="Name" value="{{$Teachers->Name}}" class="form-control">
                                                     @error('Name')
                                                         <div class="alert alert-danger">{{ $message }}</div>
-                                                    @enderror            
-                                                </div> 
+                                                    @enderror
+                                                </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -62,13 +62,13 @@
                                                     </select>
                                                     @error('Specialization_id')
                                                     <div class="alert alert-danger">{{ $message }}</div>
-                                                    @enderror          
-                                                </div> 
-                                            </div>                                                
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div> {{-- second row  --}}
 
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="inputState">الجنس</label>
                                                     <select class="custom-select" name="Gender_id">
@@ -79,10 +79,10 @@
                                                     </select>
                                                     @error('Gender_id')
                                                     <div class="alert alert-danger">{{ $message }}</div>
-                                                    @enderror          
-                                                </div> 
+                                                    @enderror
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="title">تاريخ التوظيف</label>
                                                     <div class='input-group date'>
@@ -90,9 +90,21 @@
                                                     </div>
                                                     @error('Joining_Date')
                                                     <div class="alert alert-danger">{{ $message }}</div>
-                                                    @enderror     
-                                                </div> 
-                                            </div>                                                
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <h5> الراتب<span class="text-danger"> *</span></h5>
+                                                    <div class="controls">
+                                                        <input type="text" name="salary" id="salary"
+                                                            class="form-control" value="{{ $Teachers->salary }}">
+                                                        @error('salary')
+                                                            <span class="text-danger">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div> {{-- third row  --}}
 
                                         <div class="row">
@@ -104,11 +116,11 @@
                                                     </textarea>
                                                     @error('Address')
                                                     <div class="alert alert-danger">{{ $message }}</div>
-                                                    @enderror   
-                                                </div> 
-                                            </div>                                                
+                                                    @enderror
+                                                </div>
+                                            </div>
                                         </div> {{-- Fourth row  --}}
-                                    </div>                                   
+                                    </div>
                                     <div class="text-xs-right">
                                         <input type="submit" class="btn btn-rounded btn-info mb-5" value="موافق">
                                     </div>
@@ -122,7 +134,7 @@
                 <!-- /.box-body -->
             </div>
             <!-- /.box -->
-        </section>    
+        </section>
     </div>
 </div>
 @endsection

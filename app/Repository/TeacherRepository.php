@@ -25,7 +25,7 @@ class TeacherRepository implements TeacherRepositoryInterface
 
     public function StoreTeachers($request)
     {
-        
+
         $Teachers = new Teacher();
         $Teachers->email = $request->Email;
         $Teachers->password =  Hash::make($request->Password);
@@ -34,13 +34,14 @@ class TeacherRepository implements TeacherRepositoryInterface
         $Teachers->Gender_id = $request->Gender_id;
         $Teachers->Joining_Date = $request->Joining_Date;
         $Teachers->Address = $request->Address;
+        $Teachers->salary = $request->salary;
         $Teachers->save();
         $notification = array(
             'message' => 'تم إضافة البيانات بنجاح',
             'alert-type' => 'success'
         );
-        return redirect()->route('Teachers.index')->with($notification);  
-        
+        return redirect()->route('Teachers.index')->with($notification);
+
     }
 
     public function editTeachers($id)
@@ -51,7 +52,7 @@ class TeacherRepository implements TeacherRepositoryInterface
 
     public function UpdateTeachers($request)
     {
-        
+
         $Teachers = Teacher::findOrFail($request->id);
         $Teachers->email = $request->Email;
         $Teachers->password =  Hash::make($request->Password);
@@ -60,14 +61,15 @@ class TeacherRepository implements TeacherRepositoryInterface
         $Teachers->Gender_id = $request->Gender_id;
         $Teachers->Joining_Date = $request->Joining_Date;
         $Teachers->Address = $request->Address;
+        $Teachers->salary = $request->salary;
         $Teachers->save();
         $notification = array(
             'message' => 'تم إضافة البيانات بنجاح',
             'alert-type' => 'success'
         );
         return redirect()->route('Teachers.index')->with($notification);
-        
-        
+
+
     }
 
 

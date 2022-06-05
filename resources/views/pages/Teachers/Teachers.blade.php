@@ -26,6 +26,8 @@
                                             <th>الجنس</th>
                                             <th>تاريخ التوظيف</th>
                                             <th>التخصص</th>
+                                            <th>الراتب</th>
+
                                             <th>العمليات</th>
                                         </tr>
                                     </thead>
@@ -39,6 +41,8 @@
                                             <td>{{$Teacher->genders->Name}}</td>
                                             <td>{{$Teacher->Joining_Date}}</td>
                                             <td>{{$Teacher->specializations->Name}}</td>
+                                            <td>{{$Teacher->salary}}</td>
+
                                                 <td>
                                                     <a href="{{route('Teachers.edit',$Teacher->id)}}" class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete_Teacher{{ $Teacher->id }}" title="حذف"><i class="fa fa-trash"></i></button>

@@ -215,6 +215,10 @@ return [
         'Address_Mother'=>"عنوان الأب",
         'Job_Mother'=>"وظيفة الأب",
         'Phone_Mother'=>"رقم الهاتف ",
+        "attendence_date"=>"تاريخ الحضور",
+        "attendence_status"=>"حالة الحضور",
+        "increment"=>"العلاوة",
+        "increment_date"=>"تاريخ اضافة العلاوة"
 
     ],
 
