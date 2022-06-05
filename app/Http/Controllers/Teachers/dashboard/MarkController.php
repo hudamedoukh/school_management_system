@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 
 class MarkController extends Controller
 {
-    
+
     public function AddMark()
     {
         $data['grades'] = Grade::all();
@@ -41,7 +41,7 @@ class MarkController extends Controller
 
     public function getSudents(Request $request)
     {
-        dd($request);
+        // dd($request);
         $Classroom_id = $request->Classroom_id;
         $section_id = $request->section_id;
 
@@ -49,6 +49,6 @@ class MarkController extends Controller
             ->where('section_id', $section_id)->get();
         return response()->json($mark);
 
-    
+
     }
 }
