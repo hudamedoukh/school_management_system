@@ -5,7 +5,7 @@
             <section class="content">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">اضافة الحضور </h4>
+                        <h4 class="box-title">   اضافة الحضور  للمعلمين</h4>
                     </div>
                     @if ($errors->any())
                     <div class="row">
@@ -34,11 +34,8 @@
                                                 <div class="col-md-6">
 
                                                     <div class="form-group">
-                                                        <h5> تاريخ الحضور <span class="text-danger">*</span></h5>
-                                                        <div class="controls">
-                                                            <input type="date" name="attendence_date" class="form-control"
-                                                                value="{{ date('Y-m-d') }}">
-                                                        </div>
+                                                        <h5 class="text-primary"> تاريخ اليوم :{{ date('Y-m-d') }}</h5>
+
                                                     </div>
 
                                                 </div>
@@ -80,9 +77,15 @@
                                                                         <label
                                                                             class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
                                                                             <input
-                                                                                name="attendence_status{{ $key }}"
+                                                                                name="attendence_status[{{ $teacher->id }}]"
                                                                                 class="leading-tight" type="radio"
-                                                                                value="1">
+                                                                                value="1"
+                                                                                @foreach ($teacher->Attendance()->where('attendence_date',date('Y-m-d'))->get() as $attendance )
+                                                                                @if($attendance->attendence_status=='1')
+                                                                                checked
+                                                                                @endif
+                                                                                @endforeach
+                                                                                >
                                                                             <span class="text-success">حضور</span>
                                                                         </label>
                                                                             </div>
@@ -91,9 +94,15 @@
                                                                         <label
                                                                             class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
                                                                             <input
-                                                                                name="attendence_status{{ $key }}"
+                                                                                name="attendence_status[{{ $teacher->id }}]"
                                                                                 class="leading-tight" type="radio"
-                                                                                value="2">
+                                                                                value="2"
+                                                                                @foreach ($teacher->Attendance()->where('attendence_date',date('Y-m-d'))->get() as $attendance )
+                                                                                @if($attendance->attendence_status=='2')
+                                                                                checked
+                                                                                @endif
+                                                                                @endforeach
+                                                                                >
                                                                             <span class="text-dark">اجازة</span>
                                                                         </label>
                                                                             </div>
@@ -102,13 +111,19 @@
                                                                         <label
                                                                             class="ml-4 block text-gray-500 font-semibold">
                                                                             <input
-                                                                                name="attendence_status{{ $key }}"
+                                                                                name="attendence_status[{{ $teacher->id }}]"
                                                                                 class="leading-tight" type="radio"
-                                                                                value="3">
+                                                                                value="3"
+                                                                                @foreach ($teacher->Attendance()->where('attendence_date',date('Y-m-d'))->get() as $attendance )
+                                                                                @if($attendance->attendence_status=='3')
+                                                                                checked
+                                                                                @endif
+                                                                                @endforeach
+                                                                                >
                                                                             <span class="text-danger">غياب</span>
                                                                         </label>
                                                                     </div>
-
+                                                                        </div>
 
                                                                     </td>
                                                                 </tr>

@@ -41,19 +41,16 @@ class TeacherAttendanceController extends Controller
      */
     public function store(Request $request)
     {
-        // $validated = $request->validated();
 
-        TeacherAttendance::where('attendence_date', date('Y-m-d', strtotime($request->attendence_date)))->delete();
-        $counteachers = count($request->teacher_id);
+        foreach ($request->attendence_status as $teacher_id => $attendence) {
 
-        for ($i = 0; $i < $counteachers; $i++) {
-            $attendence_status = 'attendence_status' . $i;
-             TeacherAttendance::create([
-                'attendence_date' => date('Y-m-d', strtotime($request->attendence_date)),
-                'teacher_id' => $request->teacher_id[$i],
-                'attendence_status' => $request->$attendence_status,
+            TeacherAttendance::updateorCreate(['teacher_id'=> $teacher_id],[
+                'attendence_date' => date('Y-m-d'),
+                'teacher_id' => $teacher_id,
+                'attendence_status' => $attendence,
             ]);
         }
+
         $notification = array(
             'message' => 'تم اضافة البيانات بنجاح',
             'alert-type' => 'success'
@@ -69,7 +66,7 @@ class TeacherAttendanceController extends Controller
      */
     public function show($attendence_date)
     {
-        $teacherAttendances = TeacherAttendance::with('teachers')->where('attendence_date', $attendence_date)->get();
+        $teacherAttendances= TeacherAttendance::with('teachers')->where('attendence_date', $attendence_date)->get();
         //  return $teacherAttendances ;
         return view('pages.Teachers.Attendances.show',compact('teacherAttendances'));    }
 
@@ -81,9 +78,9 @@ class TeacherAttendanceController extends Controller
      */
     public function edit($attendence_date)
     {
-        $attendences = TeacherAttendance::with('teachers')->where('attendence_date',$attendence_date)->orderBy('id', 'DESC')->get();
+        $teachers = TeacherAttendance::with('teachers')->where('attendence_date',$attendence_date)->orderBy('id', 'DESC')->get();
         // return $attendences;
-        return view('pages.Teachers.Attendances.edit',compact('attendences'));
+        return view('pages.Teachers.Attendances.edit',compact('teachers'));
     }
 
     /**
@@ -93,9 +90,24 @@ class TeacherAttendanceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request,$attendence_date)
     {
+        // return $request;
+        foreach ($request->attendence_status as $teacher_id => $attendence) {
+            $attend=TeacherAttendance::where('attendence_date',$attendence_date);
+            $attend->updateorCreate(['teacher_id'=> $teacher_id],[
+                'attendence_date' => date('Y-m-d'),
+                'teacher_id' => $teacher_id,
+                'attendence_status' => $attendence,
+            ]);
+        }
 
+        $notification = array(
+            'message' => 'تم تعديل البيانات بنجاح',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('TeacherAttendance.index')->with($notification);
     }
 
     /**

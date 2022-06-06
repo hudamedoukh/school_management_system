@@ -74,7 +74,9 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li > <a href="{{route('marks.entry.add')}}"><i class="ti-more"></i>إدخال الدرجات</a> </li>
+            <li class="@if ($route == 'marks.entry.add') active @endif"> <a href="{{route('marks.entry.add')}}"><i class="ti-more"></i>إدخال الدرجات</a> </li>
+            {{-- <li class="@if ($route == 'marks_entry.edit') active @endif"> <a href="{{route('marks_entry.edit')}}"><i class="ti-more"></i>تعديل الدرجات</a> </li> --}}
+
         </ul>
     </li>
     <li class="treeview">

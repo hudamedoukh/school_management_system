@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ asset('backend/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/css/skin_color.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
     <style>
         th{
             text-align:center!important;
@@ -104,9 +105,9 @@
     <!-- Vendor JS -->
     <script src="{{ asset('backend/js/vendors.min.js') }}"></script>
     <script src="{{ asset('../assets/icons/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('../assets/vendor_components/easypiechart/dist/jquery.easypiechart.js') }}"></script>
-    <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/irregular-data-series.js') }}"></script>
-    <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
+     {{-- <script src="{{ asset('../assets/vendor_components/easypiechart/dist/jquery.easypiechart.js') }}"></script>
+ <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/irregular-data-series.js') }}"></script>
+    <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script> --}}
 
     <script src="{{ asset('../assets/vendor_components/datatable/datatables.min.js') }}"></script>
     <script src="{{ asset('backend/js/pages/data-table.js') }}"></script>
@@ -390,35 +391,51 @@
             });
         });
 </script>
-<script>
-    $(document).on('click', '#search', function() {
-        var Grade_id = $('#Grade_id').val();
-        var Classroom_id = $('#Classroom_id').val();
-        var section_id = $('#section_id').val();
 
-        $.ajax({
-            url: "{{route('marks_entry.get_students')}}",
-            type: "GET",
-            data: {
-                'Classroom_id  ': Classroom_id,
-                'section_id': section_id
-            },
-            success: function(data) {
-                $('#marks-entry').removeClass('d-none');
-                var html = '';
-                $.each(data, function(key, v) {
-                    html +=
-                        '<tr>' +
-                        '<td>'+v.student.name+'<input type="hidden" name="student_id[]" value="'+v.student_id+'"> </td>'+
-                        '<td>' + v.student.Classroom_id + '</td>' +
-                        '<td>' + v.student.section_id+ '</td>' +
-                        '<td><input type="text" class="form-control form-control-sm" name="mark[]"></td>' +
-                        '</tr>';
-                });
-                html = $('#marks-entry-tr').html(html);
-            }
+<script>
+    $(document).ready(function() {
+            $('select[name="Classroom_id"]').on('change', function() {
+                var Classroom_id = $(this).val();
+                if (Classroom_id) {
+                    $.ajax({
+                        url: "{{ URL::to('Get_Subjects') }}/" + Classroom_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data) {
+                            $('select[name="subject_id"]').empty();
+                            $.each(data, function(key, value) {
+                                $('select[name="subject_id"]').append('<option value="' +
+                                    key + '">' + value + '</option>');
+                            });
+                        },
+                    });
+                } else {
+                    console.log('AJAX load did not work');
+                }
+            });
         });
-    });
+</script>
+<script>
+    $(document).ready(function() {
+            $('select[name="Classroom_id"]').on('change', function() {
+                var Classroom_id = $(this).val();
+                if (Classroom_id) {
+                    $.ajax({
+                        url: "{{ URL::to('Get_Quizes') }}/" + Classroom_id,
+                        type: "GET",
+                        dataType: "json",
+                        success: function(data) {
+                            $('select[name="quiz"]').empty();
+                            $.each(data, function(key, value) {
+                                $('select[name="quiz"]').append('<option value="' +key + '">' + value + '</option>');
+                            });
+                        },
+                    });
+                } else {
+                    console.log('AJAX load did not work');
+                }
+            });
+        });
 </script>
 @livewireScripts
 </body>

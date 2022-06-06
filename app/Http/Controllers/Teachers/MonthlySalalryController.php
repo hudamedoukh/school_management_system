@@ -55,7 +55,7 @@ class MonthlySalalryController extends Controller
 
             $html[$key]['tdsource'] .='<td>'.$totalsalary.'شيكل'.'</td>';
             $html[$key]['tdsource'] .='<td>';
-            $html[$key]['tdsource'] .='<a class="btn btn-md btn-'.$color.'" title="قسمية الراتب الشهري" target="_blanks" href=""> قسمية الراتب الشهري</a>';
+            $html[$key]['tdsource'] .='<a class="btn btn-md btn-'.$color.'" title="قسمية الراتب الشهري"> قسمية الراتب الشهري</a>';
             $html[$key]['tdsource'] .= '</td>';
 
         }

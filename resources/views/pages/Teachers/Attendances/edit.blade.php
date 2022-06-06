@@ -26,18 +26,18 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col">
-                                <form method="post" action="{{ route('TeacherAttendance.store') }}">
+                                <form method="post" action="{{ route('TeacherAttendance.update',$teachers[0]['attendence_date']) }}">
                                     @csrf
+                                    @method('put')
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="row">
                                                 <div class="col-md-6">
 
                                                     <div class="form-group">
-                                                        <h5> تاريخ الحضور <span class="text-danger">*</span></h5>
+                                                        <h5 class="text-primary"> تاريخ الحضور :{{ $teachers[0]['attendence_date'] }}</h5>
                                                         <div class="controls">
-                                                            <input type="date" name="attendence_date" class="form-control"
-                                                                value="{{ old('attendence_date', $attendences[0]['attendence_date']) }}">
+
                                                         </div>
                                                     </div>
 
@@ -67,13 +67,13 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($attendences as $key => $teacherAttendance)
-                                                                <tr id="div{{ $teacherAttendance->id }}"
+                                                            @foreach ($teachers as $key => $teacher)
+                                                                <tr id="div{{ $teacher->id }}"
                                                                     class="text-center">
                                                                     <input type="hidden" name="teacher_id[]"
-                                                                        value="{{ $teacherAttendance->teacher_id }}">
+                                                                        value="{{ $teacher->teacher_id }}">
                                                                     <td>{{ $key + 1 }}</td>
-                                                                    <td>{{ $teacherAttendance['teachers']['Name'] }}</td>
+                                                                    <td>{{ $teacher['teachers']['Name'] }}</td>
 
                                                                     <td colspan="3">
                                                                         <div class="row">
@@ -81,8 +81,8 @@
                                                                                 <label
                                                                                     class="block text-gray-500 font-semibold sm:border-r sm:pr-4 ml-5">
                                                                                     <input
-                                                                                        name="attendence_status{{ $key }}"
-                                                                                        @if ($teacherAttendance->attendence_status == '1') checked @endif
+                                                                                        name="attendence_status[{{ $teacher->teacher_id }}]"
+                                                                                        @if ($teacher->attendence_status == '1') checked @endif
                                                                                         class="leading-tight" type="radio"
                                                                                         value="1">
                                                                                     <span class="text-success">حاضر</span>
@@ -92,8 +92,8 @@
                                                                                 <label
                                                                                 class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
                                                                                 <input
-                                                                                    name="attendence_status{{ $key }}"
-                                                                                    @if ($teacherAttendance->attendence_status == '2') checked @endif
+                                                                                    name="attendence_status[{{ $teacher->teacher_id }}]"
+                                                                                    @if ($teacher->attendence_status == '2') checked @endif
                                                                                     class="leading-tight" type="radio"
                                                                                     value="2">
                                                                                 <span class="text-dark">اجازة</span>
@@ -105,8 +105,8 @@
                                                                             <label
                                                                                 class="ml-4 block text-gray-500 font-semibold">
                                                                                 <input
-                                                                                    name="attendence_status{{ $key }}"
-                                                                                    @if ($teacherAttendance->attendence_status == '3') checked @endif
+                                                                                    name="attendence_status[{{ $teacher->teacher_id }}]"
+                                                                                    @if ($teacher->attendence_status == '3') checked @endif
                                                                                     class="leading-tight" type="radio"
                                                                                     value="3">
                                                                                 <span class="text-danger">غائب</span>
@@ -123,7 +123,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-xs-right">
-                                                <input type="submit" class="btn btn-rounded btn-info mb-5" value="حفظ">
+                                                <input type="submit" class="btn btn-rounded btn-info mb-5" value="تعديل">
                                             </div>
                                         </div>
                                     </div>

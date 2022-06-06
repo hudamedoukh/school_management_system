@@ -110,7 +110,7 @@
             <li class="@if ($route == 'Salaries.index') active @endif"><a href="{{ route('Salaries.index') }}"><i
                         class="ti-more"></i> رواتب المعلمين</a></li>
                         <li class="@if ($route == 'MonthlySalary.index') active @endif"><a href="{{ route('MonthlySalary.index') }}"><i
-                            class="ti-more"></i> الراتب الشهري المعلمين</a></li>
+                            class="ti-more"></i> الراتب الشهري للمعلمين</a></li>
 
 
         </ul>

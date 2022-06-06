@@ -43,7 +43,7 @@
 					@else
 						<h3 class="mb-30 text-info text-center">تسجيل دخول آدمن</h3>
 					@endif
-
+<h1>@if(Session::has('error')){{ Session::get ('error') }} @endif</h1>
 
 					<div class="wrap-input100 validate-input mt-5" data-validate = "Valid email is required: ex@abc.xyz">
 						<input type="hidden" value="{{$type}}" name="type">

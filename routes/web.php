@@ -1,5 +1,8 @@
 <?php
 
+
+use Livewire\Livewire;
+use App\Http\Livewire\Calendar;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Auth\LoginController;
@@ -89,7 +92,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 
     //==============================Parents============================
-    Route::view('add_parent', 'livewire.show_Form');
+    Route::view('add_parent', 'livewire.show_Form')->name('add_parent');
 
 
     //==============================Students============================
@@ -130,27 +133,15 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('questions', QuestionController::class);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     Route::resource('TeacherAttendance', TeacherAttendanceController::class);
     Route::resource('Vacations', TeacherVacationController::class);
     Route::resource('Salaries', SalaryController::class);
     Route::resource('MonthlySalary', MonthlySalalryController::class);
     Route::get('getTeachers',[MonthlySalalryController::class,'getTeachers'])->name('getTeachers');
-    Route::get('showPdf//{teacher_id}',[MonthlySalalryController::class,'showPdf'])->name('showPdf');
+    Route::get('showPdf/{teacher_id}',[MonthlySalalryController::class,'showPdf'])->name('showPdf');
+    
+    //==============================Calender============================
 
-
+    Livewire::component('calendar', Calendar::class);
 });
 
