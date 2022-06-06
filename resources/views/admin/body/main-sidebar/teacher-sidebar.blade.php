@@ -1,6 +1,6 @@
 <ul class="sidebar-menu" data-widget="tree">
     <li  class="@if ($currentURL == 'teacher/dashboard') active @endif">
-        <a href="{{ url('/teacher/dashboard') }}">
+        <a href="{{ url('teacher/dashboard') }}">
             <i data-feather="pie-chart"></i>
             <span>لوحة التحكم</span>
         </a>
