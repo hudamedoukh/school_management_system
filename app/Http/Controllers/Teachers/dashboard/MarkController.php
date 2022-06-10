@@ -46,6 +46,8 @@ class MarkController extends Controller
         $list_subjects = Subject::where("classroom_id", $Classroom_id)->where('teacher_id', Auth::guard('teacher')->user()->id)->pluck("name", "id");
         return $list_subjects;
     }
+
+    
     public function Get_Quizes($id)
     {
         $list_quizes = Quiz::where("classroom_id", $id)->where('teacher_id', Auth::guard('teacher')->user()->id)->pluck("name", "id");
@@ -141,5 +143,22 @@ class MarkController extends Controller
         // return redirect()->back()->with($notification);
     }
 
+    //Get subjects for marks view in student dashboard
+    public function ViewMark()
+    {
+        $data['subjects'] = Subject::all();
+        $data['quizes'] = Quiz::all();
+        return view('pages.Students.dashboard.marks_view.index', $data);
+    }
+
+    public function getMarks(Request $request)
+    {
+        $subject_id = $request->subject_id;
+        $studentsMarks = Mark::with('student','subject','quiz')
+        ->where('subject_id', $subject_id)
+        ->where('student_id', Auth::guard('student')->user()->id);
+        return response()->json($studentsMarks);
+
+    }
 
 }

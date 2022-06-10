@@ -1,12 +1,11 @@
 <?php
 
-use App\Http\Controllers\Teachers\dashboard\MarkController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| student Routes
+| parent Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register API routes for your application. These
@@ -18,15 +17,12 @@ use Illuminate\Support\Facades\Route;
 //==============================Translate all pages============================
 Route::group(
     [
-        'middleware' => ['auth:student']
+        'middleware' => ['auth:parent']
     ], function () {
 
     //==============================dashboard============================
-    Route::get('/student/dashboard', function () {
-        return view('pages.Students.dashboard');
+    Route::get('/parent/dashboard', function () {
+        return view('pages.parents.dashboard');
     });
-    Route::get('/index_marks', [MarkController::class, 'ViewMark'])->name('marks.index');
-    Route::get('/view_marks', [MarkController::class, 'getMarks'])->name('marks.view');
-
 
 });
