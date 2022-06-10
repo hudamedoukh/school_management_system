@@ -107,8 +107,8 @@ class MarkController extends Controller
         ->where('section_id', $section_id)
         ->where('grade_id', $Grade_id)
         ->where('subject_id', $subject_id)
-        ->where('quiz_id', $quiz_id)->get()
-        ->where('teacher_id', Auth::guard('teacher')->user()->id);
+        ->where('quiz_id', $quiz_id)
+        ->where('teacher_id', Auth::guard('teacher')->user()->id)->get();
         return response()->json($studentsMarks);
     }
     public function update(Request $request)

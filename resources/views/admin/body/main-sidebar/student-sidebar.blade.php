@@ -13,7 +13,18 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li ><a href="{{route('marks.index')}}"><i class="ti-more"></i> علاماتي</a></li>
+            <li class="@if ($route == 'marks.index') active @endif"  ><a href="{{route('marks.index')}}"><i class="ti-more"></i> علاماتي</a></li>
+        </ul>
+    </li>
+        <li class="treeview">
+        <a href="">
+            <i data-feather="book"></i> <span> المكتبة</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li class="@if ($route == 'books.show') active @endif" ><a href="{{ route('books.show') }}"><i class="ti-more"></i> كتبي</a></li>
         </ul>
     </li>
     <li class="treeview">
@@ -27,7 +38,7 @@
             <li ><a href=""><i class="ti-more"></i> حضوري</a></li>
         </ul>
     </li>
-    
+
     <li class="treeview">
         <a href="">
             <i data-feather="user"></i> <span> الملف الشخصي</span>

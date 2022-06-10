@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Teachers\dashboard\MarkController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Students\LibraryController;
+use App\Http\Controllers\Teachers\dashboard\MarkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,6 @@ Route::group(
     });
     Route::get('/index_marks', [MarkController::class, 'ViewMark'])->name('marks.index');
     Route::get('/view_marks', [MarkController::class, 'getMarks'])->name('marks.view');
-
+    Route::get('/books_show', [LibraryController::class, 'showBooks'])->name('books.show');
 
 });

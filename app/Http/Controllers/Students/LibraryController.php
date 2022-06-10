@@ -20,6 +20,10 @@ class LibraryController extends Controller
     {
       return $this->library->index();
     }
+    public function showBooks()
+    {
+      return $this->library->show();
+    }
 
     public function create()
     {

@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
-use App\Http\Traits\AttachFilesTrait;
 use App\Models\Grade;
 use App\Models\Library;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Traits\AttachFilesTrait;
 
 class LibraryRepository implements LibraryRepositoryInterface
 {
@@ -15,6 +16,12 @@ class LibraryRepository implements LibraryRepositoryInterface
     {
         $books = Library::all();
         return view('pages.library.index',compact('books'));
+    }
+
+    public function show()
+    {
+        $books = Library::where('Grade_id',Auth::guard('student')->user()->Grade_id)->where('Classroom_id',Auth::guard('student')->user()->Classroom_id )->where('section_id',Auth::guard('student')->user()->section_id)->get();
+        return view('pages.Students.dashboard.library.index',compact('books'));
     }
 
     public function create()
