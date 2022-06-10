@@ -29,6 +29,28 @@
     </li>
     <li class="treeview">
         <a href="">
+            <i data-feather="video"></i> <span> حصص اونلاين</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li class="@if ($route == 'onlineClasses.show') active @endif" ><a href="{{ route('onlineClasses.show') }}"><i class="ti-more"></i> حصص اونلاين مع الزوم</a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="">
+            <i data-feather="dollar-sign"></i> <span> الملف المالي</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li class="@if ($route == 'accounts.show') active @endif"><a href="{{ route('accounts.show') }}"><i class="ti-more"></i> ملفي المالي</a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="">
             <i data-feather="grid"></i> <span> الحضور</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>

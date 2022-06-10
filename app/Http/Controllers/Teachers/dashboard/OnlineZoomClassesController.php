@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Teachers\dashboard;
 
-use App\Http\Controllers\Controller;
+use App\Models\Grade;
 use App\Models\OnlineClass;
 use Illuminate\Http\Request;
-use App\Http\Traits\MeetingZoomTrait;
-use App\Models\Grade;
 use MacsiDigital\Zoom\Facades\Zoom;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Traits\MeetingZoomTrait;
 
 class OnlineZoomClassesController extends Controller
 {
@@ -32,7 +33,7 @@ class OnlineZoomClassesController extends Controller
     }
 
 
-    
+
     public function store(Request $request)
     {
         $meeting = $this->createMeeting($request);
@@ -60,7 +61,7 @@ class OnlineZoomClassesController extends Controller
 
 
     public function storeIndirect(Request $request)
-    {        
+    {
         OnlineClass::create([
             'integration' => false,
             'Grade_id' => $request->Grade_id,
@@ -80,15 +81,18 @@ class OnlineZoomClassesController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->route('online_zoom_classes.index')->with($notification);
-        
 
+
+    }
+    public function studentOnlineClasses(){
+        $online_classes = OnlineClass::where('Grade_id',Auth::guard('student')->user()->Grade_id)->where('Classroom_id',Auth::guard('student')->user()->Classroom_id )->where('section_id',Auth::guard('student')->user()->section_id)->get();
+        return view('pages.Students.dashboard.online_classes.index', compact('online_classes'));
     }
 
 
-    
     public function destroy(Request $request,$id)
     {
-        
+
         $info = OnlineClass::find($id);
 
         if($info->integration == true){
@@ -106,6 +110,6 @@ class OnlineZoomClassesController extends Controller
             'alert-type' => 'danger'
         );
         return redirect()->route('online_zoom_classes.index')->with($notification);
-        
+
     }
 }
