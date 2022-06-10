@@ -47,7 +47,7 @@ class MarkController extends Controller
         return $list_subjects;
     }
 
-    
+
     public function Get_Quizes($id)
     {
         $list_quizes = Quiz::where("classroom_id", $id)->where('teacher_id', Auth::guard('teacher')->user()->id)->pluck("name", "id");
@@ -156,7 +156,7 @@ class MarkController extends Controller
         $subject_id = $request->subject_id;
         $studentsMarks = Mark::with('student','subject','quiz')
         ->where('subject_id', $subject_id)
-        ->where('student_id', Auth::guard('student')->user()->id);
+        ->where('student_id', Auth::guard('student')->user()->id)->get();
         return response()->json($studentsMarks);
 
     }

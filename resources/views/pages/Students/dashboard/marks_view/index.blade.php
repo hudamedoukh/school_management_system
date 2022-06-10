@@ -17,7 +17,7 @@
                                     @csrf
                                     <div class="row">
                                         <div class="form-row">
-                                            
+
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label for="subject_id">المادة الدراسية : <span
@@ -31,7 +31,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
 
                                         <div class="col-md-3" style="padding-top:25px;">
@@ -80,7 +80,7 @@
                     url: "{{ route('marks.view') }}",
                     type: "GET",
                     data: {
-                        
+
                         'subject_id': subject_id,
                     },
                     success: function(data) {
@@ -96,7 +96,7 @@
                                 '"> </td>' +
                                 '<td>' + v.subject.name + '</td>' +
                                 '<td>' + v.quiz.name + '</td>' +
-                                '<td>' + v.mark+ '</td>'+                                
+                                '<td>' + v.mark+ '</td>'+
                                 '</tr>';
                         });
                         html = $('#marks-view-tr').html(html);
