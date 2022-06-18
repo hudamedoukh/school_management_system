@@ -1,8 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
 
-<div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
-    <div class="container-full" >        
+<div class="content-wrapper">
+    <div class="container-full" >
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -26,7 +26,7 @@
                                 <div class="col">
                                     <form action="{{route('quizzes.store')}}" method="post" autocomplete="off">
                                         @csrf
-        
+
                                         <div class="form-row">
                                             <div class="col">
                                                 <label for="title">اسم الاختبار</label>
@@ -44,10 +44,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-        
+
+
                                         <div class="form-row">
-                                            
+
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label for="Grade_id">المرحلة الدراسية : <span class="text-danger">*</span></label>
@@ -64,24 +64,24 @@
                                                 <div class="form-group">
                                                     <label for="Classroom_id">الصف الدراسي : <span class="text-danger">*</span></label>
                                                     <select class="custom-select mr-sm-2" name="Classroom_id">
-        
+
                                                     </select>
                                                 </div>
                                             </div>
-        
+
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label for="section_id">الشعبة : </label>
                                                     <select class="custom-select mr-sm-2" name="section_id">
-        
+
                                                     </select>
                                                 </div>
                                             </div>
-        
+
                                         </div>
-                                        
-                                            
-                                        
+
+
+
                                         <button class="btn btn-success nextBtn  pull-right" type="submit">حفظ البيانات</button>
                                     </form>
                                 </div>
@@ -90,12 +90,12 @@
                             <!-- /.row -->
                         </div>
                         <!-- /.box-body -->
-                    </div>    
-                </div>            
-            </div>            
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- /.content -->
-        
+
     </div>
 </div>
 

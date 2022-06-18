@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fee extends Model
 {
-    protected $fillable=['title','amount','Grade_id','Classroom_id','year','description','Fee_type'];
+    protected $fillable=['title','amount','Grade_id','Classroom_id','year','description'];
 
 
     // علاقة بين الرسوم الدراسية والمراحل الدراسية لجب اسم المرحلة

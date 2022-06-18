@@ -43,8 +43,14 @@
 					@else
 						<h3 class="mb-30 text-info text-center">تسجيل دخول آدمن</h3>
 					@endif
-<h1>@if(Session::has('error')){{ Session::get ('error') }} @endif</h1>
+                    @if(Session::has('error'))
+                    <div class="row">
+                        <div class="col-10 mt-5">
+                            <span class="text-danger">{{ Session::get ('error') }}</span>
 
+                        </div>
+                    </div>
+                    @endif
 					<div class="wrap-input100 validate-input mt-5" data-validate = "Valid email is required: ex@abc.xyz">
 						<input type="hidden" value="{{$type}}" name="type">
 						<input class="input100" id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -107,15 +113,6 @@
                         @endif
 					</div>
 
-					<div class="login100-form-social flex-c-m">
-						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-							<i class="fa fa-facebook-f" aria-hidden="true"></i>
-						</a>
-
-						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-							<i class="fa fa-twitter" aria-hidden="true"></i>
-						</a>
-					</div>
 				</form>
 
 				<div class="login100-more" style="background-image: url('{{ asset('theme/images/bg-01.jpg')}}');">

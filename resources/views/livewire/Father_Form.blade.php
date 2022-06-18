@@ -7,15 +7,15 @@
         <div class="form-row form-group">
             <div class="col">
                 <label for="title">البريد الالكتروني</label>
-                <input type="email" wire:model="Email" class="form-control">
-                @error('Email')
+                <input type="email" wire:model="email" class="form-control">
+                @error('email')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
             <div class="col">
                 <label for="title">كلمة المرور</label>
-                <input type="password" wire:model="Password" class="form-control">
-                @error('Password')
+                <input type="password" wire:model="password" class="form-control">
+                @error('password')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>

@@ -2,7 +2,7 @@
     @extends('admin.admin_master')
 @section('admin')
     <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full">
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -83,10 +83,10 @@
                                     </div>
 
                                     <div class="form-row">
-                                        <div class="col">
+                                        <div class="col-4">
 
                                             <embed src="{{ URL::asset('attachments/library/' . $book->file_name) }}"
-                                                type="application/pdf" height="150px" width="100px"><br><br>
+                                                type="application/pdf" height="200px" width="150px"><br><br>
                                             <div class="form-group">
                                                 <label for="academic_year">المرفقات : <span
                                                         class="text-danger">*</span></label>
@@ -96,8 +96,8 @@
                                         </div>
                                     </div>
 
-                                    <button class="btn btn-success pull-right" type="submit">حفظ
-                                        البيانات</button>
+                                    <button class="btn btn-success" type="submit">حفظ
+                                        </button>
                                 </form>
                             </div>
                         </div>

@@ -34,7 +34,6 @@ class MonthlySalalryController extends Controller
         $html['thsource'] .= '<th>  عدد أيام الغياب  </th>';
         $html['thsource'] .= '<th>   الشهر  </th>';
         $html['thsource'] .= '<th>الراتب لهذا الشهر  </th>';
-        $html['thsource'] .= '<th>العمليات</th>';
 
 
         foreach ($teachers as $key => $teacher) {
@@ -54,26 +53,12 @@ class MonthlySalalryController extends Controller
             $html[$key]['tdsource'] .='<td>'. date('M Y', strtotime($date)).'</td>';
 
             $html[$key]['tdsource'] .='<td>'.$totalsalary.'شيكل'.'</td>';
-            $html[$key]['tdsource'] .='<td>';
-            $html[$key]['tdsource'] .='<a class="btn btn-md btn-'.$color.'" title="قسمية الراتب الشهري"> قسمية الراتب الشهري</a>';
-            $html[$key]['tdsource'] .= '</td>';
+
 
         }
        return response()->json(@$html);
 
 
  }
- public function showPdf(Request $request,$teacher_id){
-    $teacher = TeacherAttendance::where('teacher_id',$teacher_id)->first();
-      		$date = date('Y-m',strtotime($teacher->attendence_date));
-        	 if ($date !='') {
-        	 	$where[] = ['attendence_date','like',$date.'%'];
-        	 }
 
-        $attendances = TeacherAttendance::with(['teachers'])->where($where)->where('teacher_id',$teacher->teacher_id)->get();
-
-        // $pdf = Pdf::loadView('dashboard.employees.monthly_salary.show_pdf', $data);
-    	// $pdf->SetProtection(['copy', 'print'], '', 'pass');
-    	// return $pdf->stream('document.pdf');
-  }
 }

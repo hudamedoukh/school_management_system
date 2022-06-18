@@ -2,13 +2,13 @@
 @section('admin')
 
     <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full">
             <!-- Main content -->
             <section class="content">
                 <div class="row">
                     <div class="col-12">
                         <div class="box">
-                            <div class="box-header with-border">                                                                
+                            <div class="box-header with-border">
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Delete_all">
                                     تراجع الكل
                                 </button>
@@ -29,7 +29,7 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example1" class="table table-bordered text-center">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
@@ -60,7 +60,7 @@
                                                 <td>{{$promotion->t_section->Name_Section}}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="#Delete_one{{$promotion->id}}">ارجاع الطالب</button>
-                                                    <button type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#">تخرج الطالب</button>
+<a href="{{ route('Graduated.create') }}" class="btn btn-outline-success btn-sm">  تخرج الطالب </a>
                                                 </td>
                                             </tr>
                                             @include('pages.Students.promotion.Delete_all')

@@ -2,6 +2,8 @@
 $prefix = Request::route()->getPrefix();
 $route = Route::current()->getName();
 $currentURL = Request::path();
+$logo=\App\Models\Setting::where('key', 'logo')->pluck('value')->first();
+$school_name=\App\Models\Setting::where('key', 'school_name')->pluck('value')->first();
 
 @endphp
 
@@ -11,11 +13,11 @@ $currentURL = Request::path();
     <section class="sidebar">
         <div class="user-profile">
             <div class="ulogo">
-                <a href="{{ route('dashboard') }}">
+                <a href="">
                     <!-- logo for regular state and mobile devices -->
                     <div class="d-flex align-items-center justify-content-center">
-                        <img src="{{ asset('backend/images/logo-dark.png') }}" alt="">
-                        <h3><b>مدرسة النخبة</b></h3>
+                        <img src="{{ URL::asset('attachments/logo/' . $logo) }}" alt="">
+                        <h3><b> {{ $school_name }}</b></h3>
                     </div>
                 </a>
             </div>

@@ -1,5 +1,5 @@
 <ul class="sidebar-menu" data-widget="tree">
-    <li  class="@if ($currentURL == 'teacher/dashboard') active @endif">
+    <li class="@if ($currentURL == 'teacher/dashboard') active @endif">
         <a href="{{ url('teacher/dashboard') }}">
             <i data-feather="pie-chart"></i>
             <span>لوحة التحكم</span>
@@ -13,7 +13,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li class="@if ($route == 'sections') active @endif"><a href="{{route('sections')}}"><i class="ti-more"></i> قائمة الشعب</a></li>
+            <li class="@if ($route == 'sections') active @endif"><a href="{{ route('sections') }}"><i
+                        class="ti-more"></i> قائمة الشعب</a></li>
         </ul>
 
     </li>
@@ -26,7 +27,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li class="@if ($route == 'student.index') active @endif"><a href="{{route('student.index')}}"><i class="ti-more"></i> قائمة الطلاب</a></li>
+            <li class="@if ($route == 'student.index') active @endif"><a href="{{ route('student.index') }}"><i
+                        class="ti-more"></i> قائمة الطلاب</a></li>
         </ul>
     </li>
 
@@ -38,7 +40,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li class="@if ($route == 'quizzes.index') active @endif"> <a href="{{route('quizzes.index')}}"><i class="ti-more"></i> قائمة الاختبارات</a> </li>
+            <li class="@if ($route == 'quizzes.index') active @endif"> <a href="{{ route('quizzes.index') }}"><i
+                        class="ti-more"></i> قائمة الاختبارات</a> </li>
         </ul>
     </li>
 
@@ -50,7 +53,8 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li class="@if ($route == 'online_zoom_classes.index') active @endif"> <a href="{{ route('online_zoom_classes.index') }}"><i class="ti-more"></i>حصص اونلاين مع
+            <li class="@if ($route == 'online_zoom_classes.index') active @endif"> <a
+                    href="{{ route('online_zoom_classes.index') }}"><i class="ti-more"></i>حصص اونلاين مع
                     زوم</a> </li>
         </ul>
     </li>
@@ -63,18 +67,20 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li class="@if ($route == 'attendance.report') active @endif"> <a href="{{route('attendance.report')}}"><i class="ti-more"></i>تقرير الحضور والغياب</a> </li>
+            <li class="@if ($route == 'attendance.report') active @endif"> <a href="{{ route('attendance.report') }}"><i
+                        class="ti-more"></i>تقرير الحضور والغياب</a> </li>
         </ul>
     </li>
     <li class="treeview">
         <a href="">
-            <i data-feather="file-minus"></i> <span>إدارة درجات الطلاب</span>
+            <i data-feather="edit-3"></i> <span>إدارة درجات الطلاب</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
             </span>
         </a>
         <ul class="treeview-menu">
-            <li class="@if ($route == 'marks.entry.add') active @endif"> <a href="{{route('marks.entry.add')}}"><i class="ti-more"></i>إدخال الدرجات</a> </li>
+            <li class="@if ($route == 'marks.entry.add') active @endif"> <a href="{{ route('marks.entry.add') }}"><i
+                        class="ti-more"></i>إدخال الدرجات</a> </li>
             {{-- <li class="@if ($route == 'marks_entry.edit') active @endif"> <a href="{{route('marks_entry.edit')}}"><i class="ti-more"></i>تعديل الدرجات</a> </li> --}}
 
         </ul>
@@ -87,8 +93,19 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li> <a href="#"><i class="ti-more"></i>#</a> </li>
+            <li class="@if ($route == 'profile.show') active @endif"> <a href="{{ route('profile.show') }}"><i
+                        class="ti-more"></i>ملفي الشخصي</a> </li>
         </ul>
+    </li>
+
+    <li>
+        <a href="{{ route('logout', 'teacher') }}">
+
+                <i data-feather="lock"></i>
+                <span> تسجيل الخروج </span>
+
+        </a>
+
     </li>
 
 </ul>

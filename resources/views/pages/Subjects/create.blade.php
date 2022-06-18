@@ -2,7 +2,7 @@
 @section('admin')
 
 <div class="content-wrapper">
-    <div class="container-full" style="background-color: rgb(225, 255, 241)">        
+    <div class="container-full">
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -26,16 +26,16 @@
                                 <div class="col">
                                     <form action="{{route('subjects.store')}}" method="post" autocomplete="off">
                                         @csrf
-        
+
                                         <div class="form-row">
                                             <div class="col">
                                                 <label for="title">اسم المادة</label>
                                                 <input type="text" name="Name" class="form-control">
                                             </div>
-                                            
+
                                         </div>
                                         <br>
-        
+
                                         <div class="form-row">
                                             <div class="form-group col">
                                                 <label for="inputState">المرحلة الدراسية</label>
@@ -46,13 +46,13 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-        
+
                                             <div class="form-group col">
                                                 <label for="inputState">الصف الدراسي</label>
                                                 <select name="Class_id" class="custom-select"></select>
                                             </div>
-        
-        
+
+
                                             <div class="form-group col">
                                                 <label for="inputState">اسم المعلم</label>
                                                 <select class="custom-select" name="teacher_id">
@@ -63,7 +63,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <button class="btn btn-success nextBtn  pull-right" type="submit">حفظ البيانات</button>
+                                        <button class="btn btn-success nextBtn" type="submit">حفظ </button>
                                     </form>
                                 </div>
                             <!-- /.col -->
@@ -71,12 +71,12 @@
                             <!-- /.row -->
                         </div>
                         <!-- /.box-body -->
-                    </div>    
-                </div>            
-            </div>            
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- /.content -->
-        
+
     </div>
 </div>
 

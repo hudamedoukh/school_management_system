@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
     <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full">
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -25,11 +25,11 @@
                             <div class="box-body">
                                 <div class="table-responsive">
 
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example1" class="table table-bordered table-striped text-center">
                                         <thead>
-                                            <tr class="alert-success">
+                                            <tr>
                                                 <th>#</th>
-                                                <th>الاسم</th>
+                                                <th>اسم الطالب</th>
                                                 <th>المبلغ</th>
                                                 <th>البيان</th>
                                                 <th>العمليات</th>

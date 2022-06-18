@@ -21,6 +21,7 @@ use App\Http\Controllers\Teachers\TeacherController;
 use App\Http\Controllers\Questions\QuestionController;
 use App\Http\Controllers\Students\GraduatedController;
 use App\Http\Controllers\Students\PromotionController;
+use App\Http\Controllers\Admins\AdminProfileController;
 use App\Http\Controllers\Students\AttendanceController;
 use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Students\OnlineClassController;
@@ -139,9 +140,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('MonthlySalary', MonthlySalalryController::class);
     Route::get('getTeachers',[MonthlySalalryController::class,'getTeachers'])->name('getTeachers');
     Route::get('showPdf/{teacher_id}',[MonthlySalalryController::class,'showPdf'])->name('showPdf');
-    
+
     //==============================Calender============================
 
     Livewire::component('calendar', Calendar::class);
+
+    //==============================Profile=============================
+    Route::get('/admin/profile', [AdminProfileController::class, 'index'])->name('admin_profile.show');
+    Route::post('/admin/profile/{id}', [AdminProfileController::class, 'update'])->name('admin_profile.update');
 });
 

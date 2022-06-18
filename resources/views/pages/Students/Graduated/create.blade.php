@@ -2,7 +2,7 @@
 @section('admin')
 
     <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full">
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -11,12 +11,33 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title"> إضافة تخرج جديد</h3>
                             </div>
+                            @if ($errors->any())
+                            <div class="row">
+                                <div class="col-10 mx-auto mt-3">
+                                    <div class="text-danger alert alert-dismissible"
+                                        style="padding-right: 55px;padding-top: 26px;background-color: #f5c6cb;">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-hidden="true">×</button>
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li> <span>{{ $error }}</span></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                             @if (Session::has('error_Graduated'))
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <strong>{{Session::get('error_Graduated')}}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                            <div class="row">
+                                <div class="col-10 mx-auto mt-3">
+                                    <div class="text-danger alert alert-dismissible"
+                                        style="padding-right: 55px;background-color: #f5c6cb;">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-hidden="true">×</button>
+                                            <strong>{{Session::get('error_Graduated')}}</strong>
+                                        </div>
+                                    </div>
                                 </div>
                             @endif
 
@@ -25,7 +46,7 @@
 
                                 <form method="post" action="{{ route('Graduated.store') }}" autocomplete="off" enctype="multipart/form-data">
                                     @csrf
-                                    
+
                                     <div class="row">
 
                                         <div class="col-md-4">
@@ -56,14 +77,14 @@
                                                 <label for="section_id">الشعبة  :<span
                                                     class="text-danger">*</span> </label>
                                                 <select class="custom-select mr-sm-2" name="section_id" required>
-                
+
                                                 </select>
                                             </div>
                                         </div>
 
                                     </div>
 
-                                
+
                                     <button type="submit"
                                     class="btn btn-info">تأكيد</button>
                                 </form>

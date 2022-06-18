@@ -3,23 +3,27 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">تراجع طالب</h5>
+                <h5  class="modal-title" id="exampleModalLabel">تراجع طالب</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <form action="{{route('Promotion.destroy','test')}}" method="post">
+                @csrf
+                @method('DELETE')
             <div class="modal-body">
-                <form action="{{route('Promotion.destroy','test')}}" method="post">
-                    @csrf
-                    @method('DELETE')
+
                     <input type="hidden" name="id" value="{{$promotion->id}}">
                     <h5>هل انت متاكد من عملية تراجع الطالب ؟ {{$promotion->student->name}}</h5>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
-                        <button  class="btn btn-danger">تأكيد</button>
-                    </div>
-                </form>
+
             </div>
+            <div class="modal-footer">
+                <button  class="btn btn-danger">تأكيد</button>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
+            </div>
+        </form>
+
         </div>
     </div>
 </div>

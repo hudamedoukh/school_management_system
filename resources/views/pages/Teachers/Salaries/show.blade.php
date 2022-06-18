@@ -8,7 +8,7 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="box-title">  تفاصيل الراتب</h3>
-                                <h5>  اسم الموظف :{{$teacher->name }}</h5>
+                                <h5>  اسم الموظف :{{$teacher->Name }}</h5>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">

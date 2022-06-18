@@ -23,7 +23,7 @@
                 <tr>
                     <?php $i++; ?>
                     <td>{{ $i }}</td>
-                    <td>{{ $my_parent->Email }}</td>
+                    <td>{{ $my_parent->email }}</td>
 
                     <td>{{ $my_parent->Name_Father }}</td>
 

@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
     <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full">
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -9,6 +9,8 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="box-title">  اضافة رسوم دراسية جديدة </h3>
+                                <a href="{{ url()->previous() }}" class="btn btn-rounded btn-info mb-5 mr-3"
+                                    style="float: left" > عودة</a>
                             </div>
                             <div style="padding-right: 55px;padding-top: 26px;">
                                 @if ($errors->any())
@@ -29,13 +31,13 @@
                                             <input type="text" value="{{ old('title') }}" name="title"
                                                 class="form-control">
                                         </div>
-                                        <div class="form-group col">
+                                        {{-- <div class="form-group col">
                                             <label for="inputZip">نوع الرسوم</label>
                                             <select class="form-control" name="Fee_type">
                                                 <option value="1">رسوم دراسية</option>
                                                 <option value="2">رسوم باص</option>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group col">
                                             <label for="inputEmail4">المبلغ</label>
                                             <input type="number" value="{{ old('amount') }}" name="amount"
@@ -81,7 +83,7 @@
                                     </div>
                                     <br>
 
-                                    <button type="submit" class="btn btn-primary">تاكيد</button>
+                                    <button type="submit" class="btn btn-success">تاكيد</button>
 
                                 </form>
                             </div>

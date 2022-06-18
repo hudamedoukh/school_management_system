@@ -43,45 +43,8 @@
                         title="Notifications">
                         <i class="ti-bell"></i>
                     </a>
-                    <ul class="dropdown-menu animated bounceIn">
-                        <li class="header">
-                            <div class="p-20">
-                                <div class="flexbox">
-                                    <div>
-                                        <h4 class="mb-0 mt-0">الإشعارات</h4>
-                                    </div>
-                                    <div>
-                                        <a href="#" class="text-danger">حذف الكل</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
 
-                        <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu sm-scrol">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-users text-info"></i> مجرد نص
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user text-primary"></i> مجرد نص
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user text-success"></i> مجرد نص
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="footer">
-                            <a href="#">عرض الكل</a>
-                        </li>
-                    </ul>
-
+                </li>
                     @php
                         $user = DB::table('users')
                             ->where('id', Auth::user()->id)
@@ -95,7 +58,7 @@
                             src="{{ !empty($user->image) ? url('upload/user_images/' . $user->image) : url('upload/user.jpg') }} "
                             alt="User Avatar">
                     </a>
-                    <ul class="dropdown-menu animated flipInX ">
+                    <ul class="dropdown-menu animated flipInX">
                         <li class="user-body">
                             <a class="dropdown-item" href=""><i class="ti-user text-muted mr-2"></i> الملف الشخصي</a>
                             <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> الاعدادات</a>

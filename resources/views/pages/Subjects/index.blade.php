@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
-    <div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
+    <div class="content-wrapper">
         <div class="container-full" >
             <!-- Main content -->
             <section class="content">
@@ -8,18 +8,14 @@
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title mb-5"> قائمة المواد الدراسية</h3>
-                                <br><br>
-                                <div>
-                                    <a href="{{route('subjects.create')}}" class="btn btn-success btn-sm" role="button"
-                                    aria-pressed="true">اضافة مادة جديدة</a><br><br>
-                                </div>
+                                <h3 class="box-title"> قائمة المواد الدراسية</h3>
+                                    <a href="{{route('subjects.create')}}" class="btn btn-rounded btn-success mb-5 float-start" role="button" aria-pressed="true">اضافة مادة جديدة</a><br><br>
                             </div>
 
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example1" class="table table-bordered table-striped text-center">
                                         <thead>
                                             <tr>
                                                 <tr>
@@ -62,14 +58,13 @@
                                                             <p> هل أنت متأكد من عملية الحذف؟ {{$subject->name}}</p>
                                                             <input type="hidden" name="id" value="{{$subject->id}}">
                                                         </div>
-                                                        <div class="modal-footer">
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">إغلاق</button>
                                                                 <button type="submit"
                                                                         class="btn btn-danger">تأكيد</button>
+                                                                <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">إغلاق</button>
+
                                                             </div>
-                                                        </div>
                                                     </div>
                                                     </form>
                                                 </div>

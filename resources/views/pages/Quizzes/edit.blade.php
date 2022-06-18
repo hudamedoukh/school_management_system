@@ -2,7 +2,7 @@
 @section('admin')
 
 <div class="content-wrapper">
-    <div class="container-full" style="background-color: rgb(225, 255, 241)">        
+    <div class="container-full">
         <!-- Main content -->
         <section class="content">
             <div class="row">
@@ -45,8 +45,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-        
+
+
                                         <div class="form-row">
                                             <div class="col">
                                                 <div class="form-group">
@@ -72,16 +72,16 @@
                                             </div>
                                         </div>
                                         <div class="form-row">
-        
+
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label for="Classroom_id">الصف الدراسي : <span class="text-danger">*</span></label>
                                                     <select class="custom-select mr-sm-2" name="Classroom_id">
-                                                        <option value="{{$quizz->classroom_id}}">{{$quizz->classroom->Name_Class}}</option>     
+                                                        <option value="{{$quizz->classroom_id}}">{{$quizz->classroom->Name_Class}}</option>
                                                     </select>
                                                 </div>
                                             </div>
-        
+
                                             <div class="col">
                                                 <div class="form-group">
                                                     <label for="section_id">الشعبة : </label>
@@ -90,9 +90,9 @@
                                                     </select>
                                                 </div>
                                             </div>
-        
+
                                         </div>
-                                        <button class="btn btn-success nextBtn  pull-right" type="submit">حفظ البيانات</button>
+                                        <button class="btn btn-success nextBtn" type="submit">حفظ </button>
                                     </form>
                                 </div>
                             <!-- /.col -->
@@ -100,12 +100,12 @@
                             <!-- /.row -->
                         </div>
                         <!-- /.box-body -->
-                    </div>    
-                </div>            
-            </div>            
+                    </div>
+                </div>
+            </div>
         </section>
         <!-- /.content -->
-        
+
     </div>
 </div>
 

@@ -2,7 +2,7 @@
 @section('admin')
 
     <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full">
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -26,7 +26,7 @@
                             <div class="box-body">
                                 <form method="post" action="{{ route('Students.store') }}" autocomplete="off" enctype="multipart/form-data">
                                     @csrf
-                                    <h6 >
+                                    <h6 class="text-danger">
                                        المعلومات الشخصية</h6><br>
                                     <div class="row">
 
@@ -80,7 +80,7 @@
 
                                     </div>
 
-                                    <h6 class="pt-3">
+                                    <h6 class="pt-3 text-danger">
                                        معلومات الطالب</h6><br>
                                     <div class="row">
                                         <div class="col-md-2">

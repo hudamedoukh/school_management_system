@@ -1,7 +1,7 @@
   @extends('admin.admin_master')
   @section('admin')
       <div class="content-wrapper">
-          <div class="container-full" style="background-color: rgb(225, 255, 241)">
+          <div class="container-full">
               <!-- Main content -->
               <section class="content">
                   <div class="row">
@@ -10,7 +10,8 @@
                               <div class="box-header with-border">
                                   <h3 class="box-title"> تعديل سند صرف
                                   </h3>
-
+                                  <a href="{{ url()->previous() }}" class="btn btn-rounded btn-info mb-5 mr-3"
+                                    style="float: left" > عودة</a>
                               </div>
                               <div style="padding-right: 55px;padding-top: 26px;">
                                   @if ($errors->any())

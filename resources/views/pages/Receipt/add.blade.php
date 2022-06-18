@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
     <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full">
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -9,6 +9,8 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="box-title"> سند قبض {{ $student->name }}</h3>
+                                <a href="{{ url()->previous() }}" class="btn btn-rounded btn-info mb-5 mr-3"
+                                    style="float: left" > عودة</a>
                                 <br>
                             </div>
                             @if (session()->has('error'))
@@ -46,7 +48,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button class="btn btn-success   pull-right"
+                                            <button class="btn btn-success"
                                                 type="submit">حفظ</button>
                                         </form>
 

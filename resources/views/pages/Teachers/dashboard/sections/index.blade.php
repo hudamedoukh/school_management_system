@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
-    <div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
+    <div class="content-wrapper">
         <div class="container-full" >
             <!-- Main content -->
             <section class="content">
@@ -9,18 +9,18 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="box-title">الشعب الدراسية</h3>
-                                
+
                             </div>
-                            
+
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
-                                    <table id="example1" class="table table-bordered">
-                                        <thead class="table-success">
+                                    <table id="example1" class="table table-bordered table-striped text-center">
+                                        <thead >
                                             <tr>
                                                 <th>#</th>
                                                 <th>اسم المرحلة</th>
-                                                <th>اسم القسم</th>
+                                                <th>اسم الشعبة</th>
                                             </tr>
                                         </thead>
                                         <tbody>

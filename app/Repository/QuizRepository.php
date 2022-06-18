@@ -28,7 +28,7 @@ class QuizRepository implements QuizRepositoryInterface
 
     public function store($request)
     {
-        
+
         $quizzes = new Quiz();
         $quizzes->name =  $request->Name;
         $quizzes->subject_id = $request->subject_id;
@@ -38,11 +38,11 @@ class QuizRepository implements QuizRepositoryInterface
         $quizzes->teacher_id = $request->teacher_id;
         $quizzes->save();
         $notification = array(
-            'message' => 'تم بنجاح',
+            'message' => 'تم حفظ البيانات بنجاح',
             'alert-type' => 'success'
         );
         return redirect()->route('Quizzes.index')->with($notification);
-        
+
     }
 
 
@@ -57,7 +57,7 @@ class QuizRepository implements QuizRepositoryInterface
 
     public function update($request)
     {
-        
+
         $quizz = Quiz::findorFail($request->id);
         $quizz->name = $request->Name;
         $quizz->subject_id = $request->subject_id;
@@ -67,22 +67,22 @@ class QuizRepository implements QuizRepositoryInterface
         $quizz->teacher_id = $request->teacher_id;
         $quizz->save();
         $notification = array(
-            'message' => 'تم بنجاح',
+            'message' => 'تم تعديل البيانات بنجاح',
             'alert-type' => 'success'
         );
         return redirect()->route('Quizzes.index')->with($notification);
-        
+
     }
 
     public function destroy($request)
     {
-        
-        Quiz::destroy($request->id);       
+
+        Quiz::destroy($request->id);
         $notification = array(
-            'message' => 'تم بنجاح',
-            'alert-type' => 'danger'
+            'message' => 'تم حذف البيانات بنجاح',
+            'alert-type' => 'error'
         );
         return redirect()->back()->with($notification);
-        
+
     }
 }

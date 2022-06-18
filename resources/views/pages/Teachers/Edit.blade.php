@@ -3,7 +3,7 @@
 
 
 <div class="content-wrapper">
-    <div class="container-full" style="background-color: rgb(225, 255, 241)">
+    <div class="container-full">
         <section class="content">
             <!-- Basic Forms -->
             <div class="box">

@@ -29,6 +29,7 @@ class QuizController extends Controller
 
     public function store(Request $request)
     {
+
         return $this->Quizz->store($request);
     }
 
@@ -44,7 +45,7 @@ class QuizController extends Controller
     }
 
 
-    public function destroy($request)
+    public function destroy(Request $request)
     {
         return $this->Quizz->destroy($request);
     }

@@ -18,8 +18,9 @@
                     <input type="text" readonly value="{{$student->name}}" class="form-control">
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
                         <button  class="btn btn-danger">تأكيد</button>
+
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">إغلاق</button>
                     </div>
                 </form>
             </div>

@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
-    <div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
+    <div class="content-wrapper">
         <div class="container-full" >
             <!-- Main content -->
             <section class="content">

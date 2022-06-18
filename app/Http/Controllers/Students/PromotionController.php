@@ -59,7 +59,7 @@ class PromotionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($request)
+    public function destroy(Request $request)
     {
         return $this->Promotion->destroy($request);
     }

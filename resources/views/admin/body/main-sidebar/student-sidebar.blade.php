@@ -51,13 +51,13 @@
     </li>
     <li class="treeview">
         <a href="">
-            <i data-feather="grid"></i> <span> الحضور</span>
+            <i data-feather="grid"></i> <span> المعلمون</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-right pull-right"></i>
             </span>
         </a>
         <ul class="treeview-menu">
-            <li ><a href=""><i class="ti-more"></i> حضوري</a></li>
+            <li class="@if ($route == 'teachers') active @endif"><a href="{{ route('teachers') }}"><i class="ti-more"></i> معلميني</a></li>
         </ul>
     </li>
 
@@ -69,8 +69,16 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li> <a href="#"><i class="ti-more"></i>#</a> </li>
+            <li> <a href="{{ route('student_profile.show') }}"><i class="ti-more"></i>ملفي الشخصي</a> </li>
         </ul>
     </li>
+    <li>
+        <a href="{{ route('logout', 'student') }}">
 
+                <i data-feather="lock"></i>
+                <span> تسجيل الخروج </span>
+
+        </a>
+
+    </li>
 </ul>

@@ -15,7 +15,7 @@ class AddParent extends Component
     public $catchError;
     public $currentStep = 1, $updateMode = false, $photos, $show_table = true, $Parent_id,
         // Father_INPUTS
-        $Email, $Password,
+        $email, $password,
         $Name_Father,
         $National_ID_Father,
         $Phone_Father, $Job_Father,
@@ -34,10 +34,10 @@ class AddParent extends Component
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName, [
-            'Email' => 'required|email',
-            'National_ID_Father' => 'required|string|min:10|max:10|regex:/[0-9]{9}/',
+            'email' => 'required|email',
+            'National_ID_Father' => 'required|string|min:9|max:10|regex:/[0-9]{9}/',
             'Phone_Father' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'National_ID_Mother' => 'required|string|min:10|max:10|regex:/[0-9]{9}/',
+            'National_ID_Mother' => 'required|string|min:9|max:9|regex:/[0-9]{9}/',
             'Phone_Mother' => 'regex:/^([0-9\s\-\+\(\)]*)$/|min:10'
         ]);
     }
@@ -52,8 +52,8 @@ class AddParent extends Component
     public function firstStepSubmit()
     {
         $this->validate([
-            'Email' => 'required|unique:my__parents,Email,' . $this->id,
-            'Password' => 'required',
+            'email' => 'required|unique:my__parents,email,' . $this->id,
+            'password' => 'required',
             'Name_Father' => 'required',
             'Job_Father' => 'required',
             'National_ID_Father' => 'required|unique:my__parents,National_ID_Father,' . $this->id,
@@ -82,8 +82,8 @@ class AddParent extends Component
 
         $My_Parent = new My_Parent();
         // Father_INPUTS
-        $My_Parent->Email = $this->Email;
-        $My_Parent->Password = Hash::make($this->Password);
+        $My_Parent->email = $this->email;
+        $My_Parent->password = Hash::make($this->password);
         $My_Parent->Name_Father = $this->Name_Father;
         $My_Parent->National_ID_Father = $this->National_ID_Father;
         $My_Parent->Phone_Father = $this->Phone_Father;
@@ -117,9 +117,9 @@ class AddParent extends Component
         $this->show_table = false;
         $this->updateMode = true;
         $My_Parent = My_Parent::where('id', $id)->first();
-        $this->Email = $My_Parent->Email;
+        $this->email = $My_Parent->email;
         $this->Parent_id = $id;
-        $this->Password = $My_Parent->Password;
+        $this->password = $My_Parent->password;
         $this->Name_Father = $My_Parent->Name_Father;
         $this->National_ID_Father = $My_Parent->National_ID_Father;
         $this->Phone_Father = $My_Parent->Phone_Father;
@@ -152,8 +152,8 @@ class AddParent extends Component
         if ($this->Parent_id) {
             $parent = My_Parent::find($this->Parent_id);
             $parent->update([
-                'Email' => $this->Email,
-                'Password' =>  Hash::make($this->Password),
+                'email' => $this->email,
+                'password' =>  Hash::make($this->password),
                 'Job_Father' => $this->Job_Father,
                 'Address_Father' => $this->Address_Father,
                 'Phone_Father' => $this->Phone_Father,
@@ -190,8 +190,8 @@ class AddParent extends Component
     //clearForm
     public function clearForm()
     {
-        $this->Email = '';
-        $this->Password = '';
+        $this->email = '';
+        $this->password = '';
         $this->Name_Father = '';
         $this->Job_Father = '';
         $this->National_ID_Father = '';

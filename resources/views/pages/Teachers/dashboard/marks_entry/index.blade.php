@@ -112,7 +112,29 @@
             <!-- /.content -->
 
         </div>
-
+        <script>
+            $(document).ready(function() {
+                    $('select[name="Grade_id"]').on('change', function() {
+                        var Grade_id = $(this).val();
+                        if (Grade_id) {
+                            $.ajax({
+                                url: "{{ URL::to('/mark/classes') }}/" + Grade_id,
+                                type: "GET",
+                                dataType: "json",
+                                success: function(data) {
+                                    $('select[name="Class_id"]').empty();
+                                    $.each(data, function(key, value) {
+                                        $('select[name="Class_id"]').append('<option value="' +
+                                            key + '">' + value + '</option>');
+                                    });
+                                },
+                            });
+                        } else {
+                            console.log('AJAX load did not work');
+                        }
+                    });
+                });
+        </script>
         <script>
             $(document).on('click', '#search', function() {
                 var Grade_id = $('#Grade_id').val();

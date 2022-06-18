@@ -52,7 +52,7 @@
                                     <div class="form-group">
                                         <h5>سبب الاجازة <span class="text-danger">*</span></h5>
                                         <div class="controls">
-                                            <select name="vacation_purpose_id" data-id="vacation_purpose_id{{ $vacation->id }}" required=""
+                                            <select name="vacation_purpose_id" id="vacation_purpose_id" required=""
                                                 class="form-control">
                                                 <option value="" selected="" disabled="">اختر سبب الاجازة</option>
 
@@ -64,7 +64,7 @@
                                                 @endforeach
                                                 <option value="0">سبب اجازة جديد </option>
                                             </select>
-                                            <input type="text" name="name"  data-id="add_another{{ $vacation->id }}" class="form-control mb-5 mt-5"
+                                            <input type="text" name="name"  id="add_another" class="form-control mb-5 mt-5"
                                                 placeholder="اكتب السبب" style="display: none;">
                                         </div>
                                     </div>

@@ -126,7 +126,7 @@
         <ul class="treeview-menu">
             <li class="treeview">
                 <a href="#">
-                    <i data-feather="hard-drive"></i> <span>معلومات الطالب</span>
+                    <i data-feather="more-horizontal"></i> <span>معلومات الطالب</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
@@ -143,7 +143,7 @@
 
             <li class="treeview">
                 <a href="#">
-                    <i data-feather="hard-drive"></i> <span>ترقية الطلاب</span>
+                    <i data-feather="more-horizontal"></i> <span>ترقية الطلاب</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
@@ -160,7 +160,7 @@
 
             <li class="treeview">
                 <a href="#">
-                    <i data-feather="hard-drive"></i> <span>تخريج الطلاب</span>
+                    <i data-feather="more-horizontal"></i> <span>تخريج الطلاب</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
@@ -190,6 +190,8 @@
                         class="ti-more"></i> الرسوم الدراسية</a></li>
             <li class="@if ($route == 'Fees_Invoices.index') active @endif"><a
                     href="{{ route('Fees_Invoices.index') }}"><i class="ti-more"></i> الفواتير</a></li>
+                    <li class="@if ($route == 'receipt_students.index') active @endif"> <a href="{{route('receipt_students.index')}}"><i class="ti-more"></i> سندات القبض</a> </li>
+
             <li class="@if ($route == 'ProcessingFee.index') active @endif"><a
                     href="{{ route('ProcessingFee.index') }}"><i class="ti-more"></i> استبعاد رسوم</a>
             </li>
@@ -242,9 +244,9 @@
             <li class="@if ($route == 'Quizzes.index') active @endif"><a href="{{ route('Quizzes.index') }}"><i
                         class="ti-more"></i> قائمة الاختبارات</a>
             </li>
-            <li class="@if ($route == 'questions.index') active @endif"><a href="{{ route('questions.index') }}"><i
+            {{-- <li class="@if ($route == 'questions.index') active @endif"><a href="{{ route('questions.index') }}"><i
                         class="ti-more"></i> قائمة الأسئلة</a>
-            </li>
+            </li> --}}
         </ul>
 
     </li>
@@ -278,11 +280,31 @@
 
     </li>
 
-
+    <li class="treeview">
+        <a href="">
+            <i data-feather="user"></i> <span> الملف الشخصي</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li class="@if ($route == 'admin_profile.show') active @endif"> <a href="{{ route('admin_profile.show') }}"><i
+                        class="ti-more"></i>ملفي الشخصي</a> </li>
+        </ul>
+    </li>
     <li class="@if ($route == 'settings.index') active @endif">
         <a href="{{ route('settings.index') }}">
             <i data-feather="settings"></i>
             <span class="right-nav-text">الاعدادات </span></a>
+
+    </li>
+    <li>
+        <a href="{{ route('logout', 'web') }}">
+
+                <i data-feather="lock"></i>
+                <span> تسجيل الخروج </span>
+
+        </a>
 
     </li>
 </ul>

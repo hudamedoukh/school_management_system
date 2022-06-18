@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
-    <div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
+    <div class="content-wrapper">
         <div class="container-full" >
             <!-- Main content -->
             <section class="content">
@@ -9,17 +9,14 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="box-title mb-5"> قائمة الاختبارات</h3>
-                                <br><br>
-                                <div>
-                                    <a href="{{route('quizzes.create')}}" class="btn btn-success btn-sm" role="button"
+                                    <a href="{{route('quizzes.create')}}" class="btn btn-rounded btn-success mb-5 float-start"  role="button"
                                     aria-pressed="true">اضافة اختبار جديد</a><br><br>
-                                </div>
                             </div>
-                            
+
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example1" class="table table-bordered table-striped text-center">
                                         <thead>
                                             <tr>
                                                 <tr>
@@ -50,9 +47,7 @@
                                                             data-toggle="modal"
                                                             data-target="#delete_exam{{ $quizze->id }}" title="حذف"><i
                                                             class="fa fa-trash"></i></button>
-                                                    <a href="{{route('quizzes.show',$quizze->id)}}"
-                                                        class="btn btn-warning btn-sm" title="عرض الاسئلة" role="button" aria-pressed="true"><i
-                                                            class="fa fa-binoculars"></i></a>
+
                                                 </td>
                                             </tr>
 
@@ -64,7 +59,7 @@
                                                         {{csrf_field()}}
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 style="font-family: 'Cairo', sans-serif;"
+                                                                <h5
                                                                     class="modal-title" id="exampleModalLabel">حذف اختبار</h5>
                                                                 <button type="button" class="close" data-dismiss="modal"
                                                                         aria-label="Close">
@@ -72,17 +67,16 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <p> {{ trans('My_Classes_trans.Warning_Grade') }} {{$quizze->name}}</p>
+                                                                <p>حذف  اختبار {{$quizze->name}}</p>
                                                                 <input type="hidden" name="id" value="{{$quizze->id}}">
                                                             </div>
-                                                            <div class="modal-footer">
                                                                 <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                            data-dismiss="modal">{{ trans('My_Classes_trans.Close') }}</button>
                                                                     <button type="submit"
-                                                                            class="btn btn-danger">{{ trans('My_Classes_trans.submit') }}</button>
+                                                                    class="btn btn-danger">حذف</button>
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                            data-dismiss="modal">اغلاق</button>
+
                                                                 </div>
-                                                            </div>
                                                         </div>
                                                     </form>
                                                 </div>

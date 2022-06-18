@@ -8,18 +8,22 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <form action="{{route('ProcessingFee.destroy','test')}}" method="post">
+                @csrf
+                @method('DELETE')
             <div class="modal-body">
-                <form action="{{route('ProcessingFee.destroy','test')}}" method="post">
-                    @csrf
-                    @method('DELETE')
+
                     <input type="hidden" name="id" value="{{$ProcessingFee->id}}">
                     <h5 >هل انت متاكد مع عملية الحذف ؟</h5>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
-                        <button  class="btn btn-danger">تأكيد الحذف</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button  class="btn btn-danger">تأكيد الحذف</button>
+
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>

@@ -57,7 +57,7 @@ class StudentRepository implements StudentRepositoryInterface
         $Edit_Students->save();
         $notification = array(
             'message' => 'تم تعديل البيانات بنجاح',
-            'alert-type' => 'info'
+            'alert-type' => 'success'
         );
         return redirect()->route('Students.index')->with($notification);
     }

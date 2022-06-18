@@ -1,7 +1,7 @@
 @extends('admin.admin_master')
 @section('admin')
     <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full">
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -25,12 +25,12 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
-                                    <table id="example1" class="table table-bordered table-striped">
+                                    <table id="example1" class="table table-bordered table-striped text-center">
 
                                         <thead>
-                                            <tr class="alert-success">
+                                            <tr>
                                                 <th>#</th>
-                                                <th>الاسم</th>
+                                                <th>الرسوم</th>
                                                 <th>المبلغ</th>
                                                 <th>المرحلة الدراسية</th>
                                                 <th>الصف الدراسي</th>
@@ -58,8 +58,7 @@
                                                             data-target="#Delete_Fee{{ $fee->id }}"
                                                             title="حذف"><i
                                                                 class="fa fa-trash"></i></button>
-                                                        <a href="#"  title="عرض" class="btn btn-warning btn-sm" role="button"
-                                                            aria-pressed="true"><i class="fa fa-eye" ></i></a>
+
 
                                                     </td>
                                                 </tr>

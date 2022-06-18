@@ -37,15 +37,16 @@ class SectionController extends Controller
      */
     public function store(StoreSection $request)
     {
+        //
         $validated = $request->validated();
         $Sections = new Section();
-
-        $Sections->Name_Section = $request->Name_Section;
-        $Sections->Grade_id = $request->Grade_id;
-        $Sections->Class_id = $request->Class_id;
-        $Sections->Status = 1;
-        $Sections->teachers()->attach($request->teacher_id);
+        $Sections->Name_Section =$request->Name_Section;
+        $Sections->Grade_id =$request->Grade_id;
+        $Sections->Class_id =$request->Class_id;
+        $Sections->Status =1;
         $Sections->save();
+
+        $Sections->teachers()->attach($request->teacher_id);
         $notification = array(
             'message' => 'تم إضافة البيانات بنجاح',
             'alert-type' => 'success'
@@ -86,10 +87,11 @@ class SectionController extends Controller
      */
     public function update(StoreSection $request)
     {
+        // return  $request;
         $validated = $request->validated();
         $Sections = Section::findOrFail($request->id);
 
-        $Sections->Name_Section =  $request->Name_Section;
+        $Sections->Name_Section =$request->Name_Section;
         $Sections->Grade_id = $request->Grade_id;
         $Sections->Class_id = $request->Class_id;
 

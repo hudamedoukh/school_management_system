@@ -2,7 +2,7 @@
 @section('admin')
 
     <div class="content-wrapper">
-        <div class="container-full" style="background-color: rgb(225, 255, 241)">
+        <div class="container-full">
             <!-- Main content -->
             <section class="content">
                 <div class="row">
@@ -10,10 +10,13 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="box-title"> الطلاب</h3>
+                                <a href="{{ url()->previous() }}" class="btn btn-rounded btn-info mb-5 mr-3"
+                                    style="float: left" > عودة</a>
                                 <a href="{{ route('Students.create') }}" class="btn btn-rounded btn-success mb-5"
                                     style="float: left" aria-pressed="true"> اضافة طالب
 
                                 </a>
+
 
                             </div>
                             @if ($errors->any())
@@ -141,7 +144,7 @@
                                                                             data-toggle="modal"
                                                                             data-target="#Delete_img{{ $attachment->id }}"
                                                                             title=" حذف المرفق">
-                                                                            حذف 
+                                                                            حذف
                                                                         </button>
 
                                                                     </td>

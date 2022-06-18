@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
-    <div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
+    <div class="content-wrapper">
         <div class="container-full" >
             <!-- Main content -->
             <section class="content">
@@ -10,7 +10,7 @@
                             <div class="box-header with-border">
                                 <h4 class="box-title mb-5"> قائمة الحضور والغياب للطلاب</h4>
                                 <h5 style="color: red"> تاريخ اليوم : {{ date('Y-m-d') }}</h5>
-                                
+
                             </div>
                             @if ($errors->any())
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -31,7 +31,7 @@
                                     @csrf
                                     <div class="table-responsive">
                                         <table id="example1" class="table table-bordered table-striped">
-                                            <thead class="table-info">
+                                            <thead>
                                                 <tr>
                                                     <th width="5%">#</th>
                                                     <th>اسم الطالب</th>
@@ -63,7 +63,7 @@
                                                                     value="presence">
                                                                 <span class="text-success">حضور</span>
                                                             </label>
-                                                            
+
 
                                                             <label class="ml-4 block text-gray-500 font-semibold">
                                                                 <input name="attendences[{{ $student->id }}]"
@@ -85,8 +85,8 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <P>
-                                        <button class="btn btn-success" type="submit">تأكيد</button>
+                                    <P style="margin-right: 0.7rem;">
+                                        <button class="btn btn-success float-end mt-5 mr-5" type="submit">تأكيد</button>
                                     </P>
                                 </form>
                             </div>

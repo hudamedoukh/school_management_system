@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
-    <div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
+    <div class="content-wrapper">
         <div class="container-full" >
             <!-- Main content -->
             <section class="content">
@@ -11,9 +11,9 @@
                                 <h3 class="box-title"> حصص اونلاين
 
                                 </h3>
-                                <a href="{{ route('online_zoom_classes.create') }}" class="btn btn-success" role="button"
+                                <a href="{{ route('online_zoom_classes.create') }}" class="btn btn-success btn-rounded float-start mr-3" role="button"
                                     aria-pressed="true">اضافة حصة اونلاين جديدة</a>
-                                    <a class="btn btn-warning" href="{{route('indirect.teacher.create')}}">اضافة حصة اوفلاين جديدة</a>
+                                    <a class="btn btn-success btn-rounded float-start" href="{{route('indirect.teacher.create')}}">اضافة حصة اوفلاين جديدة</a>
 
                             </div>
                             <div style="padding-right: 55px;padding-top: 26px;">
@@ -29,8 +29,8 @@
                             <div class="box-body">
                                 <div class="table-responsive">
 
-                                    <table id="example1" class="table table-bordered">
-                                        <thead class="table-success">
+                                    <table id="example1" class="table table-bordered table-striped text-center">
+                                        <thead >
                                             <tr>
                                                 <th>#</th>
                                                 <th>المرحلة</th>

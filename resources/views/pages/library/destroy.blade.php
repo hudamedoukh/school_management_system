@@ -18,13 +18,12 @@
                     <input type="hidden" name="id" value="{{$book->id}}">
                     <input type="hidden" name="file_name" value="{{$book->file_name}}">
                 </div>
-                <div class="modal-footer">
                     <div class="modal-footer">
+                        <button type="submit"
+                        class="btn btn-danger">تأكيد الحذف</button>
                         <button type="button" class="btn btn-secondary"
                                 data-dismiss="modal">اغلاق</button>
-                        <button type="submit"
-                                class="btn btn-danger">تأكيد الحذف</button>
-                    </div>
+
                 </div>
             </div>
         </form>

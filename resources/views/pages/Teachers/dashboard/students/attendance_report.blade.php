@@ -1,29 +1,26 @@
 @extends('admin.admin_master')
 @section('admin')
-<div class="content-wrapper" style="background-color: rgb(225, 255, 241)">
+<div class="content-wrapper">
     <div class="container-full">
         <h4 class="text-info" style="margin-right: 20px">تقارير الحضور والغياب</h4>
         <!-- Main content -->
         <section class="content">
-            
+
             <div class="row">
                 <div class="col-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <h5 style="color: blue">معلومات البحث</h5><br>
+                            <h5 ><strong>معلومات البحث </strong></h5>
+                            @if ($errors->any())
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li class="mr-5 text-danger"><span class="text-danger">{{ $error }}</span></li>
+                                @endforeach
+                            </ul>
+                    @endif
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-
                             <form method="post"  action="{{ route('attendance.search') }}" autocomplete="off">
                                 @csrf
                                 <div class="row">
@@ -40,7 +37,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
 
@@ -58,8 +55,8 @@
                             </form>
                             @isset($Students)
                             <div class="table-responsive">
-                                <table id="example1" class="table table-bordered table-striped">
-                                    <thead class="table-success">
+                                <table id="example1" class="table table-bordered table-striped text-center">
+                                    <thead>
                                     <tr>
                                         <th>#</th>
                                         <th>اسم الطالب</th>
@@ -78,7 +75,7 @@
                                             <td>{{$student->section->Name_Section}}</td>
                                             <td>{{$student->attendence_date}}</td>
                                             <td>
-            
+
                                                 @if($student->attendence_status == 0)
                                                     <span class="btn-danger">غياب</span>
                                                 @else
@@ -91,7 +88,7 @@
                                 </table>
                             </div>
                             @endisset
-            
+
                         </div>
                         <!-- /.box-body -->
                         <p><br><br><br><br><br><br></p>

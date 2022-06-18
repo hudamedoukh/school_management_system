@@ -9,6 +9,7 @@ use App\Http\Controllers\Teachers\dashboard\MarkController;
 use App\Http\Controllers\Teachers\dashboard\QuizzesController;
 use App\Http\Controllers\Teachers\dashboard\QuestionController;
 use App\Http\Controllers\Teachers\dashboard\OnlineZoomClassesController;
+use App\Http\Controllers\Teachers\dashboard\ProfileController;
 use App\Http\Controllers\Teachers\dashboard\StudentController as DashboardStudentController;
 
 /*
@@ -78,6 +79,9 @@ Route::group(
         Route::get('/Get_Subjects/{id}', [MarkController::class, 'Get_Subjects'])->name('Get_Subjects');
         Route::get('/Get_Quizes/{id}', [MarkController::class, 'Get_Quizes'])->name('Get_Quizes');
 
-        Route::get('/classes/{id}', [MarkController::class, 'Get_classrooms']);
+        Route::get('/mark/classes/{id}', [MarkController::class, 'Get_classrooms']);
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile.show');
+        Route::post('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
+
     }
 );
