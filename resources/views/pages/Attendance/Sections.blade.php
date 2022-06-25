@@ -10,10 +10,10 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h5 class="box-title">الشعب الدراسية: الحضور والغياب</h5>
-                                <button type="button" data-toggle="modal" data-target="#exampleModal"
+                                {{-- <button type="button" data-toggle="modal" data-target="#exampleModal"
                                     class="btn btn-rounded btn-success mb-5" style="float: left">
                                     إضافة شعبة
-                                </button>
+                                </button> --}}
 
                             </div>
                             @if ($errors->any())
@@ -45,7 +45,7 @@
                                                 aria-labelledby="headingOne-{{ $Grade->id }}"
                                                 data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
-                                                    <div class="table-responsive mt-15">
+                                                    <div class="table-responsive mt-15 text-center">
                                                         <table class="table center-aligned-table mb-0">
                                                             <thead>
                                                                 <tr class="text-dark">

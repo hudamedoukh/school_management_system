@@ -27,6 +27,7 @@ use App\Http\Controllers\Classrooms\ClassroomController;
 use App\Http\Controllers\Students\OnlineClassController;
 use App\Http\Controllers\Students\FeesInvoicesController;
 use App\Http\Controllers\Students\ProcessingFeeController;
+use App\Http\Controllers\Students\AccountStudentController;
 use App\Http\Controllers\Teachers\MonthlySalalryController;
 use App\Http\Controllers\Students\ReceiptStudentsController;
 use App\Http\Controllers\Teachers\TeacherVacationController;
@@ -121,6 +122,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('receipt_students', ReceiptStudentsController::class);
     Route::resource('ProcessingFee', ProcessingFeeController::class);
     Route::resource('Payment_students', PaymentController::class);
+    Route::get('/student_accounts/{id}', [AccountStudentController::class, 'studentAccounts'])->name('student_accounts');
 
     Route::resource('Attendance', AttendanceController::class);
 

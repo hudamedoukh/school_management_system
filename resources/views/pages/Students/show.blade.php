@@ -99,7 +99,7 @@
                                                                 <div class="form-group">
                                                                     <label
                                                                         for="academic_year">رفع مرفقات
-                                                                        : <span class="text-danger">*</span></label>
+                                                                        :</label>
                                                                     <input type="file" accept="image/*" name="photos[]"
                                                                         multiple required>
                                                                     <input type="hidden" name="student_name"

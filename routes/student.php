@@ -30,7 +30,7 @@ Route::group(
         return view('pages.Students.dashboard');
     });
     Route::get('/index_marks', [MarkController::class, 'ViewMark'])->name('marks.index');
-    Route::get('/view_marks', [MarkController::class, 'getMarks'])->name('marks.view');
+    // Route::get('/view_marks', [MarkController::class, 'getMarks'])->name('marks.view');
     Route::get('/books_show', [LibraryController::class, 'showBooks'])->name('books.show');
     Route::get('/onlineClasses_show', [OnlineZoomClassesController::class, 'studentOnlineClasses'])->name('onlineClasses.show');
     Route::get('/accounts', [AccountStudentController::class, 'index'])->name('accounts.show');

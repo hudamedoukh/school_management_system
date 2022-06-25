@@ -78,7 +78,7 @@
                                                                             class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
                                                                             <input
                                                                                 name="attendence_status[{{ $teacher->id }}]"
-                                                                                class="leading-tight" type="radio"
+                                                                                class="leading-tight" type="radio" required
                                                                                 value="1"
                                                                                 @foreach ($teacher->Attendance()->where('attendence_date',date('Y-m-d'))->get() as $attendance )
                                                                                 @if($attendance->attendence_status=='1')
@@ -95,7 +95,7 @@
                                                                             class="block text-gray-500 font-semibold sm:border-r sm:pr-4">
                                                                             <input
                                                                                 name="attendence_status[{{ $teacher->id }}]"
-                                                                                class="leading-tight" type="radio"
+                                                                                class="leading-tight" type="radio" required
                                                                                 value="2"
                                                                                 @foreach ($teacher->Attendance()->where('attendence_date',date('Y-m-d'))->get() as $attendance )
                                                                                 @if($attendance->attendence_status=='2')
@@ -112,7 +112,7 @@
                                                                             class="ml-4 block text-gray-500 font-semibold">
                                                                             <input
                                                                                 name="attendence_status[{{ $teacher->id }}]"
-                                                                                class="leading-tight" type="radio"
+                                                                                class="leading-tight" type="radio" required
                                                                                 value="3"
                                                                                 @foreach ($teacher->Attendance()->where('attendence_date',date('Y-m-d'))->get() as $attendance )
                                                                                 @if($attendance->attendence_status=='3')

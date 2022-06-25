@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Sections\SectionController;
 use App\Http\Controllers\Teachers\dashboard\MarkController;
+use App\Http\Controllers\Teachers\dashboard\ProfileController;
 use App\Http\Controllers\Teachers\dashboard\QuizzesController;
+use App\Http\Controllers\Teachers\dashboard\StudentController;
 use App\Http\Controllers\Teachers\dashboard\QuestionController;
 use App\Http\Controllers\Teachers\dashboard\OnlineZoomClassesController;
-use App\Http\Controllers\Teachers\dashboard\ProfileController;
 use App\Http\Controllers\Teachers\dashboard\StudentController as DashboardStudentController;
 
 /*
@@ -42,7 +43,7 @@ Route::group(
         Route::group(['namespace' => 'Teachers\dashboard'], function () {
 
             //==============================students============================
-            Route::get('student', [DashboardStudentController::class, 'index'])
+            Route::get('student/{id}', [DashboardStudentController::class, 'index'])
                 ->name('student.index');
             Route::get('sections', [DashboardStudentController::class, 'sections'])
                 ->name('sections');
@@ -63,6 +64,8 @@ Route::group(
 
         Route::resource('quizzes', QuizzesController::class);
         Route::resource('questions', QuestionController::class);
+        Route::get('grade_classrooms/{id}/', [QuizzesController::class, 'get_classes']);
+        Route::get('classroom_sections/{id}/', [QuizzesController::class, 'get_sections']);
 
         //==============================Marks============================
         Route::get('marks/entry/add', [MarkController::class, 'AddMark'])
@@ -77,7 +80,9 @@ Route::group(
         Route::post('/marks_entry/update', [MarkController::class, 'update'])->name('marks_entry.update');
 
         Route::get('/Get_Subjects/{id}', [MarkController::class, 'Get_Subjects'])->name('Get_Subjects');
-        Route::get('/Get_Quizes/{id}', [MarkController::class, 'Get_Quizes'])->name('Get_Quizes');
+        Route::get('/mark/sections/{id}', [MarkController::class, 'Get_Sections']);
+
+        Route::get('/Get_Quizes/{sub_id}/{section_id}', [MarkController::class, 'Get_Quizes'])->name('Get_Quizes');
 
         Route::get('/mark/classes/{id}', [MarkController::class, 'Get_classrooms']);
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile.show');

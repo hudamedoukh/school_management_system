@@ -13,14 +13,15 @@
                                     style="float: left" > عودة</a>
                                 <br>
                             </div>
-                            @if (session()->has('error'))
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <strong>{{ session()->get('error') }}</strong>
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            @endif
+                            <div style="padding-right: 55px;padding-top: 26px;">
+                                @if ($errors->any())
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li> <span class="text-danger">{{ $error }}</span></li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </div>
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="row">
@@ -33,7 +34,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>المبلغ : <span class="text-danger">*</span></label>
-                                                        <input class="form-control" name="Debit" type="number">
+                                                        <input class="form-control" name="Debit" type="number" required>
                                                         <input type="hidden" name="student_id" value="{{ $student->id }}"
                                                             class="form-control">
                                                     </div>
@@ -44,7 +45,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>البيان : <span class="text-danger">*</span></label>
-                                                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                                        <textarea class="form-control" name="description"  required id="exampleFormControlTextarea1" rows="3"></textarea>
                                                     </div>
                                                 </div>
                                             </div>

@@ -3,12 +3,13 @@
 
 namespace App\Repository;
 
+use App\Models\Student;
 use App\Models\FundAccount;
 use App\Models\PaymentStudent;
-use App\Models\Student;
 use App\Models\StudentAccount;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Model;
+use App\Http\Requests\StorePaymentRequest;
 
 class PaymentRepository implements PaymentRepositoryInterface
 {
@@ -33,6 +34,7 @@ class PaymentRepository implements PaymentRepositoryInterface
 
     public function store($request)
     {
+
         DB::beginTransaction();
 
         try {

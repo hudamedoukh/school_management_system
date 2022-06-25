@@ -9,6 +9,8 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="box-title">   حصص الاونلاين للطالب  {{ $student_name[0] }} </h3>
+                                <a href="{{ url()->previous() }}" class="btn btn-rounded btn-info mb-5 mr-3"
+                                    style="float: left"> عودة</a>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">

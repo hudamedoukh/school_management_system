@@ -16,35 +16,13 @@
                         <i class="nav-link-icon mdi mdi-crop-free"></i>
                     </a>
                 </li>
-                <li class="btn-group nav-item d-none d-xl-inline-block">
-                    <a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
-                        <i class="ti-check-box"></i>
-                    </a>
-                </li>
-                <li class="btn-group nav-item d-none d-xl-inline-block">
-                    <a href="calendar.html" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
-                        <i class="ti-calendar"></i>
-                    </a>
-                </li>
+
             </ul>
         </div>
 
         <div class="navbar-custom-menu r-side">
             <ul class="nav navbar-nav">
-                <!-- full Screen -->
-                <li class="search-bar">
-                    <div class="lookup lookup-circle lookup-right">
-                        <input type="text" name="search">
-                    </div>
-                </li>
-                <!-- Notifications -->
-                <li class="dropdown notifications-menu">
-                    <a href="#" class="waves-effect waves-light rounded dropdown-toggle" data-toggle="dropdown"
-                        title="Notifications">
-                        <i class="ti-bell"></i>
-                    </a>
-
-                </li>
+                <!-- full Screen -
                     @php
                         $user = DB::table('users')
                             ->where('id', Auth::user()->id)
@@ -60,8 +38,24 @@
                     </a>
                     <ul class="dropdown-menu animated flipInX">
                         <li class="user-body">
-                            <a class="dropdown-item" href=""><i class="ti-user text-muted mr-2"></i> الملف الشخصي</a>
-                            <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> الاعدادات</a>
+                            @if (auth('teacher')->check())
+                            <a class="dropdown-item" href="{{  route('profile.show') }}"><i class="ti-user text-muted mr-2"></i> الملف الشخصي</a>
+                            @elseif(auth('parent')->check())
+                            <a class="dropdown-item" href="{{  route('parent_profile.show') }}"><i class="ti-user text-muted mr-2"></i> الملف الشخصي</a>
+
+                            @elseif(auth('student')->check())
+                            <a class="dropdown-item" href="{{  route('student_profile.show') }}"><i class="ti-user text-muted mr-2"></i> الملف الشخصي</a>
+
+                            @else
+                            <a class="dropdown-item" href="{{  route('admin_profile.show') }}"><i class="ti-user text-muted mr-2"></i> الملف الشخصي</a>
+
+                            @endif
+
+                            @if (auth('web')->check())
+
+                            <a class="dropdown-item" href="{{ route('settings.index') }}"><i class="ti-settings text-muted mr-2"></i> الاعدادات</a>
+                            @endif
+
                             <div class="dropdown-divider"></div>
                             @if (auth('student')->check())
                                 <form method="GET" action="{{ route('logout', 'student') }}">

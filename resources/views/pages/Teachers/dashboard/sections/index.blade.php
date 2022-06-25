@@ -20,7 +20,10 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>اسم المرحلة</th>
+                                                <th> الصف الدراسي</th>
                                                 <th>اسم الشعبة</th>
+                                                <th> العمليات</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -28,7 +31,11 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $section->Grades->Name }}</td>
+                                                    <td>{{ $section->My_classs->Name_Class }}</td>
+
                                                     <td>{{ $section->Name_Section }}</td>
+                                                    <td><a class="text-success" href="{{ route('student.index', $section->id) }}"> قائمة الطلاب</a></td>
+
                                                 </tr>
                                             @endforeach
                                         </tbody>

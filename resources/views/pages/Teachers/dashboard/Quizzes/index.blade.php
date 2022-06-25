@@ -22,7 +22,7 @@
                                                 <tr>
                                                     <th>#</th>
                                                     <th>اسم الاختبار</th>
-                                                    <th>اسم المعلم</th>
+                                                    <th>المادة الدراسية</th>
                                                     <th>المرحلة الدراسية</th>
                                                     <th>الصف الدراسي</th>
                                                     <th>الشعبة</th>
@@ -35,7 +35,7 @@
                                             <tr>
                                                 <td>{{ $loop->iteration}}</td>
                                                 <td>{{$quizze->name}}</td>
-                                                <td>{{$quizze->teacher->Name}}</td>
+                                                <td>{{$quizze->subject->name}}</td>
                                                 <td>{{$quizze->grade->Name}}</td>
                                                 <td>{{$quizze->classroom->Name_Class}}</td>
                                                 <td>{{$quizze->section->Name_Section}}</td>

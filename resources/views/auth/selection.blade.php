@@ -34,7 +34,7 @@
                 <div class="row justify-content-center mb-30 no-gutters vertical-align">
                     <h1 class="text-primary" style="font-family: 'Cairo', sans-serif">مدرسة النخبة</h1>
                 </div>
-                
+
                 <div class="row justify-content-center no-gutters vertical-align">
 
                     <div style="border-radius: 15px;" class="col-lg-8 col-md-8 bg-white">
@@ -45,21 +45,28 @@
                                     href="{{ route('login.show', 'student') }}">
                                     <img alt="user-img" width="130px;"
                                         src="{{ URL::asset('assets/selection/images/student.svg') }}">
+                                        <h4 style="font-family: 'Cairo',sans-serif; margin-top:1.5rem;"> طالب</h4>
+
                                 </a>
                                 <a class="btn btn-default col-lg-3" title="ولي امر"
                                     href="{{ route('login.show', 'parent') }}">
                                     <img alt="user-img" width="130px;"
                                         src="{{ URL::asset('assets/selection/images/parent.svg') }}">
+                                        <h4 style="font-family: 'Cairo', sans-serif;margin-top:1.2rem;">ولي امر</h4>
                                 </a>
                                 <a class="btn btn-default col-lg-3" title="معلم"
                                     href="{{ route('login.show', 'teacher') }}">
                                     <img alt="user-img" width="130px;"
                                         src="{{ URL::asset('assets/selection/images/teacher.svg') }}">
+                                        <h4 style="font-family: 'Cairo', sans-serif;margin-top:1rem;"> معلم</h4>
+
                                 </a>
                                 <a class="btn btn-default col-lg-3" title="ادمن"
                                     href="{{ route('login.show', 'admin') }}">
                                     <img alt="user-img" width="130px;"
                                         src="{{ URL::asset('assets/selection/images/admin.svg') }}">
+                                        <h4 style="font-family: 'Cairo', sans-serif;margin-top:1rem;"> ادمن</h4>
+
                                 </a>
                             </div>
 

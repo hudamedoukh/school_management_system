@@ -56,15 +56,17 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
             $fund_accounts->save();
 
             // حفظ البيانات في جدول حساب الطالب
-            $fund_accounts = new StudentAccount();
-            $fund_accounts->date = date('Y-m-d');
-            $fund_accounts->type = 'receipt';
-            $fund_accounts->receipt_id = $receipt_students->id;
-            $fund_accounts->student_id = $request->student_id;
-            $fund_accounts->Debit = 0.00;
-            $fund_accounts->credit = $request->Debit;
-            $fund_accounts->description = $request->description;
-            $fund_accounts->save();
+            $student_accounts = new StudentAccount();
+            $student_accounts->date = date('Y-m-d');
+            $student_accounts->type = 'receipt';
+            $student_accounts->receipt_id = $receipt_students->id;
+            $student_accounts->student_id = $request->student_id;
+            $student_accounts->Debit = 0.00;
+            $student_accounts->credit = $request->Debit;
+            // $StudentAccount->fee_invoice_id = $Fees->id;
+
+            $student_accounts->description = $request->description;
+            $student_accounts->save();
 
             DB::commit();
             $notification = array(
@@ -101,15 +103,15 @@ class ReceiptStudentsRepository implements ReceiptStudentsRepositoryInterface
 
             // تعديل البيانات في جدول الصندوق
 
-            $fund_accounts = StudentAccount::where('receipt_id', $request->id)->first();
-            $fund_accounts->date = date('Y-m-d');
-            $fund_accounts->type = 'receipt';
-            $fund_accounts->student_id = $request->student_id;
-            $fund_accounts->receipt_id = $receipt_students->id;
-            $fund_accounts->Debit = 0.00;
-            $fund_accounts->credit = $request->Debit;
-            $fund_accounts->description = $request->description;
-            $fund_accounts->save();
+            $student_accounts = StudentAccount::where('receipt_id', $request->id)->first();
+            $student_accounts->date = date('Y-m-d');
+            $student_accounts->type = 'receipt';
+            $student_accounts->student_id = $request->student_id;
+            $student_accounts->receipt_id = $receipt_students->id;
+            $student_accounts->Debit = 0.00;
+            $student_accounts->credit = $request->Debit;
+            $student_accounts->description = $request->description;
+            $student_accounts->save();
 
 
             DB::commit();

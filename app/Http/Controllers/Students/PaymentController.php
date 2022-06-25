@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Students;
 
 use Illuminate\Http\Request;
-use App\Repository\PaymentRepositoryInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePaymentRequest;
+use App\Repository\PaymentRepositoryInterface;
 
 class PaymentController extends Controller
 {
@@ -27,7 +28,7 @@ class PaymentController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StorePaymentRequest $request)
     {
         return $this->Payment->store($request);
     }
@@ -45,7 +46,7 @@ class PaymentController extends Controller
     }
 
 
-    public function update(Request $request)
+    public function update(StorePaymentRequest $request)
     {
         return $this->Payment->update($request);
     }

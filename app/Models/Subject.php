@@ -28,4 +28,8 @@ class Subject extends Model
     {
         return $this->belongsTo('App\Models\Teacher', 'teacher_id');
     }
+    public function Quizes()
+    {
+        return $this->hasMany('App\Models\Quiz', 'subject_id');
+    }
 }

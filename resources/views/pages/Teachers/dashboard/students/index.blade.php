@@ -8,10 +8,13 @@
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header with-border">
-                                <h4 class="box-title mb-5"> قائمة الحضور والغياب للطلاب</h4>
+                                <h4 class="box-title mb-5">  قائمة الحضور والغياب للطلاب</h4>
                                 <h5 style="color: red"> تاريخ اليوم : {{ date('Y-m-d') }}</h5>
-
+                                <a href="{{ url()->previous() }}" class="btn btn-rounded btn-info mb-5 mr-3"
+                                    style="float: left" > عودة</a>
                             </div>
+
+
                             @if ($errors->any())
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <ul>
@@ -60,7 +63,7 @@
                                                                         {{ $attendance->attendence_status == 1 ? 'checked' : '' }}
                                                                     @endforeach
                                                                     class="leading-tight" type="radio"
-                                                                    value="presence">
+                                                                    value="presence" required>
                                                                 <span class="text-success">حضور</span>
                                                             </label>
 
@@ -70,7 +73,7 @@
                                                                     @foreach($student->attendance()->where('attendence_date',date('Y-m-d'))->get() as $attendance)
                                                                         {{ $attendance->attendence_status == 0 ? 'checked' : '' }}
                                                                     @endforeach
-                                                                    class="leading-tight" type="radio"
+                                                                    class="leading-tight" type="radio" required
                                                                     value="absent">
                                                                 <span class="text-danger">غياب</span>
                                                             </label>

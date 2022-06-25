@@ -43,7 +43,7 @@
                                         </div>
                                     </div>
                                     <div class="text-xs-right">
-                                        <input type="submit" class="btn btn-rounded btn-info mb-5" value="تعديل">
+                                        <input type="submit" class="btn btn-rounded btn-info mb-5" value="حفظ">
                                     </div>
 
                                 </form>

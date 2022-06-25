@@ -10,7 +10,7 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title mb-5"> قائمة الاختبارات</h3>
 
-                                    <a href="{{route('Quizzes.create')}}" class="btn btn-rounded btn-success mb-5 float-start" role="button" aria-pressed="true">اضافة اختبار جديد</a><br><br>
+                                    {{-- <a href="{{route('Quizzes.create')}}" class="btn btn-rounded btn-success mb-5 float-start" role="button" aria-pressed="true">اضافة اختبار جديد</a><br><br> --}}
                             </div>
 
                             <!-- /.box-header -->
@@ -26,7 +26,7 @@
                                                     <th>المرحلة الدراسية</th>
                                                     <th>الصف الدراسي</th>
                                                     <th>الشعبة</th>
-                                                    <th>العمليات</th>
+                                                    {{-- <th>العمليات</th> --}}
                                                 </tr>
                                             </tr>
                                         </thead>
@@ -39,7 +39,7 @@
                                                 <td>{{$quizze->grade->Name}}</td>
                                                 <td>{{$quizze->classroom->Name_Class}}</td>
                                                 <td>{{$quizze->section->Name_Section}}</td>
-                                                <td>
+                                                {{-- <td>
                                                     <a href="{{route('Quizzes.edit',$quizze->id)}}"
                                                         class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
                                                             class="fa fa-edit"></i></a>
@@ -47,7 +47,7 @@
                                                             data-toggle="modal"
                                                             data-target="#delete_exam{{ $quizze->id }}" title="حذف"><i
                                                             class="fa fa-trash"></i></button>
-                                                </td>
+                                                </td> --}}
                                             </tr>
 
                                             <div class="modal fade" id="delete_exam{{$quizze->id}}" tabindex="-1"

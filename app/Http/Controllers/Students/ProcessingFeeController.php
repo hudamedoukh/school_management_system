@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Students;
 
 use Illuminate\Http\Request;
-use App\Repository\ProcessingFeeRepositoryInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProcessingRequest;
+use App\Repository\ProcessingFeeRepositoryInterface;
 
 class ProcessingFeeController extends Controller
 {
@@ -27,7 +28,7 @@ class ProcessingFeeController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StoreProcessingRequest $request)
     {
         return $this->Processing->store($request);
     }
@@ -45,7 +46,7 @@ class ProcessingFeeController extends Controller
     }
 
 
-    public function update(Request $request)
+    public function update(StoreProcessingRequest $request)
     {
         return $this->Processing->update($request);
     }

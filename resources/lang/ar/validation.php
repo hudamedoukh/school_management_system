@@ -218,8 +218,17 @@ return [
         "attendence_date"=>"تاريخ الحضور",
         "attendence_status"=>"حالة الحضور",
         "increment"=>"العلاوة",
-        "increment_date"=>"تاريخ اضافة العلاوة"
+        "increment_date"=>"تاريخ اضافة العلاوة",
+        "gender_id"=>"الجنس",
+        "Date_Birth"=>"تاريخ الميلاد",
+        "Classroom_id"=>"الصف الدراسي",
+        "section_id"=>"الشعبة الدراسية",
+        "parent_id"=>"ولي الامر",
+        "academic_year"=>" السنة الدراسية",
+        "amount"=>"المبلغ"
+
 
     ],
 
 ];
+

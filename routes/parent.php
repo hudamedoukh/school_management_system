@@ -27,7 +27,7 @@ Route::group(
         return view('pages.parents.dashboard');
     });
     Route::get('/students', [ParentController::class, 'index'])->name('parent.students');
-    Route::get('/marks/{id}/{class}/{grade}', [ParentController::class, 'ViewMark'])->name('marks');
+    Route::get('/marks/{id}/', [ParentController::class, 'ViewMark'])->name('marks');
     Route::get('/student_marks', [ParentController::class, 'getMarks'])->name('student_marks');
     Route::get('/student_account/{id}', [ParentController::class, 'studentAccounts'])->name('student_account');
     Route::get('/student_books/{id}/', [ParentController::class, 'getBooks'])->name('student_books');

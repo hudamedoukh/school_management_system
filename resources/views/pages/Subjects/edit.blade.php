@@ -1,5 +1,6 @@
 @extends('admin.admin_master')
 @section('admin')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="content-wrapper">
     <div class="container-full">
@@ -87,7 +88,29 @@
     </div>
 </div>
 
-
+<script>
+    $(document).ready(function () {
+        $('select[name="Grade_id"]').on('change', function () {
+            var Grade_id = $(this).val();
+            if (Grade_id) {
+                $.ajax({
+                    url: "{{ URL::to('classes') }}/" + Grade_id,
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        console.log(data);
+                        $('select[name="Class_id"]').empty();
+                        $.each(data, function (key, value) {
+                            $('select[name="Class_id"]').append('<option value="' + key + '">' + value + '</option>');
+                        });
+                    },
+                });
+            } else {
+                console.log('AJAX load did not work');
+            }
+        });
+    });
+</script>
 
 
 @endsection

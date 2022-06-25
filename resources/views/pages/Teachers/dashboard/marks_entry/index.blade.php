@@ -34,11 +34,9 @@
 
                                             <div class="col">
                                                 <div class="form-group">
-                                                    <label for="Classroom_id">الصف الدراسي : <span
+                                                    <label for="Class">الصف الدراسي : <span
                                                             class="text-danger">*</span></label>
-                                                    <select class="custom-select mr-sm-2" name="Classroom_id"
-                                                        id="Classroom_id">
-
+                                                    <select class="custom-select mr-sm-2" name="Class" id="Class">
                                                     </select>
                                                 </div>
                                             </div>
@@ -114,31 +112,111 @@
         </div>
         <script>
             $(document).ready(function() {
-                    $('select[name="Grade_id"]').on('change', function() {
-                        var Grade_id = $(this).val();
-                        if (Grade_id) {
-                            $.ajax({
-                                url: "{{ URL::to('/mark/classes') }}/" + Grade_id,
-                                type: "GET",
-                                dataType: "json",
-                                success: function(data) {
-                                    $('select[name="Class_id"]').empty();
-                                    $.each(data, function(key, value) {
-                                        $('select[name="Class_id"]').append('<option value="' +
-                                            key + '">' + value + '</option>');
-                                    });
-                                },
-                            });
-                        } else {
-                            console.log('AJAX load did not work');
-                        }
-                    });
+                $('select[name="Grade_id"]').on('change', function() {
+                    var Grade_id = $(this).val();
+                    if (Grade_id) {
+                        $.ajax({
+                            url: "{{ URL::to('/mark/classes') }}/" + Grade_id,
+                            type: "GET",
+                            dataType: "json",
+                            success: function(data) {
+                                $('select[name="Class"]').empty();
+                                $('select[name="Class"]').append('<option selected disabled>حدد الصف الدراسي...</option>');
+                                $.each(data, function(key, value) {
+                                    $('select[name="Class"]').append('<option value="' +
+                                        key + '">' + value + '</option>');
+                                });
+                            },
+                        });
+                    } else {
+                        console.log('AJAX load did not work');
+                    }
                 });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $('#Class').on('change', function() {
+                    var Classroom_id = $(this).val();
+                    if (Classroom_id) {
+                        $.ajax({
+                            url: "{{ URL::to('/mark/sections') }}/" + Classroom_id,
+                            type: "GET",
+                            dataType: "json",
+                            success: function(data) {
+                                $('select[name="section_id"]').empty();
+                                $('select[name="section_id"]').append('<option selected disabled>حدد الشعبة الدراسية...</option>');
+                                $.each(data, function(key, value) {
+                                    $('select[name="section_id"]').append(
+                                        '<option value = "' + key + '" > ' + value +
+                                        '</option>');
+                                });
+
+                            },
+                        });
+                    } else {
+                        console.log('AJAX load did not work');
+                    }
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('select[name="Class"]').on('change', function() {
+                    var Classroom_id = $(this).val();
+                    if (Classroom_id) {
+                        $.ajax({
+                            url: "{{ URL::to('Get_Subjects') }}/" + Classroom_id,
+                            type: "GET",
+                            dataType: "json",
+                            success: function(data) {
+                                $('select[name="subject_id"]').empty();
+                                $('select[name="subject_id"]').append('<option selected disabled>حدد المادة الدراسية...</option>');
+
+                                $.each(data, function(key, value) {
+                                    $('select[name="subject_id"]').append(
+                                        '<option value="' +
+                                        key + '">' + value + '</option>');
+                                });
+                            },
+                        });
+                    } else {
+                        console.log('AJAX load did not work');
+                    }
+                });
+            });
+        </script>
+        <script>
+            $(document).ready(function() {
+                $('select[name="subject_id"]').on('change', function() {
+                    var subject_id= $(this).val();
+                    var section_id = $('#section_id').val();
+                    if (subject_id) {
+                        $.ajax({
+                            url: "{{ URL::to('Get_Quizes') }}/" + subject_id +"/"+section_id,
+                            type: "GET",
+                            dataType: "json",
+                            success: function(data) {
+                                $('select[name="quiz"]').empty();
+                                $('select[name="quiz"]').append('<option selected disabled>حدد الاختبار...</option>');
+
+                                $.each(data, function(key, value) {
+                                    $('select[name="quiz"]').append('<option value="' +
+                                        key + '">' + value + '</option>');
+                                });
+                            },
+                        });
+                    } else {
+                        console.log('AJAX load did not work');
+                    }
+                });
+            });
         </script>
         <script>
             $(document).on('click', '#search', function() {
                 var Grade_id = $('#Grade_id').val();
-                var Classroom_id = $('#Classroom_id').val();
+                var Classroom_id = $('#Class').val();
                 var section_id = $('#section_id').val();
                 var subject_id = $('#subject_id').val();
                 var quiz_id = $('#quiz').val();
@@ -167,21 +245,23 @@
                                 '<td>' + v.grade.Name + '</td>' +
                                 '<td>' + v.classroom.Name_Class + '</td>' +
                                 '<td>' + v.section.Name_Section + '</td>'
-                                if (v.marks.length != 0) {
-                                    $.each(v.marks, function(key, mymark) {
-                                        if ((mymark.quiz_id == quiz_id && mymark.subject_id ==
-                                                subject_id)) {
-                                            html +=
-                                                '<td><input type="text" class="form-control form-control-sm" value="' +
-                                                mymark.mark + '" name="marks[' + v.id + ']"' +
-                                                '></td>';
+                            if (v.marks.length != 0) {
+                                $.each(v.marks, function(key, mymark) {
+                                    if ((mymark.quiz_id == quiz_id && mymark.subject_id ==
+                                            subject_id)) {
+                                        html +=
+                                            '<td><input type="text" class="form-control form-control-sm" value="' +
+                                            mymark.mark + '" name="marks[' + v.id + ']"' +
+                                            '></td>';
 
-                                        }
+                                    }
 
-                                    });
-                                } else {
-                                    html +='<td><input type="text" class="form-control form-control-sm"  name="marks[' + v.id + ']"' +'></td>';
-                                }
+                                });
+                            } else {
+                                html +=
+                                    '<td><input type="text" class="form-control form-control-sm"  name="marks[' +
+                                    v.id + ']"' + '></td>';
+                            }
                             '</tr>';
                         });
                         html = $('#marks-entry-tr').html(html);

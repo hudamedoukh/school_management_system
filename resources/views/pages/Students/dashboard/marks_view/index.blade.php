@@ -13,96 +13,64 @@
                             </div>
 
                             <div class="box-body">
-                                <form action="" method="post">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="form-row">
 
-                                            <div class="col">
-                                                <div class="form-group">
-                                                    <label for="subject_id">المادة الدراسية : <span
-                                                            class="text-danger">*</span></label>
-                                                    <select class="custom-select mr-sm-2" name="subject_id" id="subject_id">
-                                                        <option selected disabled>حدد المادة الدراسية...</option>
-                                                        @foreach ($subjects as $subject)
-                                                            <option value="{{ $subject->id }}">{{ $subject->name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
+                                <div class="row" id="marks-view">
+                                    <div class="col-md-12">
+                                        @foreach ($subjects as $Subject)
+                                            <span class="text-danger"> المادة الدراسية:{{ $Subject->name }}</span>
 
-                                        </div>
-
-                                        <div class="col-md-3" style="padding-top:25px;">
-                                            <div class="form-group">
-                                                <a id="search" class="btn btn-dark" name="search"> بحث</a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row d-none" id="marks-view">
-                                        <div class="col-md-12">
-                                            <table class="table table-bordered table-striped text-center"
+                                            <table class="table table-bordered table-striped text-center mt-5"
                                                 style="width: 100%">
                                                 <thead>
                                                     <tr>
-                                                        <th>اسم الطالب</th>
-                                                        <th> المادة الدراسية</th>
-                                                        <th>الاختبار </th>
-                                                        <th> العلامة </th>
+                                                        <th>الاختبار</th>
+                                                        @foreach ($Subject->Quizes as $quiz)
+                                                            <th>{{ $quiz->name }}</th>
+                                                        @endforeach
+
+
                                                     </tr>
                                                 </thead>
-                                                <tbody id="marks-view-tr">
+                                                <tbody>
+
                                                     <tr>
-                                                        <td></td>
+                                                        <th> العلامة</th>
+                                                        @foreach ($Subject->Quizes as $quiz)
+                                                            @foreach ($quiz->marks as $mark)
+                                                                <td>{{ $mark->mark }}</td>
+                                                            @endforeach
+
+                                                        @endforeach
+
+                                                    </tr>
+                                                    <tr>
+                                                        @php
+                                                            $sum = App\Models\mark::where('subject_id', $Subject->id)
+                                                                ->where('student_id', $student_id)
+                                                                ->sum('mark');
+                                                        @endphp
+                                                        <th colspan="2">مجموع الدرجات </th>
+                                                        @if ($sum)
+                                                            <th colspan="1"> {{ $sum }}</th>
+                                                        @endif
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                        </div>
+                                        @endforeach
+
                                     </div>
+                                </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div>
+
                 <!-- /.row -->
             </section>
             <!-- /.content -->
 
         </div>
-
-        <script>
-            $(document).on('click', '#search', function() {
-                var subject_id = $('#subject_id').val();
-
-                $.ajax({
-                    url: "{{ route('marks.view') }}",
-                    type: "GET",
-                    data: {
-
-                        'subject_id': subject_id,
-                    },
-                    success: function(data) {
-                        $('#marks-view').removeClass('d-none');
-                        var html = '';
-                        // var result="";
-                        $.each(data, function(key, v) {
-                            // console.log(data);
-                            html +=
-                                '<tr>' +
-                                '<td>' + v.student.name +
-                                '<input type="hidden" name="student_id[]" value="' + v.id +
-                                '"> </td>' +
-                                '<td>' + v.subject.name + '</td>' +
-                                '<td>' + v.quiz.name + '</td>' +
-                                '<td>' + v.mark+ '</td>'+
-                                '</tr>';
-                        });
-                        html = $('#marks-view-tr').html(html);
-                    }
-                });
-            });
-        </script>
     </div>
+
+
 @endsection

@@ -10,10 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        $ids = DB::table('teacher_section')->where('teacher_id', auth()->user()->id)->pluck('section_id');
-        $students = Student::whereIn('section_id', $ids)->get();
+    //  $ids = DB::table('teacher_section')->where('teacher_id', auth()->user()->id)->pluck('section_id');
+    //      $grades = Section::wherein('id', $ids)->pluck('Grade_id');
+        $students = Student::where('section_id', $id)->get();
+        // return $students;
         return view('pages.Teachers.dashboard.students.index', compact('students'));
     }
 
@@ -55,13 +57,13 @@ class StudentController extends Controller
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification );
-    
+
     }
 
 
     public function editAttendance(Request $request)
     {
-        
+
         $date = date('Y-m-d');
         $student_id = Attendance::where('attendence_date',$date)->where('student_id',$request->id)->first();
         if( $request->attendences == 'presence' ) {

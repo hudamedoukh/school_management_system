@@ -8,13 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Quiz extends Model
 {
     use HasFactory;
-    
+
     public function teacher()
     {
         return $this->belongsTo('App\Models\Teacher', 'teacher_id');
     }
 
-
+    public function marks()
+    {
+        return $this->hasMany(Mark::class, 'quiz_id');
+    }
 
     public function subject()
     {

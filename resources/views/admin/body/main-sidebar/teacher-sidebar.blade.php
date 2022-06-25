@@ -19,7 +19,7 @@
 
     </li>
 
-    <li class="treeview">
+    {{-- <li class="treeview">
         <a href="#">
             <i data-feather="users"></i> <span> الطلاب </span>
             <span class="pull-right-container">
@@ -30,7 +30,7 @@
             <li class="@if ($route == 'student.index') active @endif"><a href="{{ route('student.index') }}"><i
                         class="ti-more"></i> قائمة الطلاب</a></li>
         </ul>
-    </li>
+    </li> --}}
 
     <li class="treeview">
         <a href="">

@@ -10,8 +10,8 @@
                             <div class="box-header with-border">
                                 <h3 class="box-title">قائمة الكتب
                                 </h3>
-                                <a href="{{ route('library.create') }}" class="btn btn-success btn-rounded float-start" role="button"
-                                    aria-pressed="true">اضافة كتاب جديد</a>
+                                {{-- <a href="{{ route('library.create') }}" class="btn btn-success btn-rounded float-start" role="button"
+                                    aria-pressed="true">اضافة كتاب جديد</a> --}}
 
                             </div>
                             <div style="padding-right: 55px;padding-top: 26px;">
@@ -54,14 +54,14 @@
                                                             role="button" aria-pressed="true"><i
                                                                 class="fas fa-download"></i></a>
 
-                                                        <button type="button" class="btn btn-danger btn-sm"
+                                                        {{-- <button type="button" class="btn btn-danger btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#delete_book{{ $book->id }}" title="حذف"><i
                                                                 class="fa fa-trash"></i></button>
                                                         <a href="{{ route('library.edit', $book->id) }}"
                                                             class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
                                                                 class="fa fa-edit"></i></a>
-                                                    </td>
+                                                    </td> --}}
                                                 </tr>
 
                                                 @include('pages.library.destroy')

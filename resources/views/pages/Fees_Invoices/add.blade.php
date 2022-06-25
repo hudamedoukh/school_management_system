@@ -35,7 +35,7 @@
                                                         <div class="col">
                                                             <label for="Name" class="mr-sm-2">اسم الطالب</label>
                                                             <select class="form-control"  id="select" name="student_id" required>
-                                                                <option value="{{ $student->id }}">{{ $student->name }}
+                                                                <option value="{{ $student->id }}" selected>{{ $student->name }}
                                                                 </option>
                                                             </select>
                                                         </div>

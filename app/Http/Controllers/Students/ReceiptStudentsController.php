@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Students;
 
 use Illuminate\Http\Request;
-use App\Repository\ReceiptStudentsRepositoryInterface;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreReceiptRequest;
+use App\Repository\ReceiptStudentsRepositoryInterface;
 
 class ReceiptStudentsController extends Controller
 {
@@ -26,7 +27,7 @@ class ReceiptStudentsController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(StoreReceiptRequest $request)
     {
         return $this->Receipt->store($request);
     }
@@ -44,7 +45,7 @@ class ReceiptStudentsController extends Controller
     }
 
 
-    public function update(Request $request)
+    public function update(StoreReceiptRequest $request)
     {
         return $this->Receipt->update($request);
     }

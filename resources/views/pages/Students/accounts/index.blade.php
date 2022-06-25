@@ -7,36 +7,41 @@
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header  with-border">
-                                <h4 class="box-title"> <strong>   معلمي الطالب {{ $student_name[0] }}</strong></h4>
+                                <h4 class="box-title"> <strong>  الملف المالي  للطالب {{ $student_name[0]}}</strong></h4>
                                 <a href="{{ url()->previous() }}" class="btn btn-rounded btn-info mb-5 mr-3"
-                                    style="float: left"> عودة</a>
+                                    style="float: left" > عودة</a>
                             </div>
 
                             <div class="box-body">
                                 <div class="table-responsive">
 
-                                    <table id="example1" class="table table-bordered table-striped text-center">
+                                    <table class="table table-bordered table-striped text-center">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>المبحث</th>
-                                                <th>المعلم</th>
-
+                                                <th>البيان</th>
+                                                <th>التاريخ</th>
+                                                <th>مدين</th>
+                                                <th> دائن</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            @foreach ($subjects as $subject)
+                                            @foreach ($accounts as $account)
 
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $subject->name }}</td>
-                                                    <td>{{ $subject->teacher->Name }}</td>
-
+                                                    <td>{{ $account->description }}</td>
+                                                    <td>{{ $account->date }}</td>
+                                                    <td>{{ $account->Debit }}</td>
+                                                    <td>{{ $account->credit }}</td>
                                                 </tr>
 
                                             @endforeach
-
+                                            <tr>
+                                                <th colspan="2">رصيد الطالب</th>
+                                                <th colspan="3">{{  $StudentAccount}} شيكل</th>
+                                            </tr>
                                         </tbody>
                                     </table>
 

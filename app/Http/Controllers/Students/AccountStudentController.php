@@ -18,7 +18,14 @@ class AccountStudentController extends Controller
             $StudentAccount=$totalDebit-$totalCredit;
             return view('pages.Students.dashboard.accounts.index',compact('accounts','StudentAccount'));
     }
-
+    public function studentAccounts($id){
+        $accounts=StudentAccount::where('student_id',$id)->get();
+        $student_name=Student::where('id',$id)->pluck('name');
+        $totalCredit = $accounts->sum('credit');
+        $totalDebit= $accounts->sum('Debit');
+        $StudentAccount=$totalDebit-$totalCredit;
+        return view('pages.students.accounts.index',compact('accounts','StudentAccount','student_name'));
+    }
     public function getTeachers(){
         $class=Student::where('id',Auth::guard('student')->user()->id)->pluck('Classroom_id');
         $grade=Student::where('id',Auth::guard('student')->user()->id)->pluck('Grade_id');

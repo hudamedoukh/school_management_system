@@ -21,12 +21,14 @@ class ParentController extends Controller
         return view('pages.parents.dashboard.students.index', compact('students'));
     }
 
-    public function ViewMark($id, $class,$grade)
+    public function ViewMark($id)
     {
-        $data['subjects'] = Subject::where('classroom_id',$class)->where('grade_id',$grade)->get();
-        $data['quizes'] = Quiz::all();
-        $data['student_id']=$id;
+        $class = student::where('id',$id)->pluck('Classroom_id');
+
+        $data['subjects'] = Subject::with('Quizes')->where('classroom_id',$class)->get();
+
         $data['student_name']=Student::where('id',$id)->pluck('name');
+        $data['student_id']=$id;
         return view('pages.parents.dashboard.marks_view.index', $data);
     }
 

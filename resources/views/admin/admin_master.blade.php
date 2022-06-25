@@ -217,7 +217,7 @@
     </script>
 
 
-<script>
+{{-- <script>
     $(document).ready(function () {
         $('select[name="Grade_id"]').on('change', function () {
             var Grade_id = $(this).val();
@@ -414,7 +414,7 @@
                 }
             });
         });
-</script>
+</script> --}}
 @livewireScripts
 </body>
 

@@ -125,13 +125,16 @@
         </a>
         <ul class="treeview-menu">
             <li class="treeview">
-                <a href="#">
-                    <i data-feather="more-horizontal"></i> <span>معلومات الطالب</span>
+                <a href="#" style="
+                margin-right: 2rem;
+            ">
+                   معلومات الطالب
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu" style="
+                margin-right: 2rem;">
                     <li class="@if ($route == 'Students.create') active @endif"><a
                             href="{{ route('Students.create') }}"><i class="ti-more"></i>اضافة طالب</a>
                     </li>
@@ -142,13 +145,16 @@
             </li>
 
             <li class="treeview">
-                <a href="#">
-                    <i data-feather="more-horizontal"></i> <span>ترقية الطلاب</span>
+                <a href="#" style="
+                margin-right: 2rem;
+            ">
+                   ترقية الطلاب
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu" style="
+                margin-right: 2rem;">
                     <li class="@if ($route == 'Promotion.index') active @endif"><a
                             href="{{ route('Promotion.index') }}"><i class="ti-more"></i> ترقية الطلاب
                         </a></li>
@@ -159,13 +165,16 @@
             </li>
 
             <li class="treeview">
-                <a href="#">
-                    <i data-feather="more-horizontal"></i> <span>تخريج الطلاب</span>
+                <a href="#" style="
+                margin-right: 2rem;
+            ">
+                   تخريج الطلاب
                     <span class="pull-right-container">
                         <i class="fa fa-angle-right pull-right"></i>
                     </span>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu" style="
+                margin-right: 2rem;">
                     <li class="@if ($route == 'Graduated.create') active @endif"><a
                             href="{{ route('Graduated.create') }}"><i class="ti-more"></i>إضافة خريج
                         </a>

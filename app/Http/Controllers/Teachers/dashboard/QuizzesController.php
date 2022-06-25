@@ -13,14 +13,14 @@ use Illuminate\Http\Request;
 
 class QuizzesController extends Controller
 {
-    
+
     public function index()
     {
         $quizzes = Quiz::where('teacher_id',auth()->user()->id)->get();
         return view('pages.Teachers.dashboard.Quizzes.index', compact('quizzes'));
     }
 
-    
+
     public function create()
     {
         $data['grades'] = Grade::all();
@@ -28,7 +28,7 @@ class QuizzesController extends Controller
         return view('pages.Teachers.dashboard.Quizzes.create', $data);
     }
 
-    
+
     public function store(Request $request)
     {
         $quizzes = new Quiz();
@@ -46,8 +46,8 @@ class QuizzesController extends Controller
         return redirect()->route('quizzes.index')->with($notification );
     }
 
-    
-    
+
+
     public function edit($id)
     {
         $quizz = Quiz::findorFail($id);
@@ -62,7 +62,7 @@ class QuizzesController extends Controller
         $quizz = Quiz::findorFail($id);
         return view('pages.Teachers.dashboard.Questions.index',compact('questions','quizz'));
     }
-    
+
     public function update(Request $request, $id)
     {
         $quizz = Quiz::findorFail($request->id);
@@ -80,7 +80,7 @@ class QuizzesController extends Controller
         return redirect()->route('quizzes.index')->with($notification );
     }
 
-    
+
     public function destroy($id)
     {
         Quiz::destroy($id);
@@ -90,6 +90,13 @@ class QuizzesController extends Controller
         );
         return redirect()->back()->with($notification );
     }
+    public function get_classes($id){
+        $list_classes = Classroom::where("Grade_id",$id)->pluck("Name_Class", "id");
+        return $list_classes;
+    }
+    public function get_sections($id){
+        $list_classes = section::where("Class_id",$id)->pluck("Name_Section", "id");
+        return $list_classes;
+    }
 
-    
 }
