@@ -25,7 +25,7 @@
                                 </div>
                                 <p class="text-muted pt-3 mb-0 mt-2 border-top" style="
                                 padding: 1rem;">
-                                    <i class="fas fa-binoculars mr-1"  aria-hidden="true"></i><a href="{{ route('Students.index') }}"
+                                    <i class="fas fa-binoculars mr-1"  aria-hidden="true"></i><a href="{{route('parent.students')  }}"
                                         target="_blank" style="
                                         margin-right: 1rem;"><span class="text-danger">عرض البيانات</span></a>
                                 </p>

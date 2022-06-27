@@ -69,7 +69,7 @@
             </span>
         </a>
         <ul class="treeview-menu">
-            <li> <a href="{{ route('student_profile.show') }}"><i class="ti-more"></i>ملفي الشخصي</a> </li>
+            <li class="@if ($route == 'student_profile.show') active @endif"> <a href="{{ route('student_profile.show') }}"><i class="ti-more"></i>ملفي الشخصي</a> </li>
         </ul>
     </li>
     <li>
