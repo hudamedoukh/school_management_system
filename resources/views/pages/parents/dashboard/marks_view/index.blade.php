@@ -38,8 +38,8 @@
                                                     <tr>
                                                         <th> العلامة</th>
 
-                                                        @foreach ($Subject->Quizes as $quiz)
-                                                            @foreach ($quiz->marks as $mark)
+                                                        @foreach ($Subject->Quizes  as $quiz)
+                                                            @foreach ($quiz->marks()->where('student_id',$student_id)->get() as $mark )
                                                                 <td>{{ $mark->mark }}</td>
                                                             @endforeach
                                                         @endforeach
@@ -53,7 +53,7 @@
                                                         @endphp
                                                         <th colspan="2">مجموع الدرجات </th>
                                                         @if ($sum)
-                                                            <th colspan="1"> {{ $sum }}</th>
+                                                            <th colspan="2"> {{ $sum }}</th>
                                                         @endif
                                                     </tr>
 

@@ -7,7 +7,9 @@
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header  with-border">
-                                <h4 class="box-title"> <strong>  ملفي المالي</strong></h4>
+                                <h4 class="box-title"> <strong>    الملف  المالي ل {{ $student_name[0] }}</strong></h4>
+                                <a href="{{ url()->previous() }}" class="btn btn-rounded btn-info mb-5 mr-3"
+                                    style="float: left"> عودة</a>
                             </div>
 
                             <div class="box-body">

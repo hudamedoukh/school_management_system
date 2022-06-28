@@ -20,13 +20,13 @@ class ParentsTableSeeder extends Seeder
             $my_parents->email = 'samir.gamal77@yahoo.com';
             $my_parents->password = Hash::make('12345678');
             $my_parents->Name_Father = 'سمير جمال';
-            $my_parents->National_ID_Father = '1234567810';
+            $my_parents->National_ID_Father = '123456781';
             $my_parents->Phone_Father = '1234567810';
             $my_parents->Job_Father ='مبرمج';
 
             $my_parents->Address_Father ='غزة';
             $my_parents->Name_Mother = 'سما';
-            $my_parents->National_ID_Mother = '1234567810';
+            $my_parents->National_ID_Mother = '123456781';
             $my_parents->Phone_Mother = '1234567810';
             $my_parents->Job_Mother = 'معلمة';
             $my_parents->Address_Mother ='غزة';

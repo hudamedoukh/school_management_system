@@ -121,7 +121,8 @@
                             dataType: "json",
                             success: function(data) {
                                 $('select[name="Class"]').empty();
-                                $('select[name="Class"]').append('<option selected disabled>حدد الصف الدراسي...</option>');
+                                $('select[name="Class"]').append(
+                                    '<option selected disabled>حدد الصف الدراسي...</option>');
                                 $.each(data, function(key, value) {
                                     $('select[name="Class"]').append('<option value="' +
                                         key + '">' + value + '</option>');
@@ -146,7 +147,8 @@
                             dataType: "json",
                             success: function(data) {
                                 $('select[name="section_id"]').empty();
-                                $('select[name="section_id"]').append('<option selected disabled>حدد الشعبة الدراسية...</option>');
+                                $('select[name="section_id"]').append(
+                                    '<option selected disabled>حدد الشعبة الدراسية...</option>');
                                 $.each(data, function(key, value) {
                                     $('select[name="section_id"]').append(
                                         '<option value = "' + key + '" > ' + value +
@@ -172,7 +174,8 @@
                             dataType: "json",
                             success: function(data) {
                                 $('select[name="subject_id"]').empty();
-                                $('select[name="subject_id"]').append('<option selected disabled>حدد المادة الدراسية...</option>');
+                                $('select[name="subject_id"]').append(
+                                    '<option selected disabled>حدد المادة الدراسية...</option>');
 
                                 $.each(data, function(key, value) {
                                     $('select[name="subject_id"]').append(
@@ -190,16 +193,17 @@
         <script>
             $(document).ready(function() {
                 $('select[name="subject_id"]').on('change', function() {
-                    var subject_id= $(this).val();
+                    var subject_id = $(this).val();
                     var section_id = $('#section_id').val();
                     if (subject_id) {
                         $.ajax({
-                            url: "{{ URL::to('Get_Quizes') }}/" + subject_id +"/"+section_id,
+                            url: "{{ URL::to('Get_Quizes') }}/" + subject_id + "/" + section_id,
                             type: "GET",
                             dataType: "json",
                             success: function(data) {
                                 $('select[name="quiz"]').empty();
-                                $('select[name="quiz"]').append('<option selected disabled>حدد الاختبار...</option>');
+                                $('select[name="quiz"]').append(
+                                    '<option selected disabled>حدد الاختبار...</option>');
 
                                 $.each(data, function(key, value) {
                                     $('select[name="quiz"]').append('<option value="' +
@@ -245,23 +249,17 @@
                                 '<td>' + v.grade.Name + '</td>' +
                                 '<td>' + v.classroom.Name_Class + '</td>' +
                                 '<td>' + v.section.Name_Section + '</td>'
-                            if (v.marks.length != 0) {
-                                $.each(v.marks, function(key, mymark) {
-                                    if ((mymark.quiz_id == quiz_id && mymark.subject_id ==
-                                            subject_id)) {
-                                        html +=
-                                            '<td><input type="text" class="form-control form-control-sm" value="' +
-                                            mymark.mark + '" name="marks[' + v.id + ']"' +
-                                            '></td>';
-
+                                var mymark ='';
+                                v.marks.find(i => {
+                                    if (i.subject_id == subject_id && i.quiz_id == quiz_id) {
+                                        mymark=i.mark;
                                     }
 
                                 });
-                            } else {
-                                html +=
-                                    '<td><input type="text" class="form-control form-control-sm"  name="marks[' +
-                                    v.id + ']"' + '></td>';
-                            }
+                            html +=
+                                '<td><input type="text" class="form-control form-control-sm" value="' +
+                                (mymark ? mymark : "") + '" name="marks[' + v.id + ']"' +
+                                '></td>';
                             '</tr>';
                         });
                         html = $('#marks-entry-tr').html(html);

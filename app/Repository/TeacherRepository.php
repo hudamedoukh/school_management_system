@@ -54,8 +54,8 @@ class TeacherRepository implements TeacherRepositoryInterface
     {
 
         $Teachers = Teacher::findOrFail($request->id);
-        $Teachers->email = $request->Email;
-        $Teachers->password =  Hash::make($request->Password);
+        $Teachers->email = $request->email;
+        $Teachers->password =  Hash::make($request->password);
         $Teachers->Name = $request->Name;
         $Teachers->Specialization_id = $request->Specialization_id;
         $Teachers->Gender_id = $request->Gender_id;

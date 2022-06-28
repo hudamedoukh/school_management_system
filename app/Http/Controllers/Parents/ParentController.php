@@ -42,11 +42,14 @@ class ParentController extends Controller
     }
 
     public function studentAccounts($id){
+        $student_name=Student::where('id',$id)->pluck('name');
+
         $accounts=StudentAccount::where('student_id',$id)->get();
         $totalCredit = $accounts->sum('credit');
         $totalDebit= $accounts->sum('Debit');
         $StudentAccount=$totalDebit-$totalCredit;
-        return view('pages.parents.dashboard.accounts.index',compact('accounts','StudentAccount'));
+
+        return view('pages.parents.dashboard.accounts.index',compact('accounts','StudentAccount','student_name'));
     }
     public function getBooks($id){
         $student_name=Student::where('id',$id)->pluck('name');

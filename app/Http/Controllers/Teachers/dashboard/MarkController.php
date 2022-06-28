@@ -82,7 +82,7 @@ class MarkController extends Controller
     {
         //  return $request;
         foreach ($request->marks as $student_id => $mark) {
-            Mark::updateorCreate(['student_id' => $student_id], [
+            Mark::updateorCreate(['student_id' => $student_id,'quiz_id' => $request->quiz], [
                 'section_id' => $request->section_id,
                 'classroom_id' => $request->Class,
                 'grade_id' => $request->Grade_id,

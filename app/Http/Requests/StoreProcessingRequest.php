@@ -25,7 +25,7 @@ class StoreProcessingRequest extends FormRequest
     {
         return [
             "description"=>"required",
-            "amount"=>"required"
+            "Debit"=>"required"
         ];
     }
 }

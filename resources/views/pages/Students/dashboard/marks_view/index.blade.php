@@ -10,6 +10,8 @@
                         <div class="box bb-3 border-info">
                             <div class="box-header">
                                 <h4 class="box-title"> <strong> علامات الطالب</strong></h4>
+                                <a href="{{ url()->previous() }}" class="btn btn-rounded btn-info mb-5 mr-3"
+                                    style="float: left"> عودة</a>
                             </div>
 
                             <div class="box-body">
@@ -36,10 +38,9 @@
                                                     <tr>
                                                         <th> العلامة</th>
                                                         @foreach ($Subject->Quizes as $quiz)
-                                                            @foreach ($quiz->marks as $mark)
+                                                            @foreach ($quiz->marks()->where('student_id', $student_id)->get() as $mark)
                                                                 <td>{{ $mark->mark }}</td>
                                                             @endforeach
-
                                                         @endforeach
 
                                                     </tr>
@@ -51,7 +52,7 @@
                                                         @endphp
                                                         <th colspan="2">مجموع الدرجات </th>
                                                         @if ($sum)
-                                                            <th colspan="1"> {{ $sum }}</th>
+                                                            <th colspan="2"> {{ $sum }}</th>
                                                         @endif
                                                     </tr>
                                                 </tbody>
@@ -65,12 +66,10 @@
                         </div>
                     </div>
 
-                <!-- /.row -->
+                    <!-- /.row -->
             </section>
             <!-- /.content -->
 
         </div>
     </div>
-
-
 @endsection

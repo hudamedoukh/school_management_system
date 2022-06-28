@@ -8,7 +8,7 @@
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title"> استبعاد رسوم
+                                <h3 class="box-title"> استبعاد رسوم {{ $student->name }}
                                 </h3>
                                 <a href="{{ url()->previous() }}" class="btn btn-rounded btn-info mb-5 mr-3"
                                     style="float: left" > عودة</a>

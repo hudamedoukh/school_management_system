@@ -8,7 +8,7 @@
             <!-- Basic Forms -->
             <div class="box">
                 <div class="box-header with-border">
-                    <h4 class="box-title">تعديل المادة الدراسية</h4>
+                    <h4 class="box-title">تعديل  المعلم</h4>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -24,8 +24,8 @@
                                                 <div class="form-group">
                                                     <label for="title">البريد الالكتروني</label>
                                                     <input type="hidden" value="{{$Teachers->id}}" name="id">
-                                                    <input type="email" name="Email" value="{{$Teachers->Email}}" class="form-control">
-                                                    @error('Email')
+                                                    <input type="email" name="email" value="{{$Teachers->email}}" class="form-control">
+                                                    @error('email')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
                                                 </div>
@@ -33,8 +33,8 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="title">كلمة المرور</label>
-                                                    <input type="password" name="Password" value="{{$Teachers->Password}}"  class="form-control">
-                                                    @error('Password')
+                                                    <input type="password" name="password" value="{{$Teachers->password}}"  class="form-control">
+                                                    @error('password')
                                                         <div class="alert alert-danger">{{ $message }}</div>
                                                     @enderror
                                                 </div>
